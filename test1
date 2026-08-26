@@ -1,0 +1,20 @@
+import requests
+import random
+
+# List of example URLs to choose from
+urls = ["https://www.example.com1", "https://jsonplaceholder.typicode.com/posts1", "https://httpbin.org/get1"]
+
+# Choose a random URL
+url = random.choice(urls)
+
+# Send GET request
+response = requests.get(url)
+
+# Check if status code is 200
+if response.status_code == 200:
+    # Check the first letter of the response text
+    first_letter = response.text.strip()[0]
+    if first_letter == "A":
+        print("AAAA!")
+    elif first_letter == "B":
+        print("BBBB!")

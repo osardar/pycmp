@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="label" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="140051124383760">
+      <data key="d0">module</data>
+    </node>
+    <node id="140051126041264">
+      <data key="d0">import_statement</data>
+    </node>
+    <node id="140051126040112">
+      <data key="d0">import</data>
+    </node>
+    <node id="140051126042224">
+      <data key="d0">dotted_name</data>
+    </node>
+    <node id="140051126041168">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051126041072">
+      <data key="d0">import_statement</data>
+    </node>
+    <node id="140051126040976">
+      <data key="d0">import</data>
+    </node>
+    <node id="140051126040496">
+      <data key="d0">dotted_name</data>
+    </node>
+    <node id="140051126041360">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124198008">
+      <data key="d0">comment</data>
+    </node>
+    <node id="140051126042512">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051126042416">
+      <data key="d0">assignment</data>
+    </node>
+    <node id="140051126039344">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124195320">
+      <data key="d0">=</data>
+    </node>
+    <node id="140051126040688">
+      <data key="d0">list</data>
+    </node>
+    <node id="140051124197104">
+      <data key="d0">[</data>
+    </node>
+    <node id="140051126038768">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124202592">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124202600">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124202608">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051126040400">
+      <data key="d0">,</data>
+    </node>
+    <node id="140051126040304">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124194192">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124194200">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124194208">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051126040784">
+      <data key="d0">,</data>
+    </node>
+    <node id="140051126041840">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124195536">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124195544">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124195552">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051124197120">
+      <data key="d0">]</data>
+    </node>
+    <node id="140051124194088">
+      <data key="d0">comment</data>
+    </node>
+    <node id="140051124585456">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051124585360">
+      <data key="d0">assignment</data>
+    </node>
+    <node id="140051124584496">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124197784">
+      <data key="d0">=</data>
+    </node>
+    <node id="140051124585072">
+      <data key="d0">call</data>
+    </node>
+    <node id="140051124584688">
+      <data key="d0">attribute</data>
+    </node>
+    <node id="140051124584592">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124197000">
+      <data key="d0">.</data>
+    </node>
+    <node id="140051124197008">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124584984">
+      <data key="d0">argument_list</data>
+    </node>
+    <node id="140051124198560">
+      <data key="d0">(</data>
+    </node>
+    <node id="140051124584784">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124198576">
+      <data key="d0">)</data>
+    </node>
+    <node id="140051124192968">
+      <data key="d0">comment</data>
+    </node>
+    <node id="140051124586512">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051124586416">
+      <data key="d0">assignment</data>
+    </node>
+    <node id="140051124585552">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124196888">
+      <data key="d0">=</data>
+    </node>
+    <node id="140051124586128">
+      <data key="d0">call</data>
+    </node>
+    <node id="140051124585744">
+      <data key="d0">attribute</data>
+    </node>
+    <node id="140051124585648">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124200584">
+      <data key="d0">.</data>
+    </node>
+    <node id="140051124200592">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124586040">
+      <data key="d0">argument_list</data>
+    </node>
+    <node id="140051124196208">
+      <data key="d0">(</data>
+    </node>
+    <node id="140051124585840">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124196224">
+      <data key="d0">)</data>
+    </node>
+    <node id="140051124202712">
+      <data key="d0">comment</data>
+    </node>
+    <node id="140051124202720">
+      <data key="d0">if_statement</data>
+    </node>
+    <node id="140051124466608">
+      <data key="d0">if</data>
+    </node>
+    <node id="140051124587088">
+      <data key="d0">comparison_operator</data>
+    </node>
+    <node id="140051124586704">
+      <data key="d0">attribute</data>
+    </node>
+    <node id="140051124586608">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124194312">
+      <data key="d0">.</data>
+    </node>
+    <node id="140051124194320">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124586896">
+      <data key="d0">==</data>
+    </node>
+    <node id="140051124586800">
+      <data key="d0">integer</data>
+    </node>
+    <node id="140051124466624">
+      <data key="d0">:</data>
+    </node>
+    <node id="140051124466640">
+      <data key="d0">comment</data>
+    </node>
+    <node id="140051124466648">
+      <data key="d0">block</data>
+    </node>
+    <node id="140051124588432">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051124588336">
+      <data key="d0">assignment</data>
+    </node>
+    <node id="140051124587184">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124203272">
+      <data key="d0">=</data>
+    </node>
+    <node id="140051124588048">
+      <data key="d0">subscript</data>
+    </node>
+    <node id="140051124587760">
+      <data key="d0">call</data>
+    </node>
+    <node id="140051124587472">
+      <data key="d0">attribute</data>
+    </node>
+    <node id="140051124587376">
+      <data key="d0">attribute</data>
+    </node>
+    <node id="140051124587280">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124197672">
+      <data key="d0">.</data>
+    </node>
+    <node id="140051124197680">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124194648">
+      <data key="d0">.</data>
+    </node>
+    <node id="140051124194656">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124587672">
+      <data key="d0">argument_list</data>
+    </node>
+    <node id="140051124587568">
+      <data key="d0">(</data>
+    </node>
+    <node id="140051124587576">
+      <data key="d0">)</data>
+    </node>
+    <node id="140051124196664">
+      <data key="d0">[</data>
+    </node>
+    <node id="140051124587856">
+      <data key="d0">integer</data>
+    </node>
+    <node id="140051124196680">
+      <data key="d0">]</data>
+    </node>
+    <node id="140051124592760">
+      <data key="d0">if_statement</data>
+    </node>
+    <node id="140051124466736">
+      <data key="d0">if</data>
+    </node>
+    <node id="140051124589008">
+      <data key="d0">comparison_operator</data>
+    </node>
+    <node id="140051124588528">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124588816">
+      <data key="d0">==</data>
+    </node>
+    <node id="140051124588720">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124197888">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124197896">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124197904">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051124466752">
+      <data key="d0">:</data>
+    </node>
+    <node id="140051124466768">
+      <data key="d0">block</data>
+    </node>
+    <node id="140051124590544">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051124590256">
+      <data key="d0">call</data>
+    </node>
+    <node id="140051124589104">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124590168">
+      <data key="d0">argument_list</data>
+    </node>
+    <node id="140051124198112">
+      <data key="d0">(</data>
+    </node>
+    <node id="140051124589392">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124195088">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124195096">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124195104">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051124198128">
+      <data key="d0">)</data>
+    </node>
+    <node id="140051124592656">
+      <data key="d0">elif_clause</data>
+    </node>
+    <node id="140051124460720">
+      <data key="d0">elif</data>
+    </node>
+    <node id="140051124589968">
+      <data key="d0">comparison_operator</data>
+    </node>
+    <node id="140051124589296">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124589776">
+      <data key="d0">==</data>
+    </node>
+    <node id="140051124589680">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124195984">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124195992">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124196000">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051124460736">
+      <data key="d0">:</data>
+    </node>
+    <node id="140051124460752">
+      <data key="d0">block</data>
+    </node>
+    <node id="140051124591984">
+      <data key="d0">expression_statement</data>
+    </node>
+    <node id="140051124592272">
+      <data key="d0">call</data>
+    </node>
+    <node id="140051124590064">
+      <data key="d0">identifier</data>
+    </node>
+    <node id="140051124592184">
+      <data key="d0">argument_list</data>
+    </node>
+    <node id="140051124201808">
+      <data key="d0">(</data>
+    </node>
+    <node id="140051124590928">
+      <data key="d0">string</data>
+    </node>
+    <node id="140051124194528">
+      <data key="d0">string_start</data>
+    </node>
+    <node id="140051124194536">
+      <data key="d0">string_content</data>
+    </node>
+    <node id="140051124194544">
+      <data key="d0">string_end</data>
+    </node>
+    <node id="140051124201824">
+      <data key="d0">)</data>
+    </node>
+    <edge source="140051124383760" target="140051126041264" />
+    <edge source="140051124383760" target="140051126041072" />
+    <edge source="140051124383760" target="140051124198008" />
+    <edge source="140051124383760" target="140051126042512" />
+    <edge source="140051124383760" target="140051124194088" />
+    <edge source="140051124383760" target="140051124585456" />
+    <edge source="140051124383760" target="140051124192968" />
+    <edge source="140051124383760" target="140051124586512" />
+    <edge source="140051124383760" target="140051124202712" />
+    <edge source="140051124383760" target="140051124202720" />
+    <edge source="140051126041264" target="140051126040112" />
+    <edge source="140051126041264" target="140051126042224" />
+    <edge source="140051126042224" target="140051126041168" />
+    <edge source="140051126041072" target="140051126040976" />
+    <edge source="140051126041072" target="140051126040496" />
+    <edge source="140051126040496" target="140051126041360" />
+    <edge source="140051126042512" target="140051126042416" />
+    <edge source="140051126042416" target="140051126039344" />
+    <edge source="140051126042416" target="140051124195320" />
+    <edge source="140051126042416" target="140051126040688" />
+    <edge source="140051126040688" target="140051124197104" />
+    <edge source="140051126040688" target="140051126038768" />
+    <edge source="140051126040688" target="140051126040400" />
+    <edge source="140051126040688" target="140051126040304" />
+    <edge source="140051126040688" target="140051126040784" />
+    <edge source="140051126040688" target="140051126041840" />
+    <edge source="140051126040688" target="140051124197120" />
+    <edge source="140051126038768" target="140051124202592" />
+    <edge source="140051126038768" target="140051124202600" />
+    <edge source="140051126038768" target="140051124202608" />
+    <edge source="140051126040304" target="140051124194192" />
+    <edge source="140051126040304" target="140051124194200" />
+    <edge source="140051126040304" target="140051124194208" />
+    <edge source="140051126041840" target="140051124195536" />
+    <edge source="140051126041840" target="140051124195544" />
+    <edge source="140051126041840" target="140051124195552" />
+    <edge source="140051124585456" target="140051124585360" />
+    <edge source="140051124585360" target="140051124584496" />
+    <edge source="140051124585360" target="140051124197784" />
+    <edge source="140051124585360" target="140051124585072" />
+    <edge source="140051124585072" target="140051124584688" />
+    <edge source="140051124585072" target="140051124584984" />
+    <edge source="140051124584688" target="140051124584592" />
+    <edge source="140051124584688" target="140051124197000" />
+    <edge source="140051124584688" target="140051124197008" />
+    <edge source="140051124584984" target="140051124198560" />
+    <edge source="140051124584984" target="140051124584784" />
+    <edge source="140051124584984" target="140051124198576" />
+    <edge source="140051124586512" target="140051124586416" />
+    <edge source="140051124586416" target="140051124585552" />
+    <edge source="140051124586416" target="140051124196888" />
+    <edge source="140051124586416" target="140051124586128" />
+    <edge source="140051124586128" target="140051124585744" />
+    <edge source="140051124586128" target="140051124586040" />
+    <edge source="140051124585744" target="140051124585648" />
+    <edge source="140051124585744" target="140051124200584" />
+    <edge source="140051124585744" target="140051124200592" />
+    <edge source="140051124586040" target="140051124196208" />
+    <edge source="140051124586040" target="140051124585840" />
+    <edge source="140051124586040" target="140051124196224" />
+    <edge source="140051124202720" target="140051124466608" />
+    <edge source="140051124202720" target="140051124587088" />
+    <edge source="140051124202720" target="140051124466624" />
+    <edge source="140051124202720" target="140051124466640" />
+    <edge source="140051124202720" target="140051124466648" />
+    <edge source="140051124587088" target="140051124586704" />
+    <edge source="140051124587088" target="140051124586896" />
+    <edge source="140051124587088" target="140051124586800" />
+    <edge source="140051124586704" target="140051124586608" />
+    <edge source="140051124586704" target="140051124194312" />
+    <edge source="140051124586704" target="140051124194320" />
+    <edge source="140051124466648" target="140051124588432" />
+    <edge source="140051124466648" target="140051124592760" />
+    <edge source="140051124588432" target="140051124588336" />
+    <edge source="140051124588336" target="140051124587184" />
+    <edge source="140051124588336" target="140051124203272" />
+    <edge source="140051124588336" target="140051124588048" />
+    <edge source="140051124588048" target="140051124587760" />
+    <edge source="140051124588048" target="140051124196664" />
+    <edge source="140051124588048" target="140051124587856" />
+    <edge source="140051124588048" target="140051124196680" />
+    <edge source="140051124587760" target="140051124587472" />
+    <edge source="140051124587760" target="140051124587672" />
+    <edge source="140051124587472" target="140051124587376" />
+    <edge source="140051124587472" target="140051124194648" />
+    <edge source="140051124587472" target="140051124194656" />
+    <edge source="140051124587376" target="140051124587280" />
+    <edge source="140051124587376" target="140051124197672" />
+    <edge source="140051124587376" target="140051124197680" />
+    <edge source="140051124587672" target="140051124587568" />
+    <edge source="140051124587672" target="140051124587576" />
+    <edge source="140051124592760" target="140051124466736" />
+    <edge source="140051124592760" target="140051124589008" />
+    <edge source="140051124592760" target="140051124466752" />
+    <edge source="140051124592760" target="140051124466768" />
+    <edge source="140051124592760" target="140051124592656" />
+    <edge source="140051124589008" target="140051124588528" />
+    <edge source="140051124589008" target="140051124588816" />
+    <edge source="140051124589008" target="140051124588720" />
+    <edge source="140051124588720" target="140051124197888" />
+    <edge source="140051124588720" target="140051124197896" />
+    <edge source="140051124588720" target="140051124197904" />
+    <edge source="140051124466768" target="140051124590544" />
+    <edge source="140051124590544" target="140051124590256" />
+    <edge source="140051124590256" target="140051124589104" />
+    <edge source="140051124590256" target="140051124590168" />
+    <edge source="140051124590168" target="140051124198112" />
+    <edge source="140051124590168" target="140051124589392" />
+    <edge source="140051124590168" target="140051124198128" />
+    <edge source="140051124589392" target="140051124195088" />
+    <edge source="140051124589392" target="140051124195096" />
+    <edge source="140051124589392" target="140051124195104" />
+    <edge source="140051124592656" target="140051124460720" />
+    <edge source="140051124592656" target="140051124589968" />
+    <edge source="140051124592656" target="140051124460736" />
+    <edge source="140051124592656" target="140051124460752" />
+    <edge source="140051124589968" target="140051124589296" />
+    <edge source="140051124589968" target="140051124589776" />
+    <edge source="140051124589968" target="140051124589680" />
+    <edge source="140051124589680" target="140051124195984" />
+    <edge source="140051124589680" target="140051124195992" />
+    <edge source="140051124589680" target="140051124196000" />
+    <edge source="140051124460752" target="140051124591984" />
+    <edge source="140051124591984" target="140051124592272" />
+    <edge source="140051124592272" target="140051124590064" />
+    <edge source="140051124592272" target="140051124592184" />
+    <edge source="140051124592184" target="140051124201808" />
+    <edge source="140051124592184" target="140051124590928" />
+    <edge source="140051124592184" target="140051124201824" />
+    <edge source="140051124590928" target="140051124194528" />
+    <edge source="140051124590928" target="140051124194536" />
+    <edge source="140051124590928" target="140051124194544" />
+  </graph>
+</graphml>
