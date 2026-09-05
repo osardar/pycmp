@@ -28,6 +28,7 @@ class CorpusProject:
     # Curators may declare a holdout for a small, balanced baseline.  Larger
     # manifests use the stable project hash by leaving this as "auto".
     partition: str = "auto"
+    fixture_extractor: str = ""
 
     def validate(self) -> None:
         if not self.name or not self.url or not self.revision:
@@ -45,6 +46,8 @@ class CorpusProject:
             raise ValueError(f"{self.name}: source_extensions must be non-empty file suffixes")
         if self.partition not in {"auto", "train", "validation", "test"}:
             raise ValueError(f"{self.name}: partition must be auto, train, validation, or test")
+        if self.fixture_extractor not in {"", "mypy", "markdown", "black", "cpython"}:
+            raise ValueError(f"{self.name}: unknown fixture extractor {self.fixture_extractor!r}")
 
 
 def load_manifest(path: str | Path) -> list[CorpusProject]:

@@ -31,6 +31,8 @@ remain outstanding.
   writes source, formatted, renamed, and damaged graph views.
 - Explicit support for `.pyi` input when a manifest declares it; views record a
   `source_kind` label so stubs can be filtered or masked at comparison time.
+- Labeled fixture extraction for MyPy case files, Python Markdown blocks, Black
+  input/output pairs, and CPython parser-test strings.
 - Ten compact synthetic fixtures spanning Python 3.4 through 3.12 features.
 - Four reviewed manifest sets: defensive-security research, analysis fixtures,
   the 20-record lint/training target, and an extended-analysis set.
@@ -81,8 +83,8 @@ only in the static defensive-security research tier.
    parse outcomes, lane distribution, licensing, and content hashes.
 2. Deduplicate copied/generated/vendor code and cap project contribution sizes so
    the largest projects do not dominate training.
-3. Add fixture extractors for embedded strings, mypy test-data formats, and
-   Markdown/mdtest inputs used by Ruff and other tooling projects.
+3. Extend fixture extraction to snapshots and remaining custom upstream formats,
+   then validate extracted-record counts against each upstream suite.
 4. Add explicit diagnostic labels: valid/invalid, expected parse outcome,
    diagnostic family, Python language level, and before/after pair identity.
 5. Train a project-disjoint baseline and report clone retrieval,

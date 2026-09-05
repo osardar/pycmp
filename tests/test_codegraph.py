@@ -9,6 +9,7 @@ from codegraph.backlog import DecompilerGap, append_gap
 from codegraph.corpus_builder import build_corpus
 from codegraph.ingest import ingest_path, ingest_source
 from codegraph.manifest import load_manifest
+from codegraph.fixtures import extract_fixture
 from codegraph.sandbox import SandboxUnavailable
 from codegraph.corpus import EmbeddingRecord, LocalFaissIndex
 from codegraph.shared_model import (ProjectEmbeddingPool, SharedGraphEncoder,
@@ -181,3 +182,14 @@ class CodeGraphTest(unittest.TestCase):
             build_corpus(manifest, root / "artifacts")
             view = json.loads((root / "artifacts" / "views.jsonl").read_text().splitlines()[0])
             self.assertEqual(view["metadata"]["source_kind"], ".pyi")
+
+    def test_fixture_extractors_preserve_individual_cases_and_labels(self):
+        mypy = extract_fixture("mypy", "[case bad]\ndef f(x: Missing) -> None: ...  # E: error\n[out]\nmsg\n")
+        self.assertEqual(mypy[0].identifier, "bad")
+        self.assertEqual(mypy[0].metadata["expected_outcome"], "diagnostic")
+        markdown = extract_fixture("markdown", "# Rule\n```python\nx = 1  # error\n```\n")
+        self.assertEqual(markdown[0].source, "x = 1  # error")
+        black = extract_fixture("black", "x=1\n# output\nx = 1\n")
+        self.assertEqual([entry.metadata["pair_role"] for entry in black], ["input", "output"])
+        cpython = extract_fixture("cpython", 'check_syntax_error("def broken(:\\n")\n')
+        self.assertEqual(cpython[0].metadata["parse_expectation"], "invalid")

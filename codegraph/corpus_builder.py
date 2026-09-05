@@ -10,6 +10,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from .ingest import ingest_source
+from .fixtures import FixtureInput, extract_fixture
 from .manifest import CorpusProject, artifact_id, load_manifest, write_lock
 from .synthetic import damaged_view, formatted_view, renamed_view
 
@@ -67,36 +68,41 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
             relative = source_path.relative_to(checkout).as_posix()
             if not _included(project, relative):
                 continue
-            source = source_path.read_text(encoding="utf-8", errors="replace")
-            source_id = artifact_id(project.name, project.revision, relative)
-            variants = [("source", source, {})]
-            try:
+            container = source_path.read_text(encoding="utf-8", errors="replace")
+            inputs = (extract_fixture(project.fixture_extractor, container) if project.fixture_extractor
+                      else [FixtureInput("source", container, {})])
+            for fixture in inputs:
+                source = fixture.source
+                source_id = artifact_id(project.name, project.revision, relative, fixture.identifier)
+                variants = [("source", source, dict(fixture.metadata))]
+                try:
                 # Never discard old-version/invalid fixture input merely because
                 # a modern AST cannot safely transform it.
-                ast.parse(source)
-                variants.extend([
-                    ("formatted", formatted_view(source), {}),
-                    ("renamed", renamed_view(source, seed_material=source_id), {}),
-                ])
-            except SyntaxError:
-                variants.append(("untransformed", source, {"transform_status": "unsupported_syntax"}))
-            variants.append(("damaged", damaged_view(source), {"severity": 1}))
-            for view_kind, text, metadata in variants:
-                result = ingest_source(text, origin=f"{project.name}/{relative}", reconstructed=view_kind == "damaged")
-                file_path = graphs_root / project.name / f"{source_id}.{view_kind}.jsonl"
-                file_path.parent.mkdir(parents=True, exist_ok=True)
-                file_path.write_text("\n".join(json.dumps(graph.to_dict(), sort_keys=True) for graph in result.graphs) + "\n")
-                for position, graph in enumerate(result.graphs):
+                    ast.parse(source)
+                    variants.extend([
+                        ("formatted", formatted_view(source), dict(fixture.metadata)),
+                        ("renamed", renamed_view(source, seed_material=source_id), dict(fixture.metadata)),
+                    ])
+                except SyntaxError:
+                    variants.append(("untransformed", source, {**fixture.metadata, "transform_status": "unsupported_syntax"}))
+                variants.append(("damaged", damaged_view(source), {**fixture.metadata, "severity": 1}))
+                for view_kind, text, metadata in variants:
+                    result = ingest_source(text, origin=f"{project.name}/{relative}#{fixture.identifier}", reconstructed=view_kind == "damaged")
+                    file_path = graphs_root / project.name / f"{source_id}.{view_kind}.jsonl"
+                    file_path.parent.mkdir(parents=True, exist_ok=True)
+                    file_path.write_text("\n".join(json.dumps(graph.to_dict(), sort_keys=True) for graph in result.graphs) + "\n")
+                    for position, graph in enumerate(result.graphs):
                     # AST traversal order is stable across the deterministic source
                     # variants, yielding one paired artifact per function/method.
-                    unit_artifact_id = artifact_id(source_id, str(position))
-                    records.append(CorpusView(unit_artifact_id, project.name, split, view_kind,
+                        unit_artifact_id = artifact_id(source_id, str(position))
+                        records.append(CorpusView(unit_artifact_id, project.name, split, view_kind,
                                               str(file_path.relative_to(output)),
                                               {"source_artifact_id": source_id, "unit_id": graph.unit_id,
                                                "lane": result.lane,
                                                "corpus_role": project.corpus_role,
                                                "split_group": project.split_group or project.name,
                                                "source_kind": source_path.suffix,
+                                               "fixture_extractor": project.fixture_extractor or None,
                                                **metadata}))
     (output / "views.jsonl").write_text("".join(json.dumps(asdict(record), sort_keys=True) + "\n" for record in records))
     write_lock(output / "manifest.lock.json", projects)

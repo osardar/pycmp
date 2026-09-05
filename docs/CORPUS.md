@@ -78,6 +78,7 @@ The output includes `views.jsonl`, per-view graph files, and a
 ## Current limitations
 
 The builder extracts standalone `.py` and explicitly declared `.pyi` files.
-It does not yet extract Python snippets embedded in test strings, Markdown,
-snapshots, or custom fixture formats. Those need dedicated extractors so their
-contents receive the correct expected-outcome and provenance labels.
+It also supports labeled extractors for MyPy case files, Python Markdown code
+blocks, Black input/output pairs, and CPython parser-test strings. Snapshot and
+other custom fixture formats still need dedicated extractors so their contents
+receive the correct expected-outcome and provenance labels.
