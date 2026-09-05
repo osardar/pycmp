@@ -18,3 +18,7 @@ tree-sitter-python==0.23.4
 # unpinned -- install a build that matches your environment.
 torch
 torch_geometric
+
+# Shared embedding corpus development backend. The library falls back to exact
+# local cosine search if this optional package is unavailable.
+faiss-cpu

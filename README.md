@@ -163,6 +163,50 @@ pass. It is **not** yet a trained or evaluated model.
 
 ---
 
+## Shared cross-lane embedding pipeline
+
+The original CST-only experiment remains available in `netxnn.py`. New work lives
+in `codegraph/` and establishes a single embedding space across inputs rather
+than training a different GCN per file or lane.
+
+```text
+valid .py source       -> Python AST normalizer  --+
+partial/decompiled .py -> Tree-sitter recovery   --+-> semantic program graph
+.pyc (isolated worker) -> bytecode/CFG normalizer --+-> one shared relational GNN
+```
+
+- **Comparable units.** Functions and methods are embedded directly. A learned
+  pooling layer produces module/project vectors; project retrieval combines that
+  vector with top function-level matches.
+- **Missing facts.** Graph nodes and edges carry availability masks. A missing
+  source-only fact is not encoded as a false value, so recovery and bytecode
+  graphs retain the same model input contract.
+- **Safety.** Source and bytecode are never imported or executed. `.pyc` payloads
+  are decoded only by a short-lived constrained subprocess. This current decoder
+  accepts bytecode matching that worker's CPython runtime; a version-aware decoder
+  adapter is required before ingesting a different `.pyc` runtime.
+- **Training.** `codegraph.training` supplies paired-view contrastive training:
+  source, bytecode, decompilation, damaged reconstructions, and semantic-preserving
+  transformations of the same artifact are positives.
+- **Corpus.** `LocalFaissIndex` persists stable record IDs and metadata locally.
+  `VertexAIVectorSearchIndex` defines the compatible managed-search boundary.
+
+Example:
+
+```bash
+python -m codegraph.cli ingest path/to/input.py --output artifact.graphs.jsonl
+python -m codegraph.cli embed artifact.graphs.jsonl --output artifact.embeddings.jsonl
+python -m codegraph.cli index artifact.embeddings.jsonl --directory corpus-index
+```
+
+Run the standard-library test suite with:
+
+```bash
+python -m unittest discover -s tests
+```
+
+---
+
 ## License
 
 Not specified.
