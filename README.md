@@ -13,6 +13,11 @@ PyTorch Geometric to produce per-node embeddings. The goal is to learn a
 representation of code structure that can be reused for downstream tasks such as
 clone detection, similarity search, or vulnerability/defect analysis.
 
+## Documentation
+
+- [Current project status](docs/STATUS.md)
+- [Corpus guide](docs/CORPUS.md)
+
 ---
 
 ## Pipeline
