@@ -249,6 +249,17 @@ Flake8 as static-only language-analysis fixtures. Their dense valid/invalid
 syntax and checker-test inputs are useful for training structural similarity and
 recovery behavior independently of the defensive-security corpus.
 
+`corpus/lint-training-target.jsonl` is the reviewed 20-record linting/training
+target: ten production-quality projects and ten fixture, educational-pair, or
+reference records. Mypy and Black each have source and fixture records but share
+a `split_group`, so they are always assigned to the same train/validation/test
+partition. The default target excludes unverified sources and the separately
+licensed `quantifiedcode/python-anti-patterns`; it intentionally contains no
+project execution step. The builder supports explicitly declared `.pyi` stub
+inputs and labels them by source kind. Embedded-string and Markdown fixture
+extraction remain future labeled lanes, rather than silently treating their
+containers as ordinary examples.
+
 ---
 
 ## License

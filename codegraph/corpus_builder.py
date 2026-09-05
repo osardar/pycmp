@@ -55,8 +55,15 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
     records: list[CorpusView] = []
     for project in projects:
         checkout = _checkout(project, checkouts)
-        split = _split(project.name)
-        for source_path in sorted(checkout.rglob("*.py")):
+        # A project can have separate production and fixture records.  They may
+        # never land in different partitions, even when their include patterns
+        # do not overlap.
+        split = _split(project.split_group or project.name)
+        source_paths = sorted(
+            path for path in checkout.rglob("*")
+            if path.is_file() and path.suffix in project.source_extensions
+        )
+        for source_path in source_paths:
             relative = source_path.relative_to(checkout).as_posix()
             if not _included(project, relative):
                 continue
@@ -86,7 +93,11 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
                     records.append(CorpusView(unit_artifact_id, project.name, split, view_kind,
                                               str(file_path.relative_to(output)),
                                               {"source_artifact_id": source_id, "unit_id": graph.unit_id,
-                                               "lane": result.lane, **metadata}))
+                                               "lane": result.lane,
+                                               "corpus_role": project.corpus_role,
+                                               "split_group": project.split_group or project.name,
+                                               "source_kind": source_path.suffix,
+                                               **metadata}))
     (output / "views.jsonl").write_text("".join(json.dumps(asdict(record), sort_keys=True) + "\n" for record in records))
     write_lock(output / "manifest.lock.json", projects)
     return {"projects": len(projects), "views": len(records), "output": str(output)}

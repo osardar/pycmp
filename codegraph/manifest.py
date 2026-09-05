@@ -17,8 +17,14 @@ class CorpusProject:
     python_max: str = "3.14"
     include: tuple[str, ...] = ("**/*.py",)
     exclude: tuple[str, ...] = ()
+    source_extensions: tuple[str, ...] = (".py",)
     research_tier: str = "standard"
     execution_policy: str = "static_only"
+    corpus_role: str = "general"
+    # Records sharing a split group must always be assigned to the same split.
+    # This prevents a repository's production code and its fixtures leaking
+    # across train/validation/test boundaries.
+    split_group: str = ""
 
     def validate(self) -> None:
         if not self.name or not self.url or not self.revision:
@@ -29,6 +35,11 @@ class CorpusProject:
             raise ValueError(f"{self.name}: non-permissive licenses require a static-only research tier")
         if self.research_tier in special_tiers and self.execution_policy != "static_only":
             raise ValueError(f"{self.name}: research-tier entries must be static_only")
+        roles = {"general", "production", "fixture", "educational_pair", "reference"}
+        if self.corpus_role not in roles:
+            raise ValueError(f"{self.name}: unknown corpus role {self.corpus_role!r}")
+        if not self.source_extensions or any(not extension.startswith(".") for extension in self.source_extensions):
+            raise ValueError(f"{self.name}: source_extensions must be non-empty file suffixes")
 
 
 def load_manifest(path: str | Path) -> list[CorpusProject]:
@@ -38,7 +49,7 @@ def load_manifest(path: str | Path) -> list[CorpusProject]:
             continue
         try:
             raw = json.loads(line)
-            for field in ("include", "exclude"):
+            for field in ("include", "exclude", "source_extensions"):
                 if field in raw:
                     raw[field] = tuple(raw[field])
             project = CorpusProject(**raw)

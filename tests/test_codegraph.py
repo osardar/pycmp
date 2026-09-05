@@ -83,6 +83,22 @@ class CodeGraphTest(unittest.TestCase):
             self.assertTrue(append_gap(root / "gaps.jsonl", gap))
             self.assertFalse(append_gap(root / "gaps.jsonl", gap))
 
+    def test_split_group_prevents_duplicate_repository_leakage(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            manifest = root / "manifest.jsonl"
+            manifest.write_text("\n".join([
+                json.dumps({"name": "tool_source", "url": "https://example.test/tool.git",
+                            "revision": "a" * 40, "license": "MIT", "corpus_role": "production",
+                            "split_group": "tool"}),
+                json.dumps({"name": "tool_fixtures", "url": "https://example.test/tool.git",
+                            "revision": "a" * 40, "license": "MIT", "corpus_role": "fixture",
+                            "split_group": "tool"}),
+            ]) + "\n")
+            records = load_manifest(manifest)
+            from codegraph.corpus_builder import _split
+            self.assertEqual(_split(records[0].split_group), _split(records[1].split_group))
+
     def test_synthetic_fixture_manifest_has_ten_versioned_projects(self):
         fixture_manifest = Path(__file__).parents[1] / "fixtures" / "synthetic" / "manifest.jsonl"
         fixtures = [json.loads(line) for line in fixture_manifest.read_text().splitlines()]
@@ -132,3 +148,24 @@ class CodeGraphTest(unittest.TestCase):
             build_corpus(manifest, root / "artifacts")
             views = [json.loads(line) for line in (root / "artifacts" / "views.jsonl").read_text().splitlines()]
             self.assertIn("untransformed", {view["view_kind"] for view in views})
+
+    def test_builder_labels_stub_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            repository = root / "repository"
+            repository.mkdir()
+            (repository / "api.pyi").write_text("def parse(value: str) -> int: ...\n")
+            import subprocess
+            subprocess.run(["git", "init", "-q", str(repository)], check=True)
+            subprocess.run(["git", "-C", str(repository), "config", "user.email", "test@example.test"], check=True)
+            subprocess.run(["git", "-C", str(repository), "config", "user.name", "Test"], check=True)
+            subprocess.run(["git", "-C", str(repository), "add", "api.pyi"], check=True)
+            subprocess.run(["git", "-C", str(repository), "commit", "-qm", "stub"], check=True)
+            revision = subprocess.check_output(["git", "-C", str(repository), "rev-parse", "HEAD"], text=True).strip()
+            manifest = root / "manifest.jsonl"
+            manifest.write_text(json.dumps({"name": "stub", "url": str(repository), "revision": revision,
+                                             "license": "MIT", "source_extensions": [".pyi"],
+                                             "include": ["**/*.pyi"]}) + "\n")
+            build_corpus(manifest, root / "artifacts")
+            view = json.loads((root / "artifacts" / "views.jsonl").read_text().splitlines()[0])
+            self.assertEqual(view["metadata"]["source_kind"], ".pyi")
