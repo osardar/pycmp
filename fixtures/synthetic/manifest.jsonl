@@ -1,0 +1,10 @@
+{"name":"functions_34","python_min":"3.4","kind":"fixture"}
+{"name":"classes_34","python_min":"3.4","kind":"fixture"}
+{"name":"iterators_34","python_min":"3.4","kind":"fixture"}
+{"name":"contexts_34","python_min":"3.4","kind":"fixture"}
+{"name":"async_35","python_min":"3.5","kind":"fixture"}
+{"name":"annotations_36","python_min":"3.6","kind":"fixture"}
+{"name":"dataclasses_37","python_min":"3.7","kind":"fixture"}
+{"name":"closures_34","python_min":"3.4","kind":"fixture"}
+{"name":"patterns_310","python_min":"3.10","kind":"fixture"}
+{"name":"exceptions_312","python_min":"3.12","kind":"fixture"}
