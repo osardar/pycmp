@@ -1,7 +1,7 @@
 """Parse Python source -> graph -> GCN -> node embeddings.
 
 Usage:
-    python netxnn.py <python-file>
+    python pycmp.py <python-file>
 """
 import sys
 

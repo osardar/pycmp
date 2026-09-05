@@ -1,6 +1,6 @@
-"""Shared graph-neural-network helpers for netx_nn.
+"""Shared graph-neural-network helpers for pycmp.
 
-Both entry points (``netxnn.py`` and ``ptg.py``) turn code into a graph and run a
+Both entry points (``pycmp.py`` and ``ptg.py``) turn code into a graph and run a
 small Graph Convolutional Network to produce per-node embeddings. The shared
 pieces live here so the two entry points stay in sync.
 """
@@ -42,7 +42,7 @@ class GCN(torch.nn.Module):
 def _node_label(node_data, type_attr, default_type):
     """Pick the label string for a node, tolerating different attribute names.
 
-    ``netxnn`` stores the syntax type under ``type``; graphs loaded from
+    ``pycmp`` stores the syntax type under ``type``; graphs loaded from
     graphml store it under ``label``.
     """
     if type_attr in node_data:

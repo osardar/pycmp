@@ -1,4 +1,4 @@
-"""Build a global syntax-type feature vocabulary for netx_nn.
+"""Build a global syntax-type feature vocabulary for pycmp.
 
 A *global feature vocabulary* is a single, fixed mapping from syntax-type label
 -> index, built once and reused for every graph. This is what lets one shared GCN

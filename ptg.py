@@ -1,7 +1,7 @@
 """Load pre-built graph(s) -> GCN -> node embeddings.
 
 This variant skips parsing: it reads NetworkX graphs serialized as .graphml
-(files that ``netxnn`` could produce) and runs a GCN on each.
+(files that ``pycmp`` could produce) and runs a GCN on each.
 
 Usage:
     python ptg.py <graph.graphml> [more.graphml ...]

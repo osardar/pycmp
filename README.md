@@ -1,8 +1,13 @@
-# netx_nn
+# pycmp
 
 **Code-as-graph neural network experiment.**
 
-`netx_nn` parses Python source code into a syntax tree, converts that tree into a
+This project is developed entirely with AI assistance, specifically
+`gpt-5.6-terra` at medium reasoning effort. It is an exploratory environment for
+understanding graph embeddings and identifying interesting, distinctive ways they
+can be applied to code and other structured program artifacts.
+
+`pycmp` parses Python source code into a syntax tree, converts that tree into a
 graph, and runs it through a **Graph Convolutional Network (GCN)** built with
 PyTorch Geometric to produce per-node embeddings. The goal is to learn a
 representation of code structure that can be reused for downstream tasks such as
@@ -46,7 +51,7 @@ PyTorch Geometric Data (edge_index + node features x)
 
 | File | Purpose |
 |---|---|
-| `netxnn.py` | **Main pipeline.** Parse a Python file → build graph → build GCN → train → print node embeddings. |
+| `pycmp.py` | **Main pipeline.** Parse a Python file → build graph → build GCN → train → print node embeddings. |
 | `ptg.py` | **Variant.** Skips parsing; loads pre-built `*.graphml` graphs and runs a GCN on each. |
 | `gcn_model.py` | **Shared module.** `GCN` model plus `build_node_features`, `graph_to_data`, `train_gnn`, and `gen_embeddings`, used by both entry points. |
 | `test0`, `test1` | Two nearly-identical sample Python scripts used as input (they differ only in the URLs and the printed strings — useful as a "similar code" pair). |
@@ -77,10 +82,10 @@ pip install torch_geometric   # or: pip install torch-geometric
 
 ## Usage
 
-### `netxnn.py` — parse code, then graph + train
+### `pycmp.py` — parse code, then graph + train
 
 ```bash
-python netxnn.py test0
+python pycmp.py test0
 ```
 
 Reads the Python file given as `argv[1]`, parses it, builds the graph, trains the
@@ -165,7 +170,7 @@ pass. It is **not** yet a trained or evaluated model.
 
 ## Shared cross-lane embedding pipeline
 
-The original CST-only experiment remains available in `netxnn.py`. New work lives
+The original CST-only experiment remains available in `pycmp.py`. New work lives
 in `codegraph/` and establishes a single embedding space across inputs rather
 than training a different GCN per file or lane.
 
