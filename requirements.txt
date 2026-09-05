@@ -22,3 +22,8 @@ torch_geometric
 # Shared embedding corpus development backend. The library falls back to exact
 # local cosine search if this optional package is unavailable.
 faiss-cpu
+
+# Version-aware bytecode inspection and reconstructed-source views. These run
+# only inside the dedicated Docker bytecode worker for untrusted artifacts.
+xdis
+uncompyle6

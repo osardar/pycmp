@@ -17,6 +17,11 @@ env/
 *.pth
 *.ckpt
 
+# Generated corpus snapshots, indexes, cloned source, and local ticket queues.
+artifacts/
+corpus-runs/
+*.faiss
+
 # OS / editor
 .DS_Store
 .idea/

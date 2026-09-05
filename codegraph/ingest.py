@@ -10,6 +10,7 @@ from pathlib import Path
 from .ast_normalize import ASTNormalizer
 from .recovery import recovery_graph
 from .semantic import ProgramGraph
+from .sandbox import SandboxUnavailable, run_isolated
 
 
 @dataclass
@@ -36,14 +37,19 @@ def ingest_source(
         return IngestionResult([graph], "recovery", [str(exc)])
 
 
-def ingest_pyc(path: str | Path, *, timeout_seconds: int = 10) -> IngestionResult:
-    """Decode a `.pyc` only in a separate constrained interpreter process."""
+def ingest_pyc(path: str | Path, *, timeout_seconds: int = 10, trusted: bool = False) -> IngestionResult:
+    """Decode `.pyc` only in an isolated worker; untrusted inputs fail closed."""
     pyc_path = Path(path).resolve()
     worker = Path(__file__).with_name("_pyc_worker.py")
-    completed = subprocess.run(
-        [sys.executable, str(worker), str(pyc_path)],
-        check=False, capture_output=True, text=True, timeout=timeout_seconds,
-    )
+    if trusted:
+        completed = subprocess.run([sys.executable, str(worker), str(pyc_path)], check=False,
+                                   capture_output=True, text=True, timeout=timeout_seconds)
+    else:
+        # The worker image owns its decoder stack; mounting only the input parent
+        # prevents a bytecode parser/decompiler from reading host project files.
+        completed = run_isolated(image="pycmp-bytecode-worker:latest", input_path=pyc_path,
+                                 command=["python", "/worker/pyc_worker.py", f"/input/{pyc_path.name}"],
+                                 timeout_seconds=timeout_seconds)
     try:
         response = json.loads(completed.stdout)
     except json.JSONDecodeError as exc:
@@ -54,9 +60,9 @@ def ingest_pyc(path: str | Path, *, timeout_seconds: int = 10) -> IngestionResul
 
 
 def ingest_path(path: str | Path, *, python_minor: int | None = None,
-                reconstructed: bool = False) -> IngestionResult:
+                reconstructed: bool = False, trusted: bool = False) -> IngestionResult:
     path = Path(path)
     if path.suffix == ".pyc":
-        return ingest_pyc(path)
+        return ingest_pyc(path, trusted=trusted)
     return ingest_source(path.read_bytes(), origin=str(path), python_minor=python_minor,
                          reconstructed=reconstructed)

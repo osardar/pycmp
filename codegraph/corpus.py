@@ -44,6 +44,9 @@ class LocalFaissIndex(VectorIndex):
         self.records_path.write_text("".join(json.dumps(record.__dict__, sort_keys=True) + "\n"
                                              for record in self._records.values()))
 
+    def records(self) -> list[EmbeddingRecord]:
+        return list(self._records.values())
+
     def upsert(self, records: list[EmbeddingRecord]) -> None:
         for record in records:
             if len(record.embedding) != self.dimension:

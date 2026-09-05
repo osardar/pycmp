@@ -33,19 +33,42 @@ def _limit_resources() -> None:
 
 def _decode_current_runtime(path: str) -> dict:
     raw = open(path, "rb").read()
-    if len(raw) < 16:
+    if len(raw) < 12:
         raise ValueError("truncated .pyc header")
     magic = raw[:4]
     if magic != importlib.util.MAGIC_NUMBER:
-        raise ValueError(
-            "bytecode runtime differs from isolated decoder; install a version-aware "
-            "decoder adapter for this .pyc"
-        )
+        return _decode_cross_version(path, magic.hex())
     # PEP 552 headers are 16 bytes for supported current CPython releases.
     code = marshal.loads(raw[16:], allow_code=True)
     if not isinstance(code, CodeType):
         raise ValueError(".pyc payload is not a code object")
     return _code_graph(code, path, magic.hex())
+
+
+def _decode_cross_version(path: str, magic: str) -> dict:
+    """Load foreign CPython bytecode through xdis, never the host marshal API."""
+    try:
+        from xdis.load import load_module
+    except ImportError as exc:
+        raise ValueError("xdis is required for bytecode from another CPython version") from exc
+    version, _timestamp, _magic_int, code, implementation, _source_size, _sip_hash, _offsets = load_module(path)
+    name = getattr(code, "co_name", getattr(code, "name", "<module>"))
+    # Portable xdis code objects differ by CPython era. Preserve an explicitly
+    # partial semantic graph rather than inventing host-runtime opcode meanings.
+    graph = _code_graph(code, path, magic) if isinstance(code, CodeType) else {
+        "schema_version": 1, "unit_id": f"{path}:bytecode", "unit_kind": "function",
+        "nodes": [{"id": "n0", "kind": "core:function", "attributes": {"semantic_kind": "function", "code_name": name},
+                   "available": ["semantic_kind", "code_name"]},
+                  {"id": "n1", "kind": "core:operation", "attributes": {"semantic_kind": "operation", "opcode": "foreign_bytecode"},
+                   "available": ["semantic_kind", "opcode"]}],
+        "edges": [{"source": "n0", "target": "n1", "kind": "contains", "available": ["bytecode"]}],
+        "metadata": {},
+    }
+    graph["metadata"].update({"lane": "bytecode", "origin": path, "parser": "xdis",
+                              "bytecode_magic": magic, "bytecode_version": ".".join(map(str, version)),
+                              "implementation": str(implementation), "parse_status": "partial",
+                              "confidence": "medium"})
+    return graph
 
 
 def _code_graph(root: CodeType, origin: str, magic: str) -> dict:

@@ -210,6 +210,45 @@ Run the standard-library test suite with:
 python -m unittest discover -s tests
 ```
 
+### Corpus workflow
+
+The corpus workflow consumes a reviewed, pinned JSONL manifest. Start from
+`corpus/manifest.example.jsonl`; do not use it directly. Generated artifacts are
+ignored by git.
+
+```bash
+python -m codegraph.cli corpus build local-manifest.jsonl --output corpus-runs/pilot
+python -m codegraph.cli train corpus-runs/pilot --checkpoint artifacts/model.pt
+python -m codegraph.cli evaluate corpus-runs/pilot --checkpoint artifacts/model.pt
+python -m codegraph.cli corpus-index corpus-runs/pilot --checkpoint artifacts/model.pt --directory artifacts/index
+python -m codegraph.cli search path/to/query.py --checkpoint artifacts/model.pt --directory artifacts/index
+python -m codegraph.cli export-vertex --directory artifacts/index --output artifacts/vertex.jsonl
+python -m codegraph.cli decompile path/to/input.pyc --backlog artifacts/decompiler-gaps.jsonl --output artifacts/recovered.graphs.jsonl
+```
+
+The ten concise, version-labelled fixtures under `fixtures/synthetic/` cover
+Python 3.4 through 3.12 language features. Build the untrusted-bytecode worker
+before ingesting `.pyc` files:
+
+```bash
+docker build -f docker/bytecode-worker/Dockerfile -t pycmp-bytecode-worker:latest .
+```
+
+Untrusted `.pyc` ingestion fails closed when Docker is unavailable. The worker
+uses `xdis` for cross-version decoding and `uncompyle6` is installed for
+reconstructed-source experiments; unsupported decompilation cases belong in the
+structured local backlog rather than being discarded.
+
+`corpus/defensive-security.jsonl` is a separately labeled, static-analysis-only
+research set. Its entries retain exact Git revisions and source-host license
+identifiers, including copyleft and `NOASSERTION` licenses; pycmp never installs,
+executes, or supplies credentials/targets to this corpus.
+
+`corpus/analysis-fixtures.jsonl` adds mypy, Pylint, pyflakes, pycodestyle, and
+Flake8 as static-only language-analysis fixtures. Their dense valid/invalid
+syntax and checker-test inputs are useful for training structural similarity and
+recovery behavior independently of the defensive-security corpus.
+
 ---
 
 ## License
