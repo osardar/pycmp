@@ -1,0 +1,5 @@
+{"name":"mypy","url":"https://github.com/python/mypy.git","revision":"0ff707d475eb967d1709409472dfe45644a8e6d3","license":"MIT","research_tier":"analysis_fixtures","execution_policy":"static_only","include":["**/*.py"]}
+{"name":"pylint","url":"https://github.com/PyCQA/pylint.git","revision":"b99a594da39806f0af75981958d2521274e699f8","license":"GPL-2.0","research_tier":"analysis_fixtures","execution_policy":"static_only","include":["**/*.py"]}
+{"name":"pyflakes","url":"https://github.com/PyCQA/pyflakes.git","revision":"52cb7296b4bb52c0a0e8b51c7729a55fa0d0a808","license":"MIT","research_tier":"analysis_fixtures","execution_policy":"static_only","include":["**/*.py"]}
+{"name":"pycodestyle","url":"https://github.com/PyCQA/pycodestyle.git","revision":"d6c38543a95c3adec7958fc659f4081972a3f1d1","license":"MIT","research_tier":"analysis_fixtures","execution_policy":"static_only","include":["**/*.py"]}
+{"name":"flake8","url":"https://github.com/PyCQA/flake8.git","revision":"efe6750405be77b661f64e60002c4ef8e922daf5","license":"MIT","research_tier":"analysis_fixtures","execution_policy":"static_only","include":["**/*.py"]}

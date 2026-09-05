@@ -1,0 +1,2 @@
+# Copy this file to a local manifest, replace values with reviewed projects, and pin a commit SHA.
+{"name":"example-project","url":"https://github.com/example/project.git","revision":"0123456789abcdef0123456789abcdef01234567","license":"MIT","python_min":"3.8","python_max":"3.14","include":["**/*.py"],"exclude":["tests/**"]}
