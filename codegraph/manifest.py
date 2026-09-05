@@ -25,6 +25,9 @@ class CorpusProject:
     # This prevents a repository's production code and its fixtures leaking
     # across train/validation/test boundaries.
     split_group: str = ""
+    # Curators may declare a holdout for a small, balanced baseline.  Larger
+    # manifests use the stable project hash by leaving this as "auto".
+    partition: str = "auto"
 
     def validate(self) -> None:
         if not self.name or not self.url or not self.revision:
@@ -40,6 +43,8 @@ class CorpusProject:
             raise ValueError(f"{self.name}: unknown corpus role {self.corpus_role!r}")
         if not self.source_extensions or any(not extension.startswith(".") for extension in self.source_extensions):
             raise ValueError(f"{self.name}: source_extensions must be non-empty file suffixes")
+        if self.partition not in {"auto", "train", "validation", "test"}:
+            raise ValueError(f"{self.name}: partition must be auto, train, validation, or test")
 
 
 def load_manifest(path: str | Path) -> list[CorpusProject]:
@@ -60,6 +65,13 @@ def load_manifest(path: str | Path) -> list[CorpusProject]:
     names = [record.name for record in records]
     if len(names) != len(set(names)):
         raise ValueError("manifest project names must be unique")
+    group_partitions: dict[str, str] = {}
+    for record in records:
+        if not record.split_group or record.partition == "auto":
+            continue
+        previous = group_partitions.setdefault(record.split_group, record.partition)
+        if previous != record.partition:
+            raise ValueError(f"split group {record.split_group!r} has conflicting partitions")
     return records
 
 

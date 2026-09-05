@@ -32,8 +32,8 @@ remain outstanding.
 - Explicit support for `.pyi` input when a manifest declares it; views record a
   `source_kind` label so stubs can be filtered or masked at comparison time.
 - Ten compact synthetic fixtures spanning Python 3.4 through 3.12 features.
-- Three reviewed manifest sets: defensive-security research, analysis fixtures,
-  and the 20-record lint/training target.
+- Four reviewed manifest sets: defensive-security research, analysis fixtures,
+  the 20-record lint/training target, and an extended-analysis set.
 
 ## Corpus status
 
@@ -54,14 +54,26 @@ A small static build using pyflakes and pycodestyle has successfully exercised
 the build, train, index, and search workflow. A full target build has not yet
 been retained as a corpus release.
 
+`corpus/extended-analysis.jsonl` adds six pinned sources for the next corpus
+increment: Bandit, Hypothesis, beartype, Refurb, capa, and BBOT. Their role and
+license boundaries are recorded in the manifest; capa and BBOT are retained
+only in the static defensive-security research tier.
+
 ## Validation completed
 
-- Unit suite: 12 tests pass at this revision.
+- Unit suite: 13 tests pass at this revision.
 - Builder behavior: valid source, legacy syntax, malformed recovery input, and
   declared `.pyi` stubs are covered.
 - Bytecode worker: built and smoke-tested for a current-runtime `.pyc`.
 - Corpus workflow: smoke-tested from build through one CPU training epoch and
   local similarity search.
+- A bounded project-disjoint baseline manifest is available at
+  `corpus/baseline-pilot.jsonl`; its initial metric is paired-view recall only,
+  pending a larger labeled evaluation set.
+- The first extended pilot is recorded in
+  `docs/baselines/2026-09-05-extended-pilot.md`: 400 training views, 12 held-out
+  views, and paired-view Recall@5 of 1.0. This is a narrow end-to-end check, not
+  a general retrieval benchmark.
 
 ## Known gaps and next milestone
 

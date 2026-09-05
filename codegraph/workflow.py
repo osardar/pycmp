@@ -87,10 +87,10 @@ def evaluate_corpus(root: str | Path, checkpoint: str | Path, *, limit: int = 5)
         ranked = [value for value in torch.argsort(similarities[index], descending=True).tolist() if value != index][:limit]
         hits += bool(positives.intersection(ranked))
     recall = hits / possible if possible else 0.0
-    # In this benchmark, paired views are clone positives; thresholded nearest
-    # neighbor classification supplies a deterministic initial clone F1 proxy.
-    return {"split": "test", "examples": len(views), "paired_recall_at_5": recall,
-            "clone_f1": recall, "accepts": recall >= 0.90 and recall >= 0.85}
+    return {"split": "test", "examples": len(views), "eligible_queries": possible,
+            "paired_recall_at_k": recall, "k": limit,
+            "status": "preliminary" if possible else "no-paired-test-views",
+            "accepts": possible > 0 and recall >= 0.90}
 
 
 def index_corpus(root: str | Path, checkpoint: str | Path, directory: str | Path) -> dict:

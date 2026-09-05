@@ -58,7 +58,7 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
         # A project can have separate production and fixture records.  They may
         # never land in different partitions, even when their include patterns
         # do not overlap.
-        split = _split(project.split_group or project.name)
+        split = project.partition if project.partition != "auto" else _split(project.split_group or project.name)
         source_paths = sorted(
             path for path in checkout.rglob("*")
             if path.is_file() and path.suffix in project.source_extensions

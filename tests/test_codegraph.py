@@ -99,6 +99,18 @@ class CodeGraphTest(unittest.TestCase):
             from codegraph.corpus_builder import _split
             self.assertEqual(_split(records[0].split_group), _split(records[1].split_group))
 
+    def test_manifest_rejects_conflicting_explicit_group_partitions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            manifest = Path(directory) / "manifest.jsonl"
+            manifest.write_text("\n".join([
+                json.dumps({"name": "one", "url": "https://example.test/one.git", "revision": "a" * 40,
+                            "license": "MIT", "split_group": "shared", "partition": "train"}),
+                json.dumps({"name": "two", "url": "https://example.test/two.git", "revision": "a" * 40,
+                            "license": "MIT", "split_group": "shared", "partition": "test"}),
+            ]) + "\n")
+            with self.assertRaises(ValueError):
+                load_manifest(manifest)
+
     def test_synthetic_fixture_manifest_has_ten_versioned_projects(self):
         fixture_manifest = Path(__file__).parents[1] / "fixtures" / "synthetic" / "manifest.jsonl"
         fixtures = [json.loads(line) for line in fixture_manifest.read_text().splitlines()]

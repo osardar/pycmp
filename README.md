@@ -265,6 +265,16 @@ inputs and labels them by source kind. Embedded-string and Markdown fixture
 extraction remain future labeled lanes, rather than silently treating their
 containers as ordinary examples.
 
+`corpus/extended-analysis.jsonl` adds six separately reviewed sources: Bandit,
+Hypothesis, beartype, Refurb, capa, and BBOT. Capa and BBOT are in the labeled
+defensive-security research tier; all six entries remain static-only and the
+builder never installs, runs, or targets anything from their repositories.
+
+`corpus/baseline-pilot.jsonl` is a bounded, project-disjoint static baseline
+drawn from the extended set. Its metric is paired-view retrieval recall, not a
+claim of clone-detection F1; a full baseline requires fixture labels and a larger
+held-out project set.
+
 ---
 
 ## License

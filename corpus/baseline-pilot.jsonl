@@ -1,0 +1,5 @@
+# Small, project-disjoint static baseline from extended-analysis sources.
+# Exact files keep the initial run bounded; the parent manifest is the expansion set.
+{"name":"bandit_pilot","url":"https://github.com/PyCQA/bandit.git","revision":"1d3053df070c91fe0fde002a21536c277d67e5d9","license":"Apache-2.0","research_tier":"analysis_fixtures","execution_policy":"static_only","corpus_role":"fixture","partition":"train","include":["examples/subprocess_shell.py"]}
+{"name":"hypothesis_pilot","url":"https://github.com/HypothesisWorks/hypothesis.git","revision":"a8dcd7422a325926693b5464f73349e361562b7c","license":"MPL-2.0","research_tier":"analysis_fixtures","execution_policy":"static_only","corpus_role":"production","partition":"train","include":["hypothesis/src/hypothesis/strategies/_internal/core.py"]}
+{"name":"beartype_pilot","url":"https://github.com/beartype/beartype.git","revision":"b0275fa6b99a42e7fa6c8ce23d2d5513de1028a5","license":"MIT","corpus_role":"production","partition":"test","include":["beartype/_decor/decorcore.py"]}
