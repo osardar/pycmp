@@ -8,12 +8,13 @@ from pathlib import Path
 import torch
 
 from .corpus import EmbeddingRecord, LocalFaissIndex
-from .corpus_builder import build_corpus
+from .corpus_builder import build_corpus, build_release, derive_unit_capped_release
 from .decompile import decompile_pyc
 from .ingest import ingest_path
 from .semantic import ProgramGraph
 from .shared_model import SharedGraphEncoder
-from .workflow import evaluate_corpus, export_vertex, index_corpus, search_artifact, train_corpus
+from .workflow import (_load_model, calibrate_threshold, evaluate_corpus, export_vertex, index_corpus,
+                       search_artifact, train_corpus, write_benchmark_report)
 
 
 def _save_graphs(graphs: list[ProgramGraph], output: Path) -> None:
@@ -45,15 +46,35 @@ def main(argv: list[str] | None = None) -> int:
     build = corpus_commands.add_parser("build")
     build.add_argument("manifest")
     build.add_argument("--output", required=True)
+    build.add_argument("--curate", action="store_true")
+    build.add_argument("--max-units-per-project", type=int, default=250)
+    release = corpus_commands.add_parser("release")
+    release.add_argument("--manifest", action="append", required=True)
+    release.add_argument("--output", required=True)
+    release.add_argument("--max-units-per-project", type=int, default=250)
+    cap_release = corpus_commands.add_parser("cap-release")
+    cap_release.add_argument("source")
+    cap_release.add_argument("--output", required=True)
+    cap_release.add_argument("--max-units-per-project", type=int, default=250)
     train = commands.add_parser("train")
     train.add_argument("corpus")
     train.add_argument("--checkpoint", required=True)
     train.add_argument("--epochs", type=int, default=5)
     train.add_argument("--batch-size", type=int, default=16)
     train.add_argument("--device", default="cpu")
+    train.add_argument("--dimension", type=int, default=256)
+    train.add_argument("--layers", type=int, default=4)
     evaluate = commands.add_parser("evaluate")
     evaluate.add_argument("corpus")
     evaluate.add_argument("--checkpoint", required=True)
+    benchmark = commands.add_parser("benchmark")
+    benchmark.add_argument("corpus")
+    benchmark.add_argument("--checkpoint", required=True)
+    benchmark.add_argument("--output", required=True)
+    calibrate = commands.add_parser("calibrate")
+    calibrate.add_argument("corpus")
+    calibrate.add_argument("--checkpoint", required=True)
+    calibrate.add_argument("--target-precision", type=float, default=0.95)
     corpus_index = commands.add_parser("corpus-index")
     corpus_index.add_argument("corpus")
     corpus_index.add_argument("--checkpoint", required=True)
@@ -63,6 +84,7 @@ def main(argv: list[str] | None = None) -> int:
     search.add_argument("--checkpoint", required=True)
     search.add_argument("--directory", required=True)
     search.add_argument("--limit", type=int, default=10)
+    search.add_argument("--threshold", type=float, default=0.80)
     export = commands.add_parser("export-vertex")
     export.add_argument("--directory", required=True)
     export.add_argument("--output", required=True)
@@ -79,20 +101,37 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"lane": result.lane, "units": len(result.graphs), "diagnostics": result.diagnostics}))
         return 0
     if args.command == "corpus":
-        print(json.dumps(build_corpus(args.manifest, args.output), sort_keys=True))
+        if args.corpus_command == "release":
+            print(json.dumps(build_release(args.manifest, args.output,
+                                           max_units_per_project=args.max_units_per_project), sort_keys=True))
+        elif args.corpus_command == "build":
+            print(json.dumps(build_corpus(args.manifest, args.output, curate=args.curate,
+                                          max_units_per_project=args.max_units_per_project), sort_keys=True))
+        else:
+            print(json.dumps(derive_unit_capped_release(
+                args.source, args.output, cap=args.max_units_per_project), sort_keys=True))
         return 0
     if args.command == "train":
         print(json.dumps(train_corpus(args.corpus, args.checkpoint, epochs=args.epochs,
-                                      batch_size=args.batch_size, device=args.device), sort_keys=True))
+                                      batch_size=args.batch_size, device=args.device,
+                                      dimension=args.dimension, layers=args.layers), sort_keys=True))
         return 0
     if args.command == "evaluate":
         print(json.dumps(evaluate_corpus(args.corpus, args.checkpoint), sort_keys=True))
+        return 0
+    if args.command == "benchmark":
+        print(json.dumps(write_benchmark_report(args.corpus, args.checkpoint, args.output), sort_keys=True))
+        return 0
+    if args.command == "calibrate":
+        print(json.dumps(calibrate_threshold(args.corpus, args.checkpoint,
+                                             target_precision=args.target_precision), sort_keys=True))
         return 0
     if args.command == "corpus-index":
         print(json.dumps(index_corpus(args.corpus, args.checkpoint, args.directory), sort_keys=True))
         return 0
     if args.command == "search":
-        print(json.dumps(search_artifact(args.input, args.checkpoint, args.directory, args.limit), sort_keys=True))
+        print(json.dumps(search_artifact(args.input, args.checkpoint, args.directory, args.limit,
+                                         args.threshold), sort_keys=True))
         return 0
     if args.command == "export-vertex":
         print(json.dumps(export_vertex(args.directory, args.output, args.dimension), sort_keys=True))
@@ -106,9 +145,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps({"status": "ok", "lane": result.lane, "units": len(result.graphs)}))
         return 0
     if args.command == "embed":
-        model = SharedGraphEncoder()
-        if args.checkpoint:
-            model.load_state_dict(torch.load(args.checkpoint, map_location="cpu", weights_only=True))
+        model = _load_model(args.checkpoint) if args.checkpoint else SharedGraphEncoder()
         graphs = _load_graphs(Path(args.graphs))
         vectors = model(graphs).detach().tolist()
         Path(args.output).write_text("\n".join(json.dumps({"id": graph.unit_id, "embedding": vector,
