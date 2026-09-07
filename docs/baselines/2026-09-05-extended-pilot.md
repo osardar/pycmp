@@ -2,6 +2,12 @@
 
 Date: 2026-09-05
 
+Audit annotation (2026-09-07): the result below is a historical smoke run.
+The [project audit](../AUDIT-2026-09-07.md) identified graph corruption, invalid
+renaming positives and evaluation limitations. This result must not be used as
+evidence of classification effectiveness; rebuild and re-evaluate after the
+remediation gates pass. Original numbers are preserved for traceability.
+
 ## Purpose
 
 This is the first project-disjoint retrieval baseline using the newly added

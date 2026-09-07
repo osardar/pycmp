@@ -1,5 +1,42 @@
 # pycmp status
 
+## Audit update — 2026-09-07
+
+The [full audit](AUDIT-2026-09-07.md) supersedes the historical readiness claims
+below. The current schema-2 worktree has 23 passing first-party tests and fixes
+the confirmed duplicate-ID, operator-blind feature, unsafe-renaming, loss,
+batching, path-glob, split, destructive-checkout, first-unit retrieval, and
+index-compatibility defects. A corrected curation dry run retained 4,302 inputs
+from all 40 Python-contributing records; Certify is explicitly retained as a
+no-Python provenance record.
+
+The ignored schema-1 release still contains 8,970 obsolete graph-view files and
+lacks its final catalog and lock. It remains incomplete and must not be used.
+No schema-2 model has met its acceptance gate, and no genuine unknown-family
+threshold, hard-negative result, or cross-lane accuracy has been established.
+
+The schema-2 benchmark path reports the trained model beside a deterministic
+hashed-graph baseline and a seeded untrained shared encoder. A validation command
+can fit a target-precision threshold using different artifacts as proxy
+negatives; it explicitly does not claim novel-family calibration.
+
+## Schema-2 execution result
+
+The corrected pipeline produced an integrity-verified graph-unit-capped release:
+29,647 views over 8,066 units, with 38 Python-contributing repository identities
+and no repository above 250 units. A bounded 64-dimensional, two-layer,
+one-epoch baseline trained on 17,088 semantic views and indexed 2,316 files.
+
+On 3,861 paired test queries it reached Recall@5 0.8964 and failed the 0.90
+acceptance gate. Hashed graph cosine reached 0.8961 and an untrained encoder
+0.8954, so no meaningful learned benefit has been demonstrated. See the
+[schema-2 baseline report](baselines/2026-09-07-schema2-capped.md).
+
+See the [remediation plan](REMEDIATION-PLAN.md) for completion gates and the
+[classification strategy](CLASSIFICATION-STRATEGY.md) for the intended behavior.
+The following September 5 status is retained as historical context, not a new
+validation of those claims.
+
 Last updated: 2026-09-05
 
 ## Current outcome

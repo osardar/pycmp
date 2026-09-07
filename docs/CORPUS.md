@@ -1,5 +1,36 @@
 # Corpus guide
 
+## Schema-2 curation update — 2026-09-07
+
+The previous `release-v0.1` directory is preserved as an incomplete, invalidated
+schema-1 artifact. The corrected dry run for v0.2 covers 41 manifest records and
+39 repository URLs, retains 4,302 selected source/fixture inputs from 40
+Python-contributing records, and records Certify as a documented zero-Python
+source. These counts precede graph-unit expansion and are provisional until the
+clean release completes. They must not be presented as trained examples or a
+classification benchmark.
+
+The builder now uses zero-or-more-directory globstar semantics, separate exact
+and structural hashes, one role-balanced 250-input cap per canonical repository URL, broad
+production/fixture/security holdouts, and lineage grouping for NetExec and
+CrackMapExec, and an item-level inclusion/exclusion ledger. The remaining corpus
+gate is applying the cap to true module/function graph units rather than source
+containers, plus committing the resulting release evidence.
+
+That gate has now been executed in the derived
+`corpus-runs/release-v0.2-capped`: 8,066 graph units, 29,647 views, 38
+contributing repository identities, maximum 250 units per repository, and zero
+inventory/graph checksum errors. The original 231,686-view expansion is retained
+as immutable evidence of the source-container cap failure and must not be used
+for training. Future direct builds apply the graph-unit cap before publishing
+their catalog and remove unreferenced generated graph files.
+
+Audit note (2026-09-07): release curation remains unfinished. The audit's P0
+graph, selection, and split defects are repaired in schema 2, while label depth,
+unit-level capping, and benchmark gates remain open. Treat the workflow below as
+experimental. See the [audit](AUDIT-2026-09-07.md) and
+[remediation gates](REMEDIATION-PLAN.md) before publishing a benchmark.
+
 ## Goal
 
 The corpus trains and evaluates one shared graph embedding space, rather than
@@ -63,6 +94,12 @@ test machinery. For each file it writes these views where possible:
 
 The output includes `views.jsonl`, per-view graph files, and a
 `manifest.lock.json` snapshot.
+
+For the complete CPU-first release, use `codegraph.cli corpus release` with the
+core, extended-analysis, and defensive-security manifests. It assigns stable,
+stratified project partitions; removes exact cross-project duplicates; excludes
+generated/vendor paths; and caps each record at 250 source units. The generated
+`curation-report.json` records all retained and excluded input decisions.
 
 ## Curation rules
 

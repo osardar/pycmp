@@ -1,282 +1,152 @@
 # pycmp
 
-**Code-as-graph neural network experiment.**
+`pycmp` is a research system for turning Python artifacts into comparable graph
+embeddings, retrieving related known files, and studying when a system should
+reject an unfamiliar file as unknown. Its inputs may be valid source, `.pyi`
+stubs, incomplete/decompiler reconstructions, or isolated `.pyc` bytecode.
 
 This project is developed entirely with AI assistance, specifically
-`gpt-5.6-terra` at medium reasoning effort. It is an exploratory environment for
-understanding graph embeddings and identifying interesting, distinctive ways they
-can be applied to code and other structured program artifacts.
+`gpt-5.6-terra` at medium reasoning effort. It is deliberately an exploratory
+environment for understanding graph embeddings and finding interesting, unique
+applications of them. AI authorship is not evidence that its outputs are
+correct: the tests, audit, corpus provenance, and measured benchmarks are the
+evidence boundary.
 
-`pycmp` parses Python source code into a syntax tree, converts that tree into a
-graph, and runs it through a **Graph Convolutional Network (GCN)** built with
-PyTorch Geometric to produce per-node embeddings. The goal is to learn a
-representation of code structure that can be reused for downstream tasks such as
-clone detection, similarity search, or vulnerability/defect analysis.
+## Current status
+
+The schema-2 implementation repairs critical representation, training, corpus,
+and retrieval defects found in the September 2026 audit. It now validates graph
+identity, represents semantic feature values, emits module/class/function units,
+uses a multi-positive loss, creates group-disjoint stratified splits, aggregates
+whole-file embeddings, fingerprints indexes, returns scores, and can abstain.
+
+It is still a research prototype, not a validated malware classifier or proof of
+behavioral equivalence. The existing ignored `corpus-runs/release-v0.1` is an
+interrupted schema-1 build and must not be reused. A fresh schema-2 corpus,
+trained checkpoint, calibrated threshold, hard-negative benchmark, and
+source↔bytecode evaluation remain required before making accuracy claims.
+
+## Architecture
+
+```text
+valid .py/.pyi          -> CPython AST normalization -------+
+partial/decompiled text -> tree-sitter recovery ------------+-> schema-2 graph
+.pyc                    -> isolated version-aware worker ----+       |
+                                                                  shared GNN
+                                                                     |
+                                               whole-file normalized embedding
+                                                                     |
+                                  exact hash + scored retrieval + unknown rejection
+```
+
+One shared `SharedGraphEncoder` is used for every lane. A lane-independent
+semantic node kind is the primary feature. Named optional evidence—such as AST
+operation type, constant category, attribute hash, and bytecode opcode—has a
+bounded contribution; missing optional facts are not represented as a lane ID.
+Every checkpoint and local index is tied to the graph schema and feature profile.
+
+Source ingestion uses the authoritative CPython AST when possible. Tree-sitter
+is an error-tolerant recovery path, not a substitute Python specification or a
+pretend AST. Current-runtime bytecode receives instruction and branch edges in a
+constrained worker; foreign-version support remains explicitly partial.
+
+## Quick start
+
+Create an environment and install the development dependencies:
+
+```bash
+python -m venv .venv
+.venv/bin/pip install -r requirements.txt
+```
+
+Run the first-party suite:
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+Ingest source or bytecode:
+
+```bash
+.venv/bin/python -m codegraph.cli ingest sample.py --output sample.graphs.jsonl
+docker build -f docker/bytecode-worker/Dockerfile -t pycmp-bytecode-worker:latest .
+.venv/bin/python -m codegraph.cli ingest sample.pyc --output sample-pyc.graphs.jsonl
+```
+
+Build, train, evaluate, index, and query a reviewed corpus:
+
+```bash
+.venv/bin/python -m codegraph.cli corpus release \
+  --manifest corpus/lint-training-target.jsonl \
+  --manifest corpus/extended-analysis.jsonl \
+  --manifest corpus/defensive-security.jsonl \
+  --output corpus-runs/release-v0.2
+
+.venv/bin/python -m codegraph.cli train corpus-runs/release-v0.2 \
+  --checkpoint artifacts/model-v0.2.pt
+.venv/bin/python -m codegraph.cli benchmark corpus-runs/release-v0.2 \
+  --checkpoint artifacts/model-v0.2.pt --output artifacts/benchmark-v0.2.json
+.venv/bin/python -m codegraph.cli calibrate corpus-runs/release-v0.2 \
+  --checkpoint artifacts/model-v0.2.pt --target-precision 0.95
+.venv/bin/python -m codegraph.cli corpus-index corpus-runs/release-v0.2 \
+  --checkpoint artifacts/model-v0.2.pt --directory artifacts/index-v0.2
+.venv/bin/python -m codegraph.cli search unknown.py \
+  --checkpoint artifacts/model-v0.2.pt --directory artifacts/index-v0.2 \
+  --threshold 0.80
+```
+
+The threshold above is only a CLI default. `calibrate` can fit a preliminary
+validation threshold using different artifacts as proxy negatives; genuine novel
+families are still required before its `matched`/`unknown` result is interpreted
+as unknown-file performance.
+
+## Corpus
+
+The intended release has 41 manifest records representing 39 repository URLs:
+production libraries, analysis/typing/lint fixtures, educational pairs, and a
+separately labeled static-only defensive-security collection. MyPy and Black
+appear in two roles but share one repository cap and split lineage. NetExec and
+CrackMapExec share a lineage group. GhostPack Certify is retained in provenance
+with a documented zero-Python disposition.
+
+The builder never installs or executes third-party projects. It checks out full
+pinned trees, applies one zero-or-more-directory glob contract, records exact and
+structural hashes, caps each repository deterministically, and keeps repository
+groups out of multiple splits. Generated corpora and checkpoints remain ignored;
+canonical manifests, policies, tests, and reports belong in Git.
+
+## Legacy prototype and vocabulary
+
+`pycmp.py`, `ptg.py`, `gcn_model.py`, the GraphML samples, and `vocab.json` are
+historical demonstrations. They train separate per-graph GCNs against placeholder
+targets, so their embeddings are not comparable and must not be used by the
+shared retrieval workflow. `vocab.json` describes tree-sitter-python grammar
+0.23.4 node types; it is not the Python language specification and does not cover
+all Python versions. The schema-2 encoder uses versioned hashed features instead.
 
 ## Documentation
 
-- [Current project status](docs/STATUS.md)
+- [Full project audit](docs/AUDIT-2026-09-07.md)
+- [Remediation plan and execution ledger](docs/REMEDIATION-PLAN.md)
+- [Unknown-file classification strategy](docs/CLASSIFICATION-STRATEGY.md)
+- [Current status](docs/STATUS.md)
 - [Corpus guide](docs/CORPUS.md)
+- [First schema-2 capped baseline](docs/baselines/2026-09-07-schema2-capped.md)
 
----
+## Safety and interpretation
 
-## Pipeline
+Security-tool provenance is not a malicious label. Similarity is not proof of
+authorship, intent, exploitability, or equivalent behavior. Low-coverage recovery
+inputs return `insufficient_evidence`; below-threshold valid inputs return
+`unknown`. Unsupported decoders must fail explicitly rather than enter a scored
+index as placeholder evidence.
 
-```
-Python source  ──►  tree-sitter parse  ──►  concrete syntax tree (CST)
-        │
-        ▼
-networkx DiGraph  (one node per syntax element, edges = parent→child)
-        │
-        ▼
-PyTorch Geometric Data (edge_index + node features x)
-        │
-        ▼
-2-layer GCN  ──►  100-epoch train loop  ──►  node embeddings
-```
-
-1. **Parse** — `tree-sitter-python` turns source into a CST.
-2. **Graphify** — each CST node becomes a `networkx.DiGraph` node, labeled by its
-   syntax `type` (e.g. `import_statement`, `identifier`) with its source `text`;
-   parent→child relations become directed edges.
-3. **Features** — every node gets a fixed-size **one-hot vector over syntax-type
-    labels**, so `data.x` lines up with `edge_index`. A global vocabulary
-    (`vocab.json`) lets all graphs share one mapping; wiring it in is the active next
-    step (today the mapping is still built per graph).
-4. **To tensor** — `torch_geometric.utils.from_networkx()` produces a `Data`
-   object (`edge_index` + node features `x`).
-5. **Model** — a 2-layer `GCN` (`GCNConv → ReLU → GCNConv`), hidden dim 16,
-   output dim 8.
-6. **Train / embed** — Adam optimizer for 100 epochs, then a forward pass to emit
-   per-node embeddings.
-
----
-
-## Files
-
-| File | Purpose |
-|---|---|
-| `pycmp.py` | **Main pipeline.** Parse a Python file → build graph → build GCN → train → print node embeddings. |
-| `ptg.py` | **Variant.** Skips parsing; loads pre-built `*.graphml` graphs and runs a GCN on each. |
-| `gcn_model.py` | **Shared module.** `GCN` model plus `build_node_features`, `graph_to_data`, `train_gnn`, and `gen_embeddings`, used by both entry points. |
-| `test0`, `test1` | Two nearly-identical sample Python scripts used as input (they differ only in the URLs and the printed strings — useful as a "similar code" pair). |
-| `test0.graphml`, `test1.graphml` | Graph-serialized versions of the two test scripts (133 nodes each), consumed by `ptg.py`. |
-| `build_vocab.py` | **Tooling.** Builds the global feature vocabulary (below) either from the tree-sitter grammar (`--from-grammar`) or from a corpus of `.graphml` files. |
-| `vocab.json` | **The global feature vocabulary** — a fixed label→index map (216 dims) that all graphs are meant to share. |
-| `tree_sitter_python_node_types.json` | Vendored tree-sitter-python v0.23.4 grammar node types; the source for `vocab.json`. |
-| `requirements.txt` | Pinned dependencies, plus unpinned `torch` / `torch_geometric`. |
-
----
-
-## Install
-
-```bash
-pip install -r requirements.txt
-```
-
-`torch` and `torch_geometric` are listed in `requirements.txt` but left unpinned,
-since the right build depends on your OS / CUDA. If the generic install doesn't
-match your environment, install a build that does:
-
-```bash
-pip install torch
-pip install torch_geometric   # or: pip install torch-geometric
-```
-
----
-
-## Usage
-
-### `pycmp.py` — parse code, then graph + train
-
-```bash
-python pycmp.py test0
-```
-
-Reads the Python file given as `argv[1]`, parses it, builds the graph, trains the
-GCN, and prints node embeddings.
-
-### `ptg.py` — load pre-built graphs, then train
-
-```bash
-python ptg.py test0.graphml test1.graphml
-```
-
-Reads each `.graphml` file as a graph, runs a GCN on each, and prints embeddings.
-Graphs loaded from graphml store the node type under the `label` key (rather than
-`type`), which `build_node_features` handles.
-
----
-
-## Feature vocabulary
-
-For two files' embeddings to be comparable, every graph must be encoded against the
-*same* label→index mapping. `build_vocab.py` produces that as a single, fixed
-**global vocabulary** written to `vocab.json`.
-
-- **Source.** The vocabulary is built from the tree-sitter-python grammar's
-   `node-types.json` (vendored as `tree_sitter_python_node_types.json`, version
-   `0.23.4` to match `requirements.txt`) rather than from the small test corpus, so
-   it covers every syntax type the parser can emit — not just the 33 the two test
-   files happen to use.
-- **Contents.** 215 distinct node types + 1 reserved `<unknown>` slot = **216
-   dimensions**. `<unknown>` (index 0) is a safety net for grammar-version drift or
-   unseen tokens; the rest get indices in sorted order for stability.
-- **Reproducible.** Because the mapping is fixed and corpus-independent, it does not
-   shift as you add data, and `vocab.json` can be committed as an artifact.
-
-Build it with:
-
-```bash
-# from the full grammar (recommended):
-python build_vocab.py --from-grammar
-
-# or inspect what a corpus of graphs actually uses:
-python build_vocab.py test0.graphml test1.graphml
-```
-
-> The vocabulary is built but **not yet wired into** `build_node_features` — that is
-> the top next step (see below).
-
----
-
-## Current state
-
-This is an early prototype that wires up the data path and the forward/backward
-pass. It is **not** yet a trained or evaluated model.
-
-### Known issues / rough edges
-
-- **Training target is a placeholder.** `train_gnn()` falls back to
-  `make_placeholder_target()`, a *seeded* (reproducible) random tensor, so the 100
-  epochs exercise the pipeline deterministically but do not learn anything
-  meaningful yet. Replace with a real target (labels, a reconstruction target, or
-  a task loss).
-- **Vocabulary not yet wired in.** `vocab.json` and `build_vocab.py` exist, but
-   `build_node_features` still builds a per-graph mapping. Wiring the global vocab in
-   (plus one shared `GCN`) is needed before embeddings from different files are
-   comparable.
-- **First commit pending.** The directory is now a git repository (initialized, with
-   a `.gitignore`), but no commit has been made yet.
-
----
-
-## Suggested next steps
-
-- **Wire in the global vocabulary.** Have `build_node_features` load `vocab.json` and
-   use one shared `GCN` across all graphs, so `test0`/`test1` embeddings live in a
-   common space.
-- Add a real training objective / loss and a way to load labels.
-- Add a basic test comparing embeddings of `test0` vs `test1` (expecting them to be
-   "close").
-- Make the first git commit.
-
----
-
-## Shared cross-lane embedding pipeline
-
-The original CST-only experiment remains available in `pycmp.py`. New work lives
-in `codegraph/` and establishes a single embedding space across inputs rather
-than training a different GCN per file or lane.
-
-```text
-valid .py source       -> Python AST normalizer  --+
-partial/decompiled .py -> Tree-sitter recovery   --+-> semantic program graph
-.pyc (isolated worker) -> bytecode/CFG normalizer --+-> one shared relational GNN
-```
-
-- **Comparable units.** Functions and methods are embedded directly. A learned
-  pooling layer produces module/project vectors; project retrieval combines that
-  vector with top function-level matches.
-- **Missing facts.** Graph nodes and edges carry availability masks. A missing
-  source-only fact is not encoded as a false value, so recovery and bytecode
-  graphs retain the same model input contract.
-- **Safety.** Source and bytecode are never imported or executed. `.pyc` payloads
-  are decoded only by a short-lived constrained subprocess. This current decoder
-  accepts bytecode matching that worker's CPython runtime; a version-aware decoder
-  adapter is required before ingesting a different `.pyc` runtime.
-- **Training.** `codegraph.training` supplies paired-view contrastive training:
-  source, bytecode, decompilation, damaged reconstructions, and semantic-preserving
-  transformations of the same artifact are positives.
-- **Corpus.** `LocalFaissIndex` persists stable record IDs and metadata locally.
-  `VertexAIVectorSearchIndex` defines the compatible managed-search boundary.
-
-Example:
-
-```bash
-python -m codegraph.cli ingest path/to/input.py --output artifact.graphs.jsonl
-python -m codegraph.cli embed artifact.graphs.jsonl --output artifact.embeddings.jsonl
-python -m codegraph.cli index artifact.embeddings.jsonl --directory corpus-index
-```
-
-Run the standard-library test suite with:
-
-```bash
-python -m unittest discover -s tests
-```
-
-### Corpus workflow
-
-The corpus workflow consumes a reviewed, pinned JSONL manifest. Start from
-`corpus/manifest.example.jsonl`; do not use it directly. Generated artifacts are
-ignored by git.
-
-```bash
-python -m codegraph.cli corpus build local-manifest.jsonl --output corpus-runs/pilot
-python -m codegraph.cli train corpus-runs/pilot --checkpoint artifacts/model.pt
-python -m codegraph.cli evaluate corpus-runs/pilot --checkpoint artifacts/model.pt
-python -m codegraph.cli corpus-index corpus-runs/pilot --checkpoint artifacts/model.pt --directory artifacts/index
-python -m codegraph.cli search path/to/query.py --checkpoint artifacts/model.pt --directory artifacts/index
-python -m codegraph.cli export-vertex --directory artifacts/index --output artifacts/vertex.jsonl
-python -m codegraph.cli decompile path/to/input.pyc --backlog artifacts/decompiler-gaps.jsonl --output artifacts/recovered.graphs.jsonl
-```
-
-The ten concise, version-labelled fixtures under `fixtures/synthetic/` cover
-Python 3.4 through 3.12 language features. Build the untrusted-bytecode worker
-before ingesting `.pyc` files:
-
-```bash
-docker build -f docker/bytecode-worker/Dockerfile -t pycmp-bytecode-worker:latest .
-```
-
-Untrusted `.pyc` ingestion fails closed when Docker is unavailable. The worker
-uses `xdis` for cross-version decoding and `uncompyle6` is installed for
-reconstructed-source experiments; unsupported decompilation cases belong in the
-structured local backlog rather than being discarded.
-
-`corpus/defensive-security.jsonl` is a separately labeled, static-analysis-only
-research set. Its entries retain exact Git revisions and source-host license
-identifiers, including copyleft and `NOASSERTION` licenses; pycmp never installs,
-executes, or supplies credentials/targets to this corpus.
-
-`corpus/analysis-fixtures.jsonl` adds mypy, Pylint, pyflakes, pycodestyle, and
-Flake8 as static-only language-analysis fixtures. Their dense valid/invalid
-syntax and checker-test inputs are useful for training structural similarity and
-recovery behavior independently of the defensive-security corpus.
-
-`corpus/lint-training-target.jsonl` is the reviewed 20-record linting/training
-target: ten production-quality projects and ten fixture, educational-pair, or
-reference records. Mypy and Black each have source and fixture records but share
-a `split_group`, so they are always assigned to the same train/validation/test
-partition. The default target excludes unverified sources and the separately
-licensed `quantifiedcode/python-anti-patterns`; it intentionally contains no
-project execution step. The builder supports explicitly declared `.pyi` stub
-inputs and labels them by source kind. Embedded-string and Markdown fixture
-extraction remain future labeled lanes, rather than silently treating their
-containers as ordinary examples.
-
-`corpus/extended-analysis.jsonl` adds six separately reviewed sources: Bandit,
-Hypothesis, beartype, Refurb, capa, and BBOT. Capa and BBOT are in the labeled
-defensive-security research tier; all six entries remain static-only and the
-builder never installs, runs, or targets anything from their repositories.
-
-`corpus/baseline-pilot.jsonl` is a bounded, project-disjoint static baseline
-drawn from the extended set. Its metric is paired-view retrieval recall, not a
-claim of clone-detection F1; a full baseline requires fixture labels and a larger
-held-out project set.
-
----
+Untrusted `.pyc` decoding defaults to a network-disabled, read-only, non-root
+Docker worker. Third-party corpus source is treated as data and is never imported
+or executed.
 
 ## License
 
-Not specified.
+First-party project licensing and third-party corpus licensing are separate.
+Each corpus record preserves its source-host license identifier and research
+handling policy; that metadata is not a substitute for a legal license audit.
