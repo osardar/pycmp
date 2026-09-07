@@ -3,6 +3,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
+import os
+import tempfile
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
@@ -29,10 +32,16 @@ class CorpusProject:
     # manifests use the stable project hash by leaving this as "auto".
     partition: str = "auto"
     fixture_extractor: str = ""
+    allow_empty: bool = False
+    empty_reason: str = ""
 
     def validate(self) -> None:
         if not self.name or not self.url or not self.revision:
             raise ValueError("manifest records require name, url, and immutable revision")
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", self.name):
+            raise ValueError(f"unsafe project name {self.name!r}")
+        if not re.fullmatch(r"[0-9a-fA-F]{40}", self.revision):
+            raise ValueError(f"{self.name}: revision must be a full 40-character commit ID")
         permissive = {"MIT", "BSD-2-Clause", "BSD-3-Clause", "Apache-2.0", "ISC", "PSF-2.0"}
         special_tiers = {"defensive_security", "analysis_fixtures"}
         if self.license not in permissive and self.research_tier not in special_tiers:
@@ -48,6 +57,8 @@ class CorpusProject:
             raise ValueError(f"{self.name}: partition must be auto, train, validation, or test")
         if self.fixture_extractor not in {"", "mypy", "markdown", "black", "cpython"}:
             raise ValueError(f"{self.name}: unknown fixture extractor {self.fixture_extractor!r}")
+        if self.allow_empty != bool(self.empty_reason):
+            raise ValueError(f"{self.name}: allow_empty requires a documented empty_reason")
 
 
 def load_manifest(path: str | Path) -> list[CorpusProject]:
@@ -84,4 +95,13 @@ def artifact_id(*parts: str) -> str:
 
 def write_lock(path: str | Path, projects: list[CorpusProject]) -> None:
     values = [asdict(project) for project in projects]
-    Path(path).write_text(json.dumps({"format": 1, "projects": values}, indent=2, sort_keys=True) + "\n")
+    target = Path(path)
+    descriptor, temporary_name = tempfile.mkstemp(prefix=f".{target.name}.", suffix=".tmp", dir=target.parent)
+    try:
+        with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+            handle.write(json.dumps({"format": 2, "projects": values}, indent=2, sort_keys=True) + "\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_name, target)
+    finally:
+        Path(temporary_name).unlink(missing_ok=True)

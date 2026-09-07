@@ -25,10 +25,19 @@ def _mypy_cases(text: str) -> list[FixtureInput]:
     fixtures: list[FixtureInput] = []
     for position, match in enumerate(sections):
         body = text[match.end():sections[position + 1].start() if position + 1 < len(sections) else len(text)]
+        out_match = re.search(r"(?m)^\[out\]\s*$", body)
+        expected_output = ""
+        if out_match:
+            expected_output = re.split(r"(?m)^\[[^\]]+\]\s*$", body[out_match.end():], maxsplit=1)[0].strip()
         # Expected output and auxiliary-file sections are metadata, not source.
-        body = re.split(r"(?m)^\[(?:out|file |fixture |builtins |typing )[^\]]*\]\s*$", body)[0].strip()
-        if body:
-            fixtures.append(FixtureInput(match.group(1), body, {"fixture_case": match.group(1), **_labels(body)}))
+        source = re.split(r"(?m)^\[(?:out|file |fixture |builtins |typing )[^\]]*\]\s*$", body)[0].strip()
+        if source:
+            labels = _labels(source)
+            if expected_output:
+                labels["expected_outcome"] = "diagnostic"
+                labels["has_expected_output"] = True
+            fixtures.append(FixtureInput(match.group(1), source,
+                                         {"fixture_case": match.group(1), **labels}))
     return fixtures
 
 
@@ -46,8 +55,10 @@ def _black_pair(text: str) -> list[FixtureInput]:
     if len(parts) != 2:
         return [FixtureInput("input", text, {"fixture_case": "input", **_labels(text)})]
     return [
-        FixtureInput("input", parts[0].strip(), {"fixture_case": "input", "pair_role": "input", **_labels(parts[0])}),
-        FixtureInput("output", parts[1].strip(), {"fixture_case": "output", "pair_role": "output", **_labels(parts[1])}),
+        FixtureInput("input", parts[0].strip(), {"fixture_case": "input", "pair_role": "input",
+                                                      "semantic_pair": "black-format", **_labels(parts[0])}),
+        FixtureInput("output", parts[1].strip(), {"fixture_case": "output", "pair_role": "output",
+                                                       "semantic_pair": "black-format", **_labels(parts[1])}),
     ]
 
 
@@ -69,16 +80,17 @@ def _cpython_embedded(text: str) -> list[FixtureInput]:
         name = _call_name(call.func).lower()
         if not any(token in name for token in ("compile", "parse", "syntax", "exec", "eval")):
             continue
-        for argument in call.args:
+        for argument_number, argument in enumerate(call.args, 1):
             if not isinstance(argument, ast.Constant) or not isinstance(argument.value, str):
                 continue
             source = argument.value.strip()
             if "\n" not in source and not re.search(r"\b(?:def|class|import|assert|return|=)\b", source):
                 continue
-            metadata = {"fixture_case": f"embedded-{number}", "container_call": name, **_labels(source)}
+            identifier = f"embedded-{number}-{argument_number}"
+            metadata = {"fixture_case": identifier, "container_call": name, **_labels(source)}
             if "syntax" in name:
                 metadata["parse_expectation"] = "invalid"
-            fixtures.append(FixtureInput(f"embedded-{number}", source, metadata))
+            fixtures.append(FixtureInput(identifier, source, metadata))
     return fixtures
 
 
