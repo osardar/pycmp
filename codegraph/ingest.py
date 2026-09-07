@@ -28,8 +28,8 @@ def ingest_source(
     text = raw.decode("utf-8", errors="replace")
     metadata = {"reconstructed": reconstructed}
     try:
-        graphs = ASTNormalizer().function_graphs(text, origin=origin, python_minor=python_minor,
-                                                 extra_metadata=metadata)
+        graphs = ASTNormalizer().unit_graphs(text, origin=origin, python_minor=python_minor,
+                                             extra_metadata=metadata)
         return IngestionResult(graphs, "ast", [])
     except (SyntaxError, ValueError) as exc:
         graph = recovery_graph(raw, origin=origin, reason=str(exc))

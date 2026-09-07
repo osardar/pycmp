@@ -10,13 +10,32 @@ from torch import nn
 from .semantic import ProgramGraph
 
 
+FEATURE_KEYS = (
+    "ast_type", "semantic_kind", "constant_category", "name_context",
+    "attribute_hash", "opcode", "operand_category", "recovery_type",
+)
+
+
 def _bucket(value: str, size: int) -> int:
     return int.from_bytes(hashlib.blake2b(value.encode(), digest_size=8).digest(), "big") % size
 
 
 def graph_tensors(graph: ProgramGraph, *, node_buckets: int, relation_buckets: int) -> dict[str, torch.Tensor]:
     positions = {node.id: i for i, node in enumerate(graph.nodes)}
-    node_types = torch.tensor([_bucket(node.kind, node_buckets) for node in graph.nodes], dtype=torch.long)
+    graph.validate()
+    feature_rows: list[list[int]] = []
+    feature_masks: list[list[float]] = []
+    for node in graph.nodes:
+        tokens = [f"kind={node.kind}"]
+        tokens.extend(f"{key}={node.attributes[key]}" for key in FEATURE_KEYS if key in node.attributes)
+        feature_rows.append([_bucket(token, node_buckets) for token in tokens])
+    width = max(len(row) for row in feature_rows)
+    for row in feature_rows:
+        feature_masks.append([1.0] * len(row) + [0.0] * (width - len(row)))
+        row.extend([0] * (width - len(row)))
+    feature_ids = torch.tensor(feature_rows, dtype=torch.long)
+    feature_mask = torch.tensor(feature_masks, dtype=torch.float32)
+    node_types = feature_ids[:, 0]
     # At least one availability fact is known for all nodes. The ratio gives the
     # model a direct, portable missing-information signal without lane IDs.
     availability = torch.tensor(
@@ -27,8 +46,12 @@ def graph_tensors(graph: ProgramGraph, *, node_buckets: int, relation_buckets: i
     edge_index = torch.tensor([[positions[e.source], positions[e.target]] for e in kept], dtype=torch.long)
     if not kept:
         edge_index = torch.empty((0, 2), dtype=torch.long)
-    edge_types = torch.tensor([_bucket(edge.kind, relation_buckets) for edge in kept], dtype=torch.long)
+    edge_types = torch.tensor([
+        _bucket(f"{edge.kind}|position={edge.attributes.get('position', '*')}", relation_buckets)
+        for edge in kept
+    ], dtype=torch.long)
     return {"node_types": node_types, "availability": availability,
+            "feature_ids": feature_ids, "feature_mask": feature_mask,
             "edge_index": edge_index, "edge_types": edge_types}
 
 
@@ -60,7 +83,6 @@ class SharedGraphEncoder(nn.Module):
         self.relation_buckets = relation_buckets
         self.node_embedding = nn.Embedding(node_buckets, dimension)
         self.relation_embedding = nn.Embedding(relation_buckets, dimension)
-        self.availability = nn.Linear(2, dimension)
         self.layers = nn.ModuleList(RelationalLayer(dimension) for _ in range(layers))
         self.project = nn.Linear(dimension, dimension)
 
@@ -68,7 +90,18 @@ class SharedGraphEncoder(nn.Module):
         tensors = graph_tensors(graph, node_buckets=self.node_buckets,
                                 relation_buckets=self.relation_buckets)
         device = next(self.parameters()).device
-        values = self.node_embedding(tensors["node_types"].to(device)) + self.availability(tensors["availability"].to(device))
+        feature_ids = tensors["feature_ids"].to(device)
+        feature_mask = tensors["feature_mask"].to(device)
+        features = self.node_embedding(feature_ids)
+        # The first token is the lane-independent semantic core. Optional
+        # evidence refines it at a bounded weight and its absence is not encoded
+        # as a lane-identifying feature.
+        values = features[:, 0]
+        optional_mask = feature_mask[:, 1:]
+        if optional_mask.shape[1]:
+            optional = (features[:, 1:] * optional_mask[..., None]).sum(dim=1)
+            optional = optional / optional_mask.sum(dim=1, keepdim=True).clamp_min(1)
+            values = values + 0.25 * optional
         edge_index, edge_types = tensors["edge_index"].to(device), tensors["edge_types"].to(device)
         for layer in self.layers:
             values = layer(values, edge_index, self.relation_embedding(edge_types))
@@ -104,13 +137,23 @@ def hybrid_project_similarity(left_project: torch.Tensor, right_project: torch.T
 
 
 def contrastive_loss(embeddings: torch.Tensor, positive_pairs: list[tuple[int, int]], temperature: float = 0.07) -> torch.Tensor:
-    """Symmetric InfoNCE over explicit cross-view positive pairs."""
+    """Multi-positive supervised contrastive loss with self excluded."""
     if not positive_pairs:
         raise ValueError("at least one positive pair is required")
     embeddings = torch.nn.functional.normalize(embeddings, dim=-1)
+    if embeddings.shape[0] < 2:
+        raise ValueError("at least two embeddings are required")
     logits = embeddings @ embeddings.T / temperature
-    losses = []
+    logits.fill_diagonal_(float("-inf"))
+    positives: dict[int, set[int]] = {}
     for left, right in positive_pairs:
-        losses.append(torch.nn.functional.cross_entropy(logits[left:left + 1], torch.tensor([right], device=logits.device)))
-        losses.append(torch.nn.functional.cross_entropy(logits[right:right + 1], torch.tensor([left], device=logits.device)))
+        if left == right or min(left, right) < 0 or max(left, right) >= embeddings.shape[0]:
+            raise ValueError("positive pair indices must identify distinct embeddings")
+        positives.setdefault(left, set()).add(right)
+        positives.setdefault(right, set()).add(left)
+    losses = []
+    for anchor, matches in positives.items():
+        numerator = torch.logsumexp(logits[anchor, list(matches)], dim=0)
+        denominator = torch.logsumexp(logits[anchor], dim=0)
+        losses.append(-(numerator - denominator))
     return torch.stack(losses).mean()

@@ -5,7 +5,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -22,6 +22,7 @@ class GraphEdge:
     target: str
     kind: str
     available: tuple[str, ...] = ()
+    attributes: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -40,6 +41,7 @@ class ProgramGraph:
     schema_version: int = SCHEMA_VERSION
 
     def to_dict(self) -> dict[str, Any]:
+        self.validate()
         return {
             "schema_version": self.schema_version,
             "unit_id": self.unit_id,
@@ -53,7 +55,7 @@ class ProgramGraph:
     def from_dict(cls, value: dict[str, Any]) -> "ProgramGraph":
         if value.get("schema_version") != SCHEMA_VERSION:
             raise ValueError(f"unsupported graph schema: {value.get('schema_version')}")
-        return cls(
+        graph = cls(
             unit_id=value["unit_id"],
             unit_kind=value["unit_kind"],
             nodes=[GraphNode(**node) for node in value["nodes"]],
@@ -61,3 +63,23 @@ class ProgramGraph:
             metadata=value.get("metadata", {}),
             schema_version=value["schema_version"],
         )
+        graph.validate()
+        return graph
+
+    def validate(self) -> None:
+        """Reject corrupt graphs at every cache and model boundary."""
+        if self.schema_version != SCHEMA_VERSION:
+            raise ValueError(f"unsupported graph schema: {self.schema_version}")
+        if not self.nodes:
+            raise ValueError("program graph must contain at least one node")
+        if self.unit_kind not in {"module", "class", "function"}:
+            raise ValueError(f"unsupported unit kind: {self.unit_kind!r}")
+        node_ids = [node.id for node in self.nodes]
+        if len(node_ids) != len(set(node_ids)):
+            raise ValueError(f"duplicate node IDs in {self.unit_id}")
+        known = set(node_ids)
+        for edge in self.edges:
+            if edge.source not in known or edge.target not in known:
+                raise ValueError(
+                    f"edge {edge.kind!r} references an unknown node in {self.unit_id}"
+                )

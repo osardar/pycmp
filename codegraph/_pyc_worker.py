@@ -56,7 +56,7 @@ def _decode_cross_version(path: str, magic: str) -> dict:
     # Portable xdis code objects differ by CPython era. Preserve an explicitly
     # partial semantic graph rather than inventing host-runtime opcode meanings.
     graph = _code_graph(code, path, magic) if isinstance(code, CodeType) else {
-        "schema_version": 1, "unit_id": f"{path}:bytecode", "unit_kind": "function",
+        "schema_version": 2, "unit_id": f"{path}:bytecode", "unit_kind": "function",
         "nodes": [{"id": "n0", "kind": "core:function", "attributes": {"semantic_kind": "function", "code_name": name},
                    "available": ["semantic_kind", "code_name"]},
                   {"id": "n1", "kind": "core:operation", "attributes": {"semantic_kind": "operation", "opcode": "foreign_bytecode"},
@@ -89,7 +89,11 @@ def _code_graph(root: CodeType, origin: str, magic: str) -> dict:
         if parent:
             edges.append({"source": parent, "target": fn, "kind": "contains", "available": ["bytecode"]})
         previous = None
+        previous_terminal = False
         offsets: dict[int, str] = {}
+        branches: list[tuple[str, int]] = []
+        terminal_opcodes = {"RETURN_VALUE", "RAISE_VARARGS", "RERAISE", "JUMP_FORWARD",
+                            "JUMP_BACKWARD", "JUMP_BACKWARD_NO_INTERRUPT"}
         for instruction in dis.get_instructions(code):
             attrs = {
                 "semantic_kind": "operation", "opcode": instruction.opname,
@@ -98,11 +102,18 @@ def _code_graph(root: CodeType, origin: str, magic: str) -> dict:
             op = add("core:operation", attrs, list(attrs))
             offsets[instruction.offset] = op
             edges.append({"source": fn, "target": op, "kind": "contains", "available": ["bytecode"]})
-            if previous:
+            if previous and not previous_terminal:
                 edges.append({"source": previous, "target": op, "kind": "control_next", "available": ["bytecode"]})
             previous = op
+            previous_terminal = instruction.opname in terminal_opcodes
+            if instruction.opcode in {*dis.hasjabs, *dis.hasjrel} and isinstance(instruction.argval, int):
+                branches.append((op, instruction.argval))
             if instruction.is_jump_target:
                 edges.append({"source": fn, "target": op, "kind": "control_target", "available": ["bytecode"]})
+        for source, target_offset in branches:
+            if target_offset in offsets:
+                edges.append({"source": source, "target": offsets[target_offset],
+                              "kind": "control_branch", "available": ["bytecode"]})
         for constant in code.co_consts:
             if isinstance(constant, CodeType):
                 add_code(constant, fn)
@@ -110,10 +121,11 @@ def _code_graph(root: CodeType, origin: str, magic: str) -> dict:
 
     add_code(root)
     return {
-        "schema_version": 1, "unit_id": f"{origin}:bytecode", "unit_kind": "function",
+        "schema_version": 2, "unit_id": f"{origin}:bytecode", "unit_kind": "function",
         "nodes": nodes, "edges": edges,
         "metadata": {"lane": "bytecode", "origin": origin, "parser": "isolated-cpython-dis",
-                     "bytecode_magic": magic, "parse_status": "valid", "confidence": "medium"},
+                     "bytecode_magic": magic, "parse_status": "valid", "confidence": "medium",
+                     "unit_layout": "nested_code_objects_combined"},
     }
 
 

@@ -44,8 +44,8 @@ def recovery_graph(source: bytes, *, origin: str, reason: str) -> ProgramGraph:
             visit(child, node_id)
 
     visit(tree.root_node)
-    return ProgramGraph(
-        f"{origin}:recovery", "function", nodes, edges,
+    graph = ProgramGraph(
+        f"{origin}:recovery", "module", nodes, edges,
         {
             "lane": "recovery",
             "origin": origin,
@@ -54,5 +54,8 @@ def recovery_graph(source: bytes, *, origin: str, reason: str) -> ProgramGraph:
             "parse_reason": reason,
             "error_count": errors,
             "confidence": "low",
+            "qualified_name": "<module>",
         },
     )
+    graph.validate()
+    return graph
