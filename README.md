@@ -22,9 +22,12 @@ whole-file embeddings, fingerprints indexes, returns scores, and can abstain.
 
 It is still a research prototype, not a validated malware classifier or proof of
 behavioral equivalence. The existing ignored `corpus-runs/release-v0.1` is an
-interrupted schema-1 build and must not be reused. A fresh schema-2 corpus,
-trained checkpoint, calibrated threshold, hard-negative benchmark, and
-source↔bytecode evaluation remain required before making accuracy claims.
+interrupted schema-1 build and must not be reused. A capped schema-2 corpus and
+trained baseline now exist, but the model has not met its acceptance gate.
+The [synthetic similarity benchmark](docs/baselines/2026-09-07-synthetic-similarity.md)
+tests ten held-out projects, 60 obfuscations, 111 compiled variants, and two
+decompilers. Its hard-negative results expose weak behavioral discrimination.
+Unknown-family calibration and direct source↔bytecode-lane validation remain open.
 
 ## Architecture
 

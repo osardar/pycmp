@@ -1,5 +1,19 @@
 # pycmp status
 
+## Synthetic similarity experiment — 2026-09-07
+
+Ten additional held-out projects now have 60 oracle-checked obfuscated sources,
+ten behavior-changing near-copies, and a four-runtime compiler/decompiler matrix.
+All 111 compiled variants and 12 optimization probes pass; 63 of 222 decompiler
+attempts yield verified reconstructions. The frozen encoder retrieves all 63
+against ten originals, but structural-obfuscation top-1 is 21/30 and falls to
+6/30 when a behavior-changing near-copy competes. Hashed graphs do better on that
+hard setting (15/30). This is evidence of a working experiment, not validated
+behavioral classification. The first-party suite now has 26 passing tests.
+
+See the [full measured report](baselines/2026-09-07-synthetic-similarity.md),
+including failed-decompiler coverage, all pairwise scores, and reproduction steps.
+
 ## Audit update — 2026-09-07
 
 The [full audit](AUDIT-2026-09-07.md) supersedes the historical readiness claims

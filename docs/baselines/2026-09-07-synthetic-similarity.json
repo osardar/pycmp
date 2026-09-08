@@ -1,0 +1,921 @@
+{
+  "format": 1,
+  "checkpoint": "corpus-runs/release-v0.2-capped/model-d64-l2-e1.pt",
+  "checkpoint_sha256": "dd7eeefd810effc45aa990a42b317f4b5ab938d84921d1bc5a664494b9af6a9e",
+  "definition_sha256": "018bac64dc662be36add446e27430919a4041aaa36b5bb5c2bb17ea3103add0c",
+  "evaluation_code_sha256": "98eb7cf6cad524b0a177b134b3c8e03a2f34c70a4690796e7aca8dea508c778c",
+  "similarity_definition": "100 * cosine; signed score, not probability",
+  "reconstruction_statuses": {
+    "behavior_mismatch": 9,
+    "invalid_output": 63,
+    "partial": 3,
+    "success": 63,
+    "unsupported": 84
+  },
+  "definition": {
+    "fixtures": [
+      {
+        "modules": [
+          "main.py",
+          "pricing.py"
+        ],
+        "name": "invoice",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "inventory",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "events",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "transaction",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "memo",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "codec",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "dispatch",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "dependencies",
+        "python_min": "3.4"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "async_queue",
+        "python_min": "3.8"
+      },
+      {
+        "modules": [
+          "main.py"
+        ],
+        "name": "typed_router",
+        "python_min": "3.12"
+      }
+    ],
+    "format": 1,
+    "generator_hash": "97abbee8aca4c684724acc556023a5025226e11e8035ea8e4f6cc7e94cd0692a",
+    "obfuscator_hash": "8338fcff6336102fcfb92c17cdb460e9e51bfa6e221bb510131c120c7cb7361e",
+    "runtimes": {
+      "3.12": "python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea",
+      "3.14": "python:3.14-slim@sha256:cad9a2c871761c413caa6fdd6441c783451e740a48aaeba60ae62a8b53525ef6",
+      "3.4": "python:3.4.10-slim@sha256:44b78f9c6c93df7d8bc0d32a85ef8fd10a074a101985bde6fd41d3b5aadf16f0",
+      "3.8": "python:3.8.20-slim@sha256:1d52838af602b4b5a831beb13a0e4d073280665ea7be7f69ce2382f29c5a613f"
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "tools_image": "sha256:944e615d157bebf10f4cd1ed1717c0abbce7af4cce9e260ef41f2c9ecf8ea4c5",
+    "tools_labels": {
+      "pycmp.pycdc.revision": "b4289760970dbc399684f1e155ec6d1ea1cc787e"
+    },
+    "uncompyle6": "3.9.3",
+    "worker_hash": "96b191612044c54977fa413c8bc39a897cb94da1054d5b945bf1c6ef60313030",
+    "xdis": "6.1.8"
+  },
+  "optimization_probes": [
+    {
+      "optimization": 0,
+      "passed": true,
+      "runtime": "3.4"
+    },
+    {
+      "optimization": 1,
+      "passed": true,
+      "runtime": "3.4"
+    },
+    {
+      "optimization": 2,
+      "passed": true,
+      "runtime": "3.4"
+    },
+    {
+      "optimization": 0,
+      "passed": true,
+      "runtime": "3.8"
+    },
+    {
+      "optimization": 1,
+      "passed": true,
+      "runtime": "3.8"
+    },
+    {
+      "optimization": 2,
+      "passed": true,
+      "runtime": "3.8"
+    },
+    {
+      "optimization": 0,
+      "passed": true,
+      "runtime": "3.12"
+    },
+    {
+      "optimization": 1,
+      "passed": true,
+      "runtime": "3.12"
+    },
+    {
+      "optimization": 2,
+      "passed": true,
+      "runtime": "3.12"
+    },
+    {
+      "optimization": 0,
+      "passed": true,
+      "runtime": "3.14"
+    },
+    {
+      "optimization": 1,
+      "passed": true,
+      "runtime": "3.14"
+    },
+    {
+      "optimization": 2,
+      "passed": true,
+      "runtime": "3.14"
+    }
+  ],
+  "retrieval_summary": [
+    {
+      "kind": "light",
+      "method": "trained",
+      "queries": 30,
+      "rank1": 30,
+      "rank1_with_hard_negative": 30
+    },
+    {
+      "kind": "light",
+      "method": "untrained",
+      "queries": 30,
+      "rank1": 30,
+      "rank1_with_hard_negative": 30
+    },
+    {
+      "kind": "light",
+      "method": "hashed_graph",
+      "queries": 30,
+      "rank1": 30,
+      "rank1_with_hard_negative": 30
+    },
+    {
+      "kind": "structural",
+      "method": "trained",
+      "queries": 30,
+      "rank1": 21,
+      "rank1_with_hard_negative": 6
+    },
+    {
+      "kind": "structural",
+      "method": "untrained",
+      "queries": 30,
+      "rank1": 21,
+      "rank1_with_hard_negative": 3
+    },
+    {
+      "kind": "structural",
+      "method": "hashed_graph",
+      "queries": 30,
+      "rank1": 24,
+      "rank1_with_hard_negative": 15
+    },
+    {
+      "kind": "decompiled",
+      "method": "trained",
+      "queries": 63,
+      "rank1": 63,
+      "rank1_with_hard_negative": 60
+    },
+    {
+      "kind": "decompiled",
+      "method": "untrained",
+      "queries": 63,
+      "rank1": 63,
+      "rank1_with_hard_negative": 54
+    },
+    {
+      "kind": "decompiled",
+      "method": "hashed_graph",
+      "queries": 63,
+      "rank1": 63,
+      "rank1_with_hard_negative": 63
+    },
+    {
+      "kind": "negative",
+      "method": "trained",
+      "queries": 10,
+      "rank1": 10,
+      "rank1_with_hard_negative": null
+    },
+    {
+      "kind": "negative",
+      "method": "untrained",
+      "queries": 10,
+      "rank1": 10,
+      "rank1_with_hard_negative": null
+    },
+    {
+      "kind": "negative",
+      "method": "hashed_graph",
+      "queries": 10,
+      "rank1": 9,
+      "rank1_with_hard_negative": null
+    }
+  ],
+  "pairwise_summary": [
+    {
+      "project": "async_queue",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "async_queue",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 87.43745684623718,
+        "untrained": 98.67746233940125,
+        "hashed_graph": 99.2428183555603
+      }
+    },
+    {
+      "project": "async_queue",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 99.22724962234497,
+        "untrained": 99.9661386013031,
+        "hashed_graph": 99.99139308929443
+      }
+    },
+    {
+      "project": "async_queue",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 99.22724962234497,
+        "untrained": 99.9661386013031,
+        "hashed_graph": 99.99139308929443
+      }
+    },
+    {
+      "project": "async_queue",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 86.5984320640564,
+        "untrained": 98.63428473472595,
+        "hashed_graph": 99.24954175949097
+      }
+    },
+    {
+      "project": "async_queue",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.99257922172546,
+        "untrained": 99.99988079071045,
+        "hashed_graph": 99.99139308929443
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 63.191020488739014,
+        "untrained": 96.45124673843384,
+        "hashed_graph": 95.76998949050903
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 6,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 63.191020488739014,
+        "untrained": 96.45124673843384,
+        "hashed_graph": 95.76998949050903
+      }
+    },
+    {
+      "project": "codec",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 84.28102731704712,
+        "untrained": 98.46544861793518,
+        "hashed_graph": 97.05851078033447
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 75.37305355072021,
+        "untrained": 98.25809597969055,
+        "hashed_graph": 98.70578050613403
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 99.72087939580281,
+        "untrained": 99.98921155929565,
+        "hashed_graph": 99.99505678812663
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 27,
+      "mean_percent": {
+        "trained": 99.72087939580281,
+        "untrained": 99.98921155929565,
+        "hashed_graph": 99.99505678812663
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 27,
+      "mean_percent": {
+        "trained": 74.6580143769582,
+        "untrained": 98.24004769325256,
+        "hashed_graph": 98.72088432312012
+      }
+    },
+    {
+      "project": "dependencies",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 85.65150499343872,
+        "untrained": 99.09722208976746,
+        "hashed_graph": 99.10979270935059
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 67.36043691635132,
+        "untrained": 96.10686302185059,
+        "hashed_graph": 98.4212577342987
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 15,
+      "mean_percent": {
+        "trained": 99.9571442604065,
+        "untrained": 99.99624490737915,
+        "hashed_graph": 99.99910593032837
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 45,
+      "mean_percent": {
+        "trained": 99.9571442604065,
+        "untrained": 99.99624490737915,
+        "hashed_graph": 99.99910593032837
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 45,
+      "mean_percent": {
+        "trained": 67.51279354095459,
+        "untrained": 96.12097501754761,
+        "hashed_graph": 98.4167206287384
+      }
+    },
+    {
+      "project": "dispatch",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.99409914016724,
+        "untrained": 99.9987781047821,
+        "hashed_graph": 99.90146160125732
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 87.15111017227173,
+        "untrained": 98.2869029045105,
+        "hashed_graph": 98.77843260765076
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 87.15111017227173,
+        "untrained": 98.2869029045105,
+        "hashed_graph": 98.77843260765076
+      }
+    },
+    {
+      "project": "events",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.99849796295166,
+        "untrained": 99.99991059303284,
+        "hashed_graph": 99.9873161315918
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 81.3686728477478,
+        "untrained": 98.70383143424988,
+        "hashed_graph": 99.02843832969666
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 12,
+      "mean_percent": {
+        "trained": 98.66772592067719,
+        "untrained": 99.63736534118652,
+        "hashed_graph": 99.7022420167923
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 36,
+      "mean_percent": {
+        "trained": 98.66772592067719,
+        "untrained": 99.63736534118652,
+        "hashed_graph": 99.7022420167923
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 36,
+      "mean_percent": {
+        "trained": 81.60301446914673,
+        "untrained": 98.62772077322006,
+        "hashed_graph": 98.77597987651825
+      }
+    },
+    {
+      "project": "inventory",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.99834895133972,
+        "untrained": 99.9998688697815,
+        "hashed_graph": 99.98953342437744
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 71.3830828666687,
+        "untrained": 96.1613655090332,
+        "hashed_graph": 96.75427079200745
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 6,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 71.3830828666687,
+        "untrained": 96.1613655090332,
+        "hashed_graph": 96.75427079200745
+      }
+    },
+    {
+      "project": "invoice",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.99696612358093,
+        "untrained": 99.9999463558197,
+        "hashed_graph": 99.99638199806213
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 80.34880757331848,
+        "untrained": 98.36860299110413,
+        "hashed_graph": 99.24631118774414
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 6,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 18,
+      "mean_percent": {
+        "trained": 80.34880757331848,
+        "untrained": 98.36860299110413,
+        "hashed_graph": 99.24631118774414
+      }
+    },
+    {
+      "project": "memo",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 99.98908042907715,
+        "untrained": 99.99969601631165,
+        "hashed_graph": 99.97279644012451
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 90.56638479232788,
+        "untrained": 98.76433610916138,
+        "hashed_graph": 99.2142915725708
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 100,
+        "hashed_graph": 100
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 9,
+      "mean_percent": {
+        "trained": 90.56638479232788,
+        "untrained": 98.76433610916138,
+        "hashed_graph": 99.2142915725708
+      }
+    },
+    {
+      "project": "transaction",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 97.22534418106079,
+        "untrained": 99.70900416374207,
+        "hashed_graph": 99.54143762588501
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "original",
+      "right_kind": "light",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 100,
+        "untrained": 99.99999403953552,
+        "hashed_graph": 99.99999403953552
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "original",
+      "right_kind": "structural",
+      "pairs": 3,
+      "mean_percent": {
+        "trained": 77.46944427490234,
+        "untrained": 97.66757488250732,
+        "hashed_graph": 98.61032366752625
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "original",
+      "right_kind": "decompiled",
+      "pairs": 0,
+      "mean_percent": {
+        "trained": null,
+        "untrained": null,
+        "hashed_graph": null
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "light",
+      "right_kind": "decompiled",
+      "pairs": 0,
+      "mean_percent": {
+        "trained": null,
+        "untrained": null,
+        "hashed_graph": null
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "structural",
+      "right_kind": "decompiled",
+      "pairs": 0,
+      "mean_percent": {
+        "trained": null,
+        "untrained": null,
+        "hashed_graph": null
+      }
+    },
+    {
+      "project": "typed_router",
+      "left_kind": "original",
+      "right_kind": "negative",
+      "pairs": 1,
+      "mean_percent": {
+        "trained": 88.54487538337708,
+        "untrained": 99.11335706710815,
+        "hashed_graph": 99.51339364051819
+      }
+    }
+  ]
+}
