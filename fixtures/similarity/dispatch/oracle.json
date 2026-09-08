@@ -1,0 +1,29 @@
+[
+  {
+    "input": {
+      "start": 4,
+      "commands": [
+        "up",
+        "up",
+        "down"
+      ]
+    },
+    "expected": 8
+  },
+  {
+    "input": {
+      "start": 0,
+      "commands": []
+    },
+    "expected": 0
+  },
+  {
+    "input": {
+      "start": 1,
+      "commands": [
+        "other"
+      ]
+    },
+    "error": "KeyError"
+  }
+]

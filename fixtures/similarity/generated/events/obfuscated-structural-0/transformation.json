@@ -1,0 +1,21 @@
+{
+  "identifiers": {
+    "filtered": "_vc44ee822202b",
+    "group": "_vabed7dd2718f",
+    "start": "_vacb28ecf9321",
+    "value": "_vb54a57e5caef",
+    "values": "_v46070de93fe0",
+    "width": "_vabb0bd0810b8",
+    "windows": "_ve44d121b8306"
+  },
+  "level": "structural",
+  "seed": 0,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

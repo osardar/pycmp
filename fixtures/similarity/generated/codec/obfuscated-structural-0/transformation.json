@@ -1,0 +1,17 @@
+{
+  "identifiers": {
+    "decoded": "_v618ccbe628be",
+    "encoded": "_v26ac52cb1be7",
+    "key": "_v68ff685777bd"
+  },
+  "level": "structural",
+  "seed": 0,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

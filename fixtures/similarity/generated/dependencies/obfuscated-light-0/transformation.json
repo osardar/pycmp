@@ -1,0 +1,17 @@
+{
+  "identifiers": {
+    "child": "_v3877ae64b76f",
+    "graph": "_v62e603fd712c",
+    "name": "_ve387fedcd9f6",
+    "output": "_vc8c8f3029259",
+    "seen": "_v2cf4a3179cec",
+    "visit": "_v3f5de837cecf"
+  },
+  "level": "light",
+  "seed": 0,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "identifiers": {
+    "Transaction": "_v0f11b033e4a2",
+    "error": "_vc244315e2503",
+    "kind": "_v2fb7d3e02001",
+    "target": "_v3d457a429b89",
+    "trace": "_vacf225323779",
+    "values": "_ve4ab50e35f8f"
+  },
+  "level": "light",
+  "seed": 2,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

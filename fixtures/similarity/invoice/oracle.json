@@ -1,0 +1,46 @@
+[
+  {
+    "input": {
+      "items": [
+        [
+          10,
+          2
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "discount": 10
+    },
+    "expected": {
+      "total": 31.5,
+      "count": 2
+    }
+  },
+  {
+    "input": {
+      "items": [],
+      "discount": 0
+    },
+    "expected": {
+      "total": 0,
+      "count": 0
+    }
+  },
+  {
+    "input": {
+      "items": [
+        [
+          4,
+          5
+        ]
+      ],
+      "discount": 100
+    },
+    "expected": {
+      "total": 0,
+      "count": 1
+    }
+  }
+]

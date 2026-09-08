@@ -1,0 +1,15 @@
+{
+  "identifiers": {
+    "amount": "_v541875af4ced",
+    "lines": "_v07bc23ebdd2c",
+    "percent": "_vf358b4f11975",
+    "row": "_v043db51fa5c2"
+  },
+  "level": "light",
+  "seed": 1,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "identifiers": {
+    "cache": "_v111a99422d3c",
+    "calls": "_v23922be057c0",
+    "function": "_v65229e3cb5ae",
+    "memoized": "_v523a966e6841",
+    "square": "_vaedcbd449e66",
+    "value": "_v8711e39e3d7d",
+    "wrapped": "_v8b14f20e1489"
+  },
+  "level": "structural",
+  "seed": 1,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

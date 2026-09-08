@@ -1,0 +1,20 @@
+{
+  "identifiers": {
+    "Transaction": "_v51a534a006b8",
+    "error": "_ve084cd3b4a03",
+    "kind": "_va965cc693bcf",
+    "target": "_vd1879bb0f2ef",
+    "trace": "_vd5988560963f",
+    "values": "_v135daac92864"
+  },
+  "level": "structural",
+  "seed": 1,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

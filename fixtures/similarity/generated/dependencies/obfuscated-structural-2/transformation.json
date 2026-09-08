@@ -1,0 +1,20 @@
+{
+  "identifiers": {
+    "child": "_v9366724d0e57",
+    "graph": "_v5ac00db084fa",
+    "name": "_v713b052f9db8",
+    "output": "_v01afbbf2999d",
+    "seen": "_v2c195281bb4c",
+    "visit": "_v5266d1b276c1"
+  },
+  "level": "structural",
+  "seed": 2,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

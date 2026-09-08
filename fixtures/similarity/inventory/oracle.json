@@ -1,0 +1,34 @@
+[
+  {
+    "input": {
+      "initial": 15,
+      "orders": [
+        2,
+        3
+      ]
+    },
+    "expected": [
+      10,
+      8
+    ]
+  },
+  {
+    "input": {
+      "initial": 2,
+      "orders": []
+    },
+    "expected": [
+      2,
+      0
+    ]
+  },
+  {
+    "input": {
+      "initial": 1,
+      "orders": [
+        2
+      ]
+    },
+    "error": "ValueError"
+  }
+]

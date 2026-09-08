@@ -1,0 +1,36 @@
+[
+  {
+    "input": {
+      "values": [
+        1,
+        2
+      ],
+      "rollback": true
+    },
+    "expected": [
+      1,
+      2
+    ]
+  },
+  {
+    "input": {
+      "values": [],
+      "rollback": false
+    },
+    "expected": [
+      9
+    ]
+  },
+  {
+    "input": {
+      "values": [
+        3
+      ],
+      "rollback": false
+    },
+    "expected": [
+      3,
+      9
+    ]
+  }
+]

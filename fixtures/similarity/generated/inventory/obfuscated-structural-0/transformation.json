@@ -1,0 +1,19 @@
+{
+  "identifiers": {
+    "ReservedStock": "_v9e6537672154",
+    "Stock": "_v9eb595c7a15a",
+    "amount": "_v5e0986e4a2d3",
+    "count": "_v3df190a64520",
+    "stock": "_veda4fdeb44f1"
+  },
+  "level": "structural",
+  "seed": 0,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

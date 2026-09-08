@@ -1,0 +1,47 @@
+[
+  {
+    "input": {
+      "beta": 2,
+      "alpha": "hello"
+    },
+    "expected": {
+      "keys": [
+        "alpha",
+        "beta"
+      ],
+      "values": [
+        "hello",
+        2
+      ]
+    }
+  },
+  {
+    "input": {},
+    "expected": {
+      "keys": [],
+      "values": []
+    }
+  },
+  {
+    "input": {
+      "x": "café",
+      "y": [
+        1,
+        2
+      ]
+    },
+    "expected": {
+      "keys": [
+        "x",
+        "y"
+      ],
+      "values": [
+        "café",
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  }
+]

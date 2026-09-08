@@ -1,0 +1,17 @@
+{
+  "identifiers": {
+    "command": "_vd1a98505c7cf",
+    "decrease": "_v3e01d0f7737e",
+    "handlers": "_vc068b0fd6a91",
+    "increase": "_v1e617445e110",
+    "result": "_v0a15a1ce0fdb",
+    "value": "_v694fef7c4a10"
+  },
+  "level": "light",
+  "seed": 2,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "identifiers": {
+    "collect": "_v7613b656b9a2",
+    "output": "_v5cec851903a6",
+    "stream": "_vad04af7f2c18",
+    "value": "_v8711e39e3d7d",
+    "values": "_v135daac92864"
+  },
+  "level": "structural",
+  "seed": 1,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

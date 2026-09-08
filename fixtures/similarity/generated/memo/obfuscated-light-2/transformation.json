@@ -1,0 +1,18 @@
+{
+  "identifiers": {
+    "cache": "_vd65b046fc7e3",
+    "calls": "_vc40d65473a48",
+    "function": "_v910ce43edaeb",
+    "memoized": "_vc789dc5a15bc",
+    "square": "_v028bd96b8445",
+    "value": "_v694fef7c4a10",
+    "wrapped": "_vf174e8445a38"
+  },
+  "level": "light",
+  "seed": 2,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

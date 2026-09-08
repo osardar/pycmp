@@ -1,0 +1,48 @@
+[
+  {
+    "input": {
+      "root": "app",
+      "graph": {
+        "app": [
+          "db",
+          "web"
+        ],
+        "web": [
+          "db"
+        ],
+        "db": []
+      }
+    },
+    "expected": [
+      "db",
+      "web",
+      "app"
+    ]
+  },
+  {
+    "input": {
+      "root": "x",
+      "graph": {}
+    },
+    "expected": [
+      "x"
+    ]
+  },
+  {
+    "input": {
+      "root": "a",
+      "graph": {
+        "a": [
+          "b"
+        ],
+        "b": [
+          "a"
+        ]
+      }
+    },
+    "expected": [
+      "b",
+      "a"
+    ]
+  }
+]

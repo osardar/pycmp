@@ -1,0 +1,18 @@
+{
+  "identifiers": {
+    "filtered": "_v35bb1c7b3fad",
+    "group": "_vd48851888fb1",
+    "start": "_vb4aeb7428e1c",
+    "value": "_v694fef7c4a10",
+    "values": "_ve4ab50e35f8f",
+    "width": "_v0a3609300a70",
+    "windows": "_ve03110b581d3"
+  },
+  "level": "light",
+  "seed": 2,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}

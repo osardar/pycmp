@@ -1,0 +1,73 @@
+[
+  {
+    "name": "invoice",
+    "python_min": "3.4",
+    "modules": [
+      "main.py",
+      "pricing.py"
+    ]
+  },
+  {
+    "name": "inventory",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "events",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "transaction",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "memo",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "codec",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "dispatch",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "dependencies",
+    "python_min": "3.4",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "async_queue",
+    "python_min": "3.8",
+    "modules": [
+      "main.py"
+    ]
+  },
+  {
+    "name": "typed_router",
+    "python_min": "3.12",
+    "modules": [
+      "main.py"
+    ]
+  }
+]

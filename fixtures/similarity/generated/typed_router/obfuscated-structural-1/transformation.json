@@ -1,0 +1,20 @@
+{
+  "identifiers": {
+    "Batch": "_vf15a69ac8ccd",
+    "errors": "_v3b39ede47da7",
+    "first": "_va59ca83dd51b",
+    "message": "_vfd1693231eb8",
+    "output": "_v5cec851903a6",
+    "values": "_v135daac92864"
+  },
+  "level": "structural",
+  "seed": 1,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings",
+    "string_encoding",
+    "conditional_inversion",
+    "identity_helper"
+  ]
+}

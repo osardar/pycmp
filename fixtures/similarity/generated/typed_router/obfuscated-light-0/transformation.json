@@ -1,0 +1,17 @@
+{
+  "identifiers": {
+    "Batch": "_vaf17d9405931",
+    "errors": "_v0303aaf89dc6",
+    "first": "_v8ad494e0ab1e",
+    "message": "_v66f7feac13d0",
+    "output": "_vc8c8f3029259",
+    "values": "_v46070de93fe0"
+  },
+  "level": "light",
+  "seed": 0,
+  "transforms": [
+    "identifier_rename",
+    "layout",
+    "remove_docstrings"
+  ]
+}
