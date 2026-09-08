@@ -29,6 +29,14 @@ def _load_graphs(path: Path) -> list[ProgramGraph]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="codegraph")
     commands = parser.add_subparsers(dest="command", required=True)
+    similarity = commands.add_parser("similarity-benchmark")
+    similarity_commands = similarity.add_subparsers(dest="similarity_command", required=True)
+    similarity_build = similarity_commands.add_parser("build")
+    similarity_build.add_argument("--output", required=True)
+    similarity_build.add_argument("--workers", type=int, default=4)
+    similarity_eval = similarity_commands.add_parser("evaluate")
+    similarity_eval.add_argument("run")
+    similarity_eval.add_argument("--checkpoint", required=True)
     ingest = commands.add_parser("ingest")
     ingest.add_argument("input")
     ingest.add_argument("--output", required=True)
@@ -94,6 +102,15 @@ def main(argv: list[str] | None = None) -> int:
     decompile.add_argument("--backlog", required=True)
     decompile.add_argument("--output", required=True)
     args = parser.parse_args(argv)
+
+    if args.command == "similarity-benchmark":
+        from .similarity_benchmark import build as similarity_build, evaluate as similarity_evaluate
+        if args.similarity_command == "build":
+            result = similarity_build(args.output, workers=args.workers)
+        else:
+            result = similarity_evaluate(args.run, args.checkpoint)
+        print(json.dumps(result, sort_keys=True))
+        return 0
 
     if args.command == "ingest":
         result = ingest_path(args.input, python_minor=args.python_minor, reconstructed=args.reconstructed)
