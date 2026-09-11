@@ -1,0 +1,1178 @@
+[
+  {
+    "node": "AnnAssign",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AnnAssign",
+    "field": "annotation",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AnnAssign",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AnnAssign",
+    "field": "simple",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Assert",
+    "field": "test",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Assert",
+    "field": "msg",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Assign",
+    "field": "targets",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Assign",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Assign",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFor",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFor",
+    "field": "iter",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFor",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFor",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFor",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "args",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "decorator_list",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "returns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncFunctionDef",
+    "field": "type_params",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncWith",
+    "field": "items",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncWith",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AsyncWith",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Attribute",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Attribute",
+    "field": "attr",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Attribute",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AugAssign",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AugAssign",
+    "field": "op",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "AugAssign",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Await",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "BinOp",
+    "field": "left",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "BinOp",
+    "field": "op",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "BinOp",
+    "field": "right",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "BoolOp",
+    "field": "op",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "BoolOp",
+    "field": "values",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Call",
+    "field": "func",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Call",
+    "field": "args",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Call",
+    "field": "keywords",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ClassDef",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "ClassDef",
+    "field": "bases",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ClassDef",
+    "field": "keywords",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ClassDef",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ClassDef",
+    "field": "decorator_list",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ClassDef",
+    "field": "type_params",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Compare",
+    "field": "left",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Compare",
+    "field": "ops",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Compare",
+    "field": "comparators",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Constant",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "literal_type_and_identity"
+  },
+  {
+    "node": "Constant",
+    "field": "kind",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Delete",
+    "field": "targets",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Dict",
+    "field": "keys",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Dict",
+    "field": "values",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "DictComp",
+    "field": "key",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "DictComp",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "DictComp",
+    "field": "generators",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ExceptHandler",
+    "field": "type",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ExceptHandler",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "ExceptHandler",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Expr",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Expression",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "For",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "For",
+    "field": "iter",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "For",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "For",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "For",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FormattedValue",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FormattedValue",
+    "field": "conversion",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FormattedValue",
+    "field": "format_spec",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "args",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "decorator_list",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "returns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionDef",
+    "field": "type_params",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionType",
+    "field": "argtypes",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "FunctionType",
+    "field": "returns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "GeneratorExp",
+    "field": "elt",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "GeneratorExp",
+    "field": "generators",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Global",
+    "field": "names",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "If",
+    "field": "test",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "If",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "If",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "IfExp",
+    "field": "test",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "IfExp",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "IfExp",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Import",
+    "field": "names",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ImportFrom",
+    "field": "module",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ImportFrom",
+    "field": "names",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ImportFrom",
+    "field": "level",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Interactive",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Interpolation",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Interpolation",
+    "field": "str",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Interpolation",
+    "field": "conversion",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Interpolation",
+    "field": "format_spec",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "JoinedStr",
+    "field": "values",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Lambda",
+    "field": "args",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Lambda",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "List",
+    "field": "elts",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "List",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ListComp",
+    "field": "elt",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "ListComp",
+    "field": "generators",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Match",
+    "field": "subject",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Match",
+    "field": "cases",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchAs",
+    "field": "pattern",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchAs",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "MatchClass",
+    "field": "cls",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchClass",
+    "field": "patterns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchClass",
+    "field": "kwd_attrs",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchClass",
+    "field": "kwd_patterns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchMapping",
+    "field": "keys",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchMapping",
+    "field": "patterns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchMapping",
+    "field": "rest",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "MatchOr",
+    "field": "patterns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchSequence",
+    "field": "patterns",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchSingleton",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "MatchStar",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "MatchValue",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Module",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Module",
+    "field": "type_ignores",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Name",
+    "field": "id",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "Name",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "NamedExpr",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "NamedExpr",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Nonlocal",
+    "field": "names",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "ParamSpec",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "ParamSpec",
+    "field": "default_value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Raise",
+    "field": "exc",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Raise",
+    "field": "cause",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Return",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Set",
+    "field": "elts",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "SetComp",
+    "field": "elt",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "SetComp",
+    "field": "generators",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Slice",
+    "field": "lower",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Slice",
+    "field": "upper",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Slice",
+    "field": "step",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Starred",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Starred",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Subscript",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Subscript",
+    "field": "slice",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Subscript",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TemplateStr",
+    "field": "values",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Try",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Try",
+    "field": "handlers",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Try",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Try",
+    "field": "finalbody",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TryStar",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TryStar",
+    "field": "handlers",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TryStar",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TryStar",
+    "field": "finalbody",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Tuple",
+    "field": "elts",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Tuple",
+    "field": "ctx",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeAlias",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeAlias",
+    "field": "type_params",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeAlias",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeIgnore",
+    "field": "lineno",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeIgnore",
+    "field": "tag",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeVar",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "TypeVar",
+    "field": "bound",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeVar",
+    "field": "default_value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "TypeVarTuple",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "TypeVarTuple",
+    "field": "default_value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "UnaryOp",
+    "field": "op",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "UnaryOp",
+    "field": "operand",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "While",
+    "field": "test",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "While",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "While",
+    "field": "orelse",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "With",
+    "field": "items",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "With",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "With",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "Yield",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "YieldFrom",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "alias",
+    "field": "name",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "alias",
+    "field": "asname",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "arg",
+    "field": "arg",
+    "storage": "ast_fields",
+    "encoding": "binding_or_unresolved_metadata"
+  },
+  {
+    "node": "arg",
+    "field": "annotation",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arg",
+    "field": "type_comment",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "posonlyargs",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "args",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "vararg",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "kwonlyargs",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "kw_defaults",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "kwarg",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "arguments",
+    "field": "defaults",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "comprehension",
+    "field": "target",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "comprehension",
+    "field": "iter",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "comprehension",
+    "field": "ifs",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "comprehension",
+    "field": "is_async",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "keyword",
+    "field": "arg",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "keyword",
+    "field": "value",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "match_case",
+    "field": "pattern",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "match_case",
+    "field": "guard",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "match_case",
+    "field": "body",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "withitem",
+    "field": "context_expr",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  },
+  {
+    "node": "withitem",
+    "field": "optional_vars",
+    "storage": "ast_fields",
+    "encoding": "scalar_identity_and_child_edges"
+  }
+]

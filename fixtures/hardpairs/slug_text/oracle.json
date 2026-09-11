@@ -1,0 +1,14 @@
+[
+  {
+    "input": " Hello World ",
+    "expected": "hello-world"
+  },
+  {
+    "input": "",
+    "expected": ""
+  },
+  {
+    "input": " A  B ",
+    "expected": "a--b"
+  }
+]

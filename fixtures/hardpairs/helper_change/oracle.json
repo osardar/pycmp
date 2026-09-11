@@ -1,0 +1,23 @@
+[
+  {
+    "input": 3,
+    "expected": [
+      "stable",
+      6
+    ]
+  },
+  {
+    "input": 0,
+    "expected": [
+      "stable",
+      0
+    ]
+  },
+  {
+    "input": -2,
+    "expected": [
+      "stable",
+      -4
+    ]
+  }
+]

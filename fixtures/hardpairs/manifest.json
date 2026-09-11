@@ -1,0 +1,306 @@
+{
+  "format": 1,
+  "name": "hardpairs-v1",
+  "seed": 20260908,
+  "allowed_diagnostic_splits": [
+    "train",
+    "validation"
+  ],
+  "sealed_split": "test",
+  "families": [
+    {
+      "family": "checkout_charge",
+      "split": "train",
+      "change": "operator",
+      "variants": {
+        "original": "checkout_charge/original.py",
+        "positive": "checkout_charge/positive.py",
+        "negative": "checkout_charge/negative.py"
+      },
+      "oracle": "checkout_charge/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "cutoff_gate",
+      "split": "train",
+      "change": "branch_boundary",
+      "variants": {
+        "original": "cutoff_gate/original.py",
+        "positive": "cutoff_gate/positive.py",
+        "negative": "cutoff_gate/negative.py"
+      },
+      "oracle": "cutoff_gate/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "extremum",
+      "split": "train",
+      "change": "builtin_call",
+      "variants": {
+        "original": "extremum/original.py",
+        "positive": "extremum/positive.py",
+        "negative": "extremum/negative.py"
+      },
+      "oracle": "extremum/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "staged_math",
+      "split": "train",
+      "change": "statement_order",
+      "variants": {
+        "original": "staged_math/original.py",
+        "positive": "staged_math/positive.py",
+        "negative": "staged_math/negative.py"
+      },
+      "oracle": "staged_math/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "safe_divide",
+      "split": "train",
+      "change": "exception_type",
+      "variants": {
+        "original": "safe_divide/original.py",
+        "positive": "safe_divide/positive.py",
+        "negative": "safe_divide/negative.py"
+      },
+      "oracle": "safe_divide/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "helper_change",
+      "split": "train",
+      "change": "second_function",
+      "variants": {
+        "original": "helper_change/original.py",
+        "positive": "helper_change/positive.py",
+        "negative": "helper_change/negative.py"
+      },
+      "oracle": "helper_change/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "literal_limit",
+      "split": "train",
+      "change": "literal_value",
+      "variants": {
+        "original": "literal_limit/original.py",
+        "positive": "literal_limit/positive.py",
+        "negative": "literal_limit/negative.py"
+      },
+      "oracle": "literal_limit/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "parameter_roles",
+      "split": "train",
+      "change": "argument_order",
+      "variants": {
+        "original": "parameter_roles/original.py",
+        "positive": "parameter_roles/positive.py",
+        "negative": "parameter_roles/negative.py"
+      },
+      "oracle": "parameter_roles/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "slug_text",
+      "split": "validation",
+      "change": "method_call",
+      "variants": {
+        "original": "slug_text/original.py",
+        "positive": "slug_text/positive.py",
+        "negative": "slug_text/negative.py"
+      },
+      "oracle": "slug_text/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "positive_partition",
+      "split": "validation",
+      "change": "filter_boundary",
+      "variants": {
+        "original": "positive_partition/original.py",
+        "positive": "positive_partition/positive.py",
+        "negative": "positive_partition/negative.py"
+      },
+      "oracle": "positive_partition/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "reverse_segment",
+      "split": "validation",
+      "change": "slice_direction",
+      "variants": {
+        "original": "reverse_segment/original.py",
+        "positive": "reverse_segment/positive.py",
+        "negative": "reverse_segment/negative.py"
+      },
+      "oracle": "reverse_segment/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "run_lengths",
+      "split": "test",
+      "change": "aggregation",
+      "variants": {
+        "original": "run_lengths/original.py",
+        "positive": "run_lengths/positive.py",
+        "negative": "run_lengths/negative.py"
+      },
+      "oracle": "run_lengths/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "weighted_checksum",
+      "split": "test",
+      "change": "modulus",
+      "variants": {
+        "original": "weighted_checksum/original.py",
+        "positive": "weighted_checksum/positive.py",
+        "negative": "weighted_checksum/negative.py"
+      },
+      "oracle": "weighted_checksum/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    },
+    {
+      "family": "balanced_marks",
+      "split": "test",
+      "change": "early_exit",
+      "variants": {
+        "original": "balanced_marks/original.py",
+        "positive": "balanced_marks/positive.py",
+        "negative": "balanced_marks/negative.py"
+      },
+      "oracle": "balanced_marks/oracle.json",
+      "relations": {
+        "positive": {
+          "related_code": true,
+          "behavior_preserved": true
+        },
+        "negative": {
+          "related_code": true,
+          "behavior_preserved": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "input": [
+      2,
+      3
+    ],
+    "expected": "admit"
+  },
+  {
+    "input": [
+      3,
+      3
+    ],
+    "expected": "deny"
+  },
+  {
+    "input": [
+      4,
+      3
+    ],
+    "expected": "deny"
+  }
+]

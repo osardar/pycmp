@@ -2,20 +2,39 @@
 
 Date: 2026-09-07. Evidence and finding IDs are in the [audit](AUDIT-2026-09-07.md); intended decisions are in the [classification strategy](CLASSIFICATION-STRATEGY.md).
 
+Execution status updated: 2026-09-08. The phases below retain the original audit
+scope; they are not a list of wholly unimplemented features. Use this ledger and
+the [current status](STATUS.md) to distinguish delivered work from open gates.
+
 ## Execution ledger
+
+September 10 update: the [schema-3 source repair](SOURCE-REPRESENTATION-V3.md)
+implements typed literals, scalar-field preservation, recursive unit discovery,
+lexical binding candidates, mutation/renaming tests, and independent untrained
+architecture probes. All eight development negatives now differ at tensor input.
+The earlier step-1/2 diagnosis is retained below as history. Corpus rebuild and
+schema-3 training remain outstanding; schema-2 artifacts are intentionally rejected.
+
+Steps 1–2 of the September 8 priority sequence are now implemented locally:
+14 checksum-locked families with explicit 8/3/3 splits, test-scoring guards,
+five baseline methods, and graph→feature→tensor→unit→file diagnostics. The
+[execution report](baselines/2026-09-08-hardpair-diagnostics.md) confirms three
+information-loss cases and one pooling-dilution case. Defect repairs and retraining
+remain open; this closes the initial dataset-contract/diagnosis gates only.
 
 | Area | Implemented now | Still required |
 |---|---|---|
 | Artifact boundary | Schema 2; graph/cache rejection; pipeline-versioned IDs; atomic graph/catalog/checkpoint/index writes | durable resume ledger and final completion marker |
 | Graph | unique occurrence IDs; endpoint/unit validation; module/class/function units; spans; ordered fields; operator/API features; order-aware lexical def-use approximation | branch-sensitive scopes, CFG/exception/data flow, verified unit lineage |
 | Transformations | parameters remain stable; assigned locals are renamed consistently; audit-owned behavior test | property tests for closures, comprehensions and unusual binding forms |
-| Corpus | corrected globstar and Hypothesis paths; role-balanced repository cap; broad-stratum 70/15/15 groups; exact/structural hashes; item ledger; explicit Certify disposition; NetExec/CrackMapExec lineage | license-file evidence, true graph-unit-level sampling, remaining fixture adapters |
+| Corpus | corrected paths; group-disjoint splits; hashes and item ledger; Certify disposition and fork lineage; derived 250-graph-unit-per-repository capped release | license-file evidence, richer unit-level sampling strata, remaining fixture adapters and label validation |
 | Training | self-excluded multi-positive loss; no group truncation; initialization seed; schema/profile-bound atomic checkpoint | balanced/node-budget streaming, optimizer resume, multi-lane paired generation |
-| Retrieval | whole-file mean aggregation; source-file records; scored hits; exact-hash evidence; model/profile fingerprint rejection; matched/unknown/insufficient states | validation calibration, matched-unit explanations, filters, persisted ANN |
-| Evaluation | global-gallery slices; configurable Recall@k; hashed-graph and untrained-GNN baselines; validation proxy-pair calibrator | hard negatives, token/API baselines, unknown-family tests, macro metrics and intervals |
+| Retrieval | whole-file mean aggregation; scored hits; exact-hash evidence; fingerprint rejection; abstention states; proxy-pair validation calibration and 2,316-file index | genuine unknown-family calibration, matched-unit explanations, named-feature profiles, filters, persisted ANN |
+| Evaluation | full-gallery baselines; proxy calibrator; ten-project frozen synthetic benchmark with structural positives, behavior-changing controls, and hard-negative retrieval | independent development/test families, token/API baselines, unknown-family tests, macro metrics and intervals |
+| Compiled similarity experiment | 111 compiled variants and 12 optimization probes verified; 63/222 decompiler attempts successful; all three source/obfuscated/decompiled pair directions scored | direct bytecode-lane alignment, broader verified runtime support, integration regression coverage |
 | Release | complete expansion plus derived capped release; 8,066 units/29,647 views; graph checksums verified; bounded training/benchmark/index report published | repeated-seed hard-task model run and final release naming cleanup |
 
-The 23-test first-party suite passes in the repository environment, including a
+The last completed 43-test first-party suite passed in the repository environment, including a
 schema-2 build→train→index→exact-search round trip. None of the
 remaining quality gates should be inferred from that unit-test result.
 
@@ -101,7 +120,35 @@ Gate: a clean, documented local workflow reproduces release counts and passes in
 
 ## Prioritization and implementation boundaries
 
-The first implementation package should be Phase 0 plus graph identity/augmentation fixes from Phase 1. These are blockers for all further measurement. Follow with curation/label integrity, then learning and whole-file evaluation. Do not spend the next milestone adding repositories or increasing epochs.
+The initial graph repairs, capped-corpus build, bounded training, indexing and
+synthetic hard-negative experiment have been executed. The remaining priority is
+now **demonstrating useful learned retrieval**, not repeating those milestones.
+
+1. Freeze task semantics and new project-disjoint development/validation/test
+   families. Preserve the existing ten-project experiment as regression evidence;
+   do not train on it and still call it untouched. Separate related-code retrieval
+   from behavior-preservation ranking when labeling near-copy negatives.
+2. Diagnose input-feature collisions and pooling dilution on the observed failures.
+   Add token and operation/API baselines and verified structural development pairs.
+   Gate: relevant changes are observable, or missing evidence is explicitly marked.
+3. Train with task-appropriate hard negatives, balanced/node-budget batches and
+   complete resumable state. Compare at least three seeds on identical galleries,
+   with project-macro metrics, margins and project-level confidence intervals.
+   Gate: credible benefit over the strongest simple baseline on new held-out cases.
+4. Evaluate actual source↔bytecode/recovery alignment by runtime and evidence
+   coverage, using a common-core profile plus named optional-feature masks applied
+   before encoding. Decompile-to-source successes do not satisfy this gate.
+5. Add inspectable retrieval evidence and genuine novel-family calibration, then
+   report the Phase 4 precision/false-acceptance/coverage gates honestly.
+
+The current hard-negative structural top-1 is 6/30 for the trained model versus
+15/30 for hashed graphs. This small, correlated test diagnoses a problem; it is
+not a statistically powered target to optimize in place. See the
+[synthetic report](baselines/2026-09-07-synthetic-similarity.md).
+
+Continue license/label evidence, CI, worker timeout/failure regression tests,
+environment locking and release-resume work as supporting reliability tasks.
+Do not spend the next milestone primarily adding repositories or increasing epochs.
 
 The audit itself made no automatic remediation; the execution ledger above now
 records the subsequent implementation. Actual duration depends on upstream

@@ -13,6 +13,8 @@ from .semantic import ProgramGraph
 FEATURE_KEYS = (
     "ast_type", "semantic_kind", "constant_category", "name_context",
     "attribute_hash", "opcode", "operand_category", "recovery_type",
+    "scalar_identity", "literal_type", "literal_identity", "binding_identity",
+    "external_identity", "scope_kind",
 )
 
 

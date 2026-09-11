@@ -2,6 +2,12 @@
 
 ## Implementation boundary
 
+September 10: [schema-3 repairs](SOURCE-REPRESENTATION-V3.md) preserve the literal,
+scalar and binding evidence missing in the measurements below. The mutations now
+change model inputs; this is not yet trained-quality evidence. Current loaders
+reject the historical schema-2 model/index, and a schema-3 release model has not
+been trained. The following schema-2 measurements remain historical baselines.
+
 The schema-2 code now implements the first usable inference skeleton: all units
 of a file are mean-pooled and normalized, the local index returns cosine scores
 and enforces the checkpoint/preprocessing fingerprint, exact-byte matches are
@@ -20,7 +26,27 @@ structural matching plus fixed graph features should remain first-class stages;
 the GNN must prove incremental value on hard transformations, recovery, and
 bytecode before it controls an unknown-file decision.
 
-Assessment date: 2026-09-07. Read with the [project audit](AUDIT-2026-09-07.md) and [remediation plan](REMEDIATION-PLAN.md).
+Assessment updated: 2026-09-08. Read with the [project audit](AUDIT-2026-09-07.md) and [remediation plan](REMEDIATION-PLAN.md).
+
+The [synthetic experiment](baselines/2026-09-07-synthetic-similarity.md) now
+provides initial hard-negative evidence. For structurally obfuscated queries,
+adding a behavior-changing near-copy candidate reduces trained top-1 to 6/30,
+versus 15/30 for hashed graphs. All 63 verified decompilations retrieve their
+original in the ten-original gallery, but this uses reconstructed-source
+ingestion, not direct bytecode embeddings. These results do not establish a
+learned advantage or all-lane alignment.
+
+Task labels must reflect the question: an operator-mutated file may remain a
+positive code-family relative while being a negative for preserved behavior.
+Use separate relation labels, ranking tasks and reported scores; do not force a
+single cosine threshold to establish both relatedness and equivalent behavior.
+
+The [September 8 development diagnosis](baselines/2026-09-08-hardpair-diagnostics.md)
+now implements these separate relations and traces three exact information-loss
+cases: literal values omitted by normalization, and builtin/exception identities
+excluded during feature selection. These require representation changes before
+training can distinguish the affected pairs. The reserved new test families have
+not been executed or scored; the reported results are development evidence only.
 
 ## What the system should decide
 
@@ -31,7 +57,7 @@ The useful product is evidence-backed retrieval followed by an optional, calibra
 | Is this an exact known file? | Byte digest match | Implemented and smoke-tested |
 | Is this a renamed/reformatted relative? | Valid structural/token matches and verified transformations | Structural baseline implemented; broader transformation truth still needed |
 | Does it share a capability or code family? | Labeled units, API/data/control flow and hard negatives | Not validated |
-| Can source match compiled/reconstructed code? | Consistent unit boundaries and paired cross-lane training | Not validated |
+| Can source match compiled/reconstructed code? | Consistent units, real bytecode decoding, paired cross-lane training | Small decompiled-source benchmark measured; direct bytecode alignment unvalidated |
 | Is it malicious? | Contextual labels, benign lookalikes, calibrated operating point | Cannot be inferred from current corpus membership |
 | Is it outside the known corpus? | Novel-family holdout and an abstention policy | Missing |
 
@@ -83,4 +109,8 @@ Use validation data for thresholds and model selection; test once after freezing
 
 Exact and near-copy detection are achievable first and may be solved adequately by simpler methods. A repaired shared GNN could add value for structural changes and partial reconstruction, but should earn that role through comparisons. General behavioral equivalence cannot be established by similarity alone. Cross-version bytecode, sparse stubs and heavy reconstruction are harder and need explicit quality limits.
 
-The immediate investment should be graph correctness, trustworthy pairs and a hard-negative benchmark. Expanding repository count or increasing epochs before those repairs would produce more numbers without answering whether unknown-file decisions improve.
+The immediate investment is now targeted representation/pooling diagnosis,
+independent development pairs and harder shared-encoder training, using the
+completed hard-negative experiment as regression evidence. Reserve new untouched
+families for final evaluation. Expanding repository count or increasing epochs
+alone would not answer whether unknown-file decisions improve.

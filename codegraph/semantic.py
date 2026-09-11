@@ -5,7 +5,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 @dataclass(frozen=True)
@@ -58,8 +58,8 @@ class ProgramGraph:
         graph = cls(
             unit_id=value["unit_id"],
             unit_kind=value["unit_kind"],
-            nodes=[GraphNode(**node) for node in value["nodes"]],
-            edges=[GraphEdge(**edge) for edge in value["edges"]],
+            nodes=[GraphNode(**{**node, "available": tuple(node.get("available", ()))}) for node in value["nodes"]],
+            edges=[GraphEdge(**{**edge, "available": tuple(edge.get("available", ()))}) for edge in value["edges"]],
             metadata=value.get("metadata", {}),
             schema_version=value["schema_version"],
         )

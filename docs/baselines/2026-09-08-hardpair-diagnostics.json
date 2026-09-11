@@ -1,0 +1,3174 @@
+{
+  "checkpoint_sha256": "dd7eeefd810effc45aa990a42b317f4b5ab938d84921d1bc5a664494b9af6a9e",
+  "diagnostic_code_sha256": "a6a63de6243e62573950f42e67a2e448c01026013ea24d83342f3eca1b93eae6",
+  "diagnostics": [
+    {
+      "change": "operator",
+      "earliest_loss": "observable_change",
+      "family": "checkout_charge",
+      "file_l2": 0.012342279776930809,
+      "max_unit_l2": 0.01804949901998043,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": false,
+            "tensors": false
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 1.0636125802993774,
+              "layer_1": 0.5559707880020142,
+              "node_mean": 0.03474820405244827,
+              "unit_vector": 0.01804949901998043
+            },
+            "untrained": {
+              "layer_0": 0.974472165107727,
+              "layer_1": 0.5933436155319214,
+              "node_mean": 0.03708398714661598,
+              "unit_vector": 0.009079011157155037
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "branch_boundary",
+      "earliest_loss": "observable_change",
+      "family": "cutoff_gate",
+      "file_l2": 0.00633151875808835,
+      "max_unit_l2": 0.009769427590072155,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": false,
+            "tensors": false
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.7204719185829163,
+              "layer_1": 0.30810546875,
+              "node_mean": 0.015405282378196716,
+              "unit_vector": 0.009769427590072155
+            },
+            "untrained": {
+              "layer_0": 0.872156023979187,
+              "layer_1": 0.7705190181732178,
+              "node_mean": 0.03852592408657074,
+              "unit_vector": 0.012374471873044968
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "builtin_call",
+      "earliest_loss": "feature_selection_loss",
+      "family": "extremum",
+      "file_l2": 0.0,
+      "max_unit_l2": 0.0,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "statement_order",
+      "earliest_loss": "observable_change",
+      "family": "staged_math",
+      "file_l2": 0.006132671609520912,
+      "max_unit_l2": 0.008235647343099117,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": false,
+            "tensors": false
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 1.2003535032272339,
+              "layer_1": 0.841144323348999,
+              "node_mean": 0.018527859821915627,
+              "unit_vector": 0.008235647343099117
+            },
+            "untrained": {
+              "layer_0": 1.3770995140075684,
+              "layer_1": 1.020524263381958,
+              "node_mean": 0.01209192629903555,
+              "unit_vector": 0.003908067476004362
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "exception_type",
+      "earliest_loss": "feature_selection_loss",
+      "family": "safe_divide",
+      "file_l2": 0.0,
+      "max_unit_l2": 0.0,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "second_function",
+      "earliest_loss": "observable_change",
+      "family": "helper_change",
+      "file_l2": 0.019733281806111336,
+      "max_unit_l2": 0.053006842732429504,
+      "pooling_dilution": true,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": false,
+            "tensors": false
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 1.2675261497497559,
+              "layer_1": 0.9120375514030457,
+              "node_mean": 0.1013374775648117,
+              "unit_vector": 0.053006842732429504
+            },
+            "untrained": {
+              "layer_0": 0.8531132936477661,
+              "layer_1": 0.48899346590042114,
+              "node_mean": 0.05433260649442673,
+              "unit_vector": 0.016265252605080605
+            }
+          },
+          "unit": "adjust"
+        },
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "banner"
+        },
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "literal_value",
+      "earliest_loss": "normalization_loss",
+      "family": "literal_limit",
+      "file_l2": 0.0,
+      "max_unit_l2": 0.0,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    },
+    {
+      "change": "argument_order",
+      "earliest_loss": "observable_change",
+      "family": "parameter_roles",
+      "file_l2": 0.05166415125131607,
+      "max_unit_l2": 0.08477044105529785,
+      "pooling_dilution": false,
+      "units": [
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "<module>"
+        },
+        {
+          "identical": {
+            "graph": false,
+            "selected_features": false,
+            "tensors": false
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 3.453806161880493,
+              "node_mean": 0.16306257247924805,
+              "unit_vector": 0.08477044105529785
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 3.711817741394043,
+              "node_mean": 0.13461512327194214,
+              "unit_vector": 0.036346640437841415
+            }
+          },
+          "unit": "difference"
+        },
+        {
+          "identical": {
+            "graph": true,
+            "selected_features": true,
+            "tensors": true
+          },
+          "lineage": "qualified_name",
+          "stage_l2": {
+            "trained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            },
+            "untrained": {
+              "layer_0": 0.0,
+              "layer_1": 0.0,
+              "node_mean": 0.0,
+              "unit_vector": 0.0
+            }
+          },
+          "unit": "run"
+        }
+      ]
+    }
+  ],
+  "file_hashes": {
+    "checkout_charge/negative.py": "535bdf3cb1f49f41678a91b128924520946d83f9dde6d75e9a72f1ffebde2a51",
+    "checkout_charge/original.py": "995729ed7443067ac0df8380e87b290a72ff44b6d284ccb8339dc5e74d9b45a3",
+    "checkout_charge/positive.py": "efbfd8f1f44cf93646dc44b3f3d7df15921344067ee7cb52b649728e413b16ab",
+    "cutoff_gate/negative.py": "a0e74197232a77d32bf11ea2bb153f7eeef10f3f9e69e105c2587a5d0bc81311",
+    "cutoff_gate/original.py": "b163188210dbc694e22e8d7ffdb302bf3807b6fa2418487f02ea86146ea703de",
+    "cutoff_gate/positive.py": "ea8f0b4d4390488540416ac96fd36e1e303a4cc90eaf79ee909e3fcd1c79ac65",
+    "extremum/negative.py": "b03038bbab455ef0b4874d65739bbdc6bf7c4a6d97da2d8aff4997ccbf0478c5",
+    "extremum/original.py": "6cba4414f753942813279dfa01140df9114bc72f98fde63523b2e46c33959df1",
+    "extremum/positive.py": "d606fbd835c068a353b23ff8396f1bd1fc9749fd057683568445bcd376bec698",
+    "helper_change/negative.py": "80060384022a9617192721734696c56ee2fdbbd29f64b88b830d08fd26853e50",
+    "helper_change/original.py": "827465395c137cfca836b3882746274c479756dce7d4921bea61c6011347fc57",
+    "helper_change/positive.py": "cb360f2a02cf9b1f9f9dc030f2e417a9853d99c0b7d4403c27fdeb0d634f5093",
+    "literal_limit/negative.py": "a84cc42aedb809f1ebecc375707718b93356500dd4119ce055e004c6fae8dd61",
+    "literal_limit/original.py": "3e7798c49ffd044f812fc939d946594babbb4a2ef2826deb79f82213eb91d7d9",
+    "literal_limit/positive.py": "4bcbf418841d5bdbee44ffb8754f427dc662474e0f72086a6e6a36f82056ed15",
+    "parameter_roles/negative.py": "0e0cea44d95005a143fc5574704c1da6c14806784886995ef96d40fda5e12665",
+    "parameter_roles/original.py": "902727f5377430c4f47480b8dcc0e86c2cb957c5389dc6ec03a3850d6f6f9055",
+    "parameter_roles/positive.py": "dee3c6037e3c4c217c8e673b94b7284a770b84fe1a5e7025dc22c599e7d49d4e",
+    "safe_divide/negative.py": "75a33d680d7fcb49980b57c309e627d39a6d7875ecfee670e1eca28da6a9a17e",
+    "safe_divide/original.py": "7a7d40eace222406b9a2aecdf7b3b68359e4a9e3ed798a42b51ffad1fd2dd863",
+    "safe_divide/positive.py": "e35f45cfa8bc2815cf21e1511467f608ee1a816af4609398856c19df6e8bdfc0",
+    "staged_math/negative.py": "bfa539cea40657c001de4c582046ee155405d0e942fbf63536a73b4deac29b04",
+    "staged_math/original.py": "f1f1abf8f52070410763432293ca639dcd77c50dd5b05d505a040cd164628586",
+    "staged_math/positive.py": "7dff573db2be52c8783b69367719307e921c27b449b738ee3bed0824bdbc054e"
+  },
+  "fixture_lock_sha256": "55fbac94b12c66af4e2d407761833fefb0741264d478e884ba95c2720d3c6657",
+  "format": 1,
+  "manifest_sha256": "8896d79051b3124b1d67131d974ca0d85eb63ead16dc18fda6181e7a6ef45a1f",
+  "oracles": {
+    "checkout_charge": {
+      "negative": [
+        false,
+        true,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "cutoff_gate": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "extremum": {
+      "negative": [
+        false,
+        true,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "helper_change": {
+      "negative": [
+        false,
+        false,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "literal_limit": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "parameter_roles": {
+      "negative": [
+        false,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "safe_divide": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "staged_math": {
+      "negative": [
+        false,
+        false,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "cosine": {
+        "hashed_graph": 0.9590954780578613,
+        "operation_api": 0.7071067811865475,
+        "tokens": 0.48181205582971576,
+        "trained": 0.5282588601112366,
+        "untrained": 0.944877028465271
+      },
+      "family": "checkout_charge",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.998988151550293,
+        "operation_api": 0.75,
+        "tokens": 0.9615384615384616,
+        "trained": 0.999923825263977,
+        "untrained": 0.9999881386756897
+      },
+      "family": "checkout_charge",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9583863615989685,
+        "operation_api": 0.35355339059327373,
+        "tokens": 0.4447495899966607,
+        "trained": 0.5285494327545166,
+        "untrained": 0.944609522819519
+      },
+      "family": "checkout_charge",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.999085545539856,
+        "operation_api": 0.9,
+        "tokens": 0.9714285714285714,
+        "trained": 0.9999562501907349,
+        "untrained": 0.9999745488166809
+      },
+      "family": "cutoff_gate",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.999085545539856,
+        "operation_api": 0.9,
+        "tokens": 0.9714285714285714,
+        "trained": 0.9999799728393555,
+        "untrained": 0.9999779462814331
+      },
+      "family": "cutoff_gate",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.999085545539856,
+        "operation_api": 0.9,
+        "tokens": 0.9714285714285714,
+        "trained": 0.9999620318412781,
+        "untrained": 0.9999747276306152
+      },
+      "family": "cutoff_gate",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9802656173706055,
+        "operation_api": 0.5773502691896257,
+        "tokens": 0.8006407690254357,
+        "trained": 0.7662293314933777,
+        "untrained": 0.9545009136199951
+      },
+      "family": "extremum",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 1.0,
+        "operation_api": 0.6666666666666666,
+        "tokens": 0.96,
+        "trained": 1.0,
+        "untrained": 1.0
+      },
+      "family": "extremum",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9802656173706055,
+        "operation_api": 0.5773502691896257,
+        "tokens": 0.8006407690254357,
+        "trained": 0.7662293314933777,
+        "untrained": 0.9545009136199951
+      },
+      "family": "extremum",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9395800232887268,
+        "operation_api": 1.0,
+        "tokens": 0.5622535302317492,
+        "trained": 0.5166969895362854,
+        "untrained": 0.8915697932243347
+      },
+      "family": "staged_math",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9999999403953552,
+        "operation_api": 1.0,
+        "tokens": 1.0,
+        "trained": 0.999981164932251,
+        "untrained": 0.999997615814209
+      },
+      "family": "staged_math",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9395800232887268,
+        "operation_api": 1.0,
+        "tokens": 0.5622535302317492,
+        "trained": 0.5172080397605896,
+        "untrained": 0.8912531137466431
+      },
+      "family": "staged_math",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.993310809135437,
+        "operation_api": 0.8333333333333334,
+        "tokens": 0.9022912615145682,
+        "trained": 0.7786003947257996,
+        "untrained": 0.9896233677864075
+      },
+      "family": "safe_divide",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 1.0,
+        "operation_api": 1.0,
+        "tokens": 0.975609756097561,
+        "trained": 1.0,
+        "untrained": 1.0
+      },
+      "family": "safe_divide",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.993310809135437,
+        "operation_api": 0.8333333333333334,
+        "tokens": 0.9022912615145682,
+        "trained": 0.7786003947257996,
+        "untrained": 0.9896233677864075
+      },
+      "family": "safe_divide",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9891003370285034,
+        "operation_api": 0.8894991799933214,
+        "tokens": 0.9578262852211514,
+        "trained": 0.9252746105194092,
+        "untrained": 0.9848889112472534
+      },
+      "family": "helper_change",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.998924732208252,
+        "operation_api": 0.9285714285714286,
+        "tokens": 0.99,
+        "trained": 0.9998053908348083,
+        "untrained": 0.9999884963035583
+      },
+      "family": "helper_change",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9897440671920776,
+        "operation_api": 0.9636241116594315,
+        "tokens": 0.967404548073363,
+        "trained": 0.9261622428894043,
+        "untrained": 0.9849076271057129
+      },
+      "family": "helper_change",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9890440106391907,
+        "operation_api": 0.5773502691896258,
+        "tokens": 0.8807048459279793,
+        "trained": 0.9345250129699707,
+        "untrained": 0.9768519997596741
+      },
+      "family": "literal_limit",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 1.0,
+        "operation_api": 0.6666666666666666,
+        "tokens": 0.9166666666666666,
+        "trained": 1.0,
+        "untrained": 1.0
+      },
+      "family": "literal_limit",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9890440106391907,
+        "operation_api": 0.2886751345948129,
+        "tokens": 0.8006407690254357,
+        "trained": 0.9345250129699707,
+        "untrained": 0.9768519997596741
+      },
+      "family": "literal_limit",
+      "left": "positive",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9711321592330933,
+        "operation_api": 0.8660254037844387,
+        "tokens": 0.8007357075074448,
+        "trained": 0.6397807598114014,
+        "untrained": 0.9648851752281189
+      },
+      "family": "parameter_roles",
+      "left": "original",
+      "right": "positive"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9999998807907104,
+        "operation_api": 1.0,
+        "tokens": 1.0,
+        "trained": 0.998665452003479,
+        "untrained": 0.9999054074287415
+      },
+      "family": "parameter_roles",
+      "left": "original",
+      "right": "negative"
+    },
+    {
+      "cosine": {
+        "hashed_graph": 0.9711321592330933,
+        "operation_api": 0.8660254037844387,
+        "tokens": 0.8007357075074448,
+        "trained": 0.6499360799789429,
+        "untrained": 0.9659676551818848
+      },
+      "family": "parameter_roles",
+      "left": "positive",
+      "right": "negative"
+    }
+  ],
+  "python": "3.14.6",
+  "retrieval": [
+    {
+      "behavior_rank": 9,
+      "candidates": [
+        {
+          "cosine": 0.751971423625946,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7320472002029419,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.679663896560669,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6456955075263977,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6202347278594971,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6175515651702881,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.597537100315094,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5285494327545166,
+          "family": "checkout_charge",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.5282588601112366,
+          "family": "checkout_charge",
+          "variant": "original"
+        }
+      ],
+      "family": "checkout_charge",
+      "method": "trained",
+      "positive_margin": -0.0002905726432800293,
+      "related_rank": 8
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9604031443595886,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.944877028465271,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.944609522819519,
+          "family": "checkout_charge",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.938958466053009,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9348713755607605,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9324644804000854,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9296739101409912,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9072242975234985,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8766242861747742,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "checkout_charge",
+      "method": "untrained",
+      "positive_margin": 0.0002675056457519531,
+      "related_rank": 2
+    },
+    {
+      "behavior_rank": 3,
+      "candidates": [
+        {
+          "cosine": 0.9806252717971802,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9606527090072632,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9590954780578613,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9583863615989685,
+          "family": "checkout_charge",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9563997983932495,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9504249691963196,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9427627921104431,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9347107410430908,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8942129611968994,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "checkout_charge",
+      "method": "hashed_graph",
+      "positive_margin": 0.0007091164588928223,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.545544725589981,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5291502622129182,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5079328061935712,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.48181205582971576,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.472455591261534,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4472135954999579,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4447495899966607,
+          "family": "checkout_charge",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.44271100207571645,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4073065399812784,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "checkout_charge",
+      "method": "tokens",
+      "positive_margin": 0.03706246583305506,
+      "related_rank": 4
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.75,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7071067811865475,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5669467095138409,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.47140452079103173,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4472135954999579,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4082482904638631,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4082482904638631,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.35355339059327373,
+          "family": "checkout_charge",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.31622776601683794,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "checkout_charge",
+      "method": "operation_api",
+      "positive_margin": 0.35355339059327373,
+      "related_rank": 2
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9999620318412781,
+          "family": "cutoff_gate",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9999562501907349,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7573748826980591,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7100164294242859,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.657653272151947,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5910463333129883,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5861368179321289,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.525854229927063,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5251277685165405,
+          "family": "parameter_roles",
+          "variant": "original"
+        }
+      ],
+      "family": "cutoff_gate",
+      "method": "trained",
+      "positive_margin": -5.781650543212891e-06,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9999747276306152,
+          "family": "cutoff_gate",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9999745488166809,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9739536046981812,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9727822542190552,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9364892244338989,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9223957061767578,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9182009696960449,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9068672060966492,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8819550275802612,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "cutoff_gate",
+      "method": "untrained",
+      "positive_margin": -1.7881393432617188e-07,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.999085545539856,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.999085545539856,
+          "family": "cutoff_gate",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9862116575241089,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9852765798568726,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9756999015808105,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9483727216720581,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9450650215148926,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9445806741714478,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.934211790561676,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "cutoff_gate",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9714285714285714,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9714285714285714,
+          "family": "cutoff_gate",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.8950412845779244,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8711400676249501,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7434145850079609,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7319250547113999,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6761234037828133,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.608511063404532,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4250237185032414,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "cutoff_gate",
+      "method": "tokens",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9,
+          "family": "cutoff_gate",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.6708203932499369,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6324555320336759,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6324555320336759,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5477225575051661,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.50709255283711,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3651483716701107,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.282842712474619,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "cutoff_gate",
+      "method": "operation_api",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.8285808563232422,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8031302690505981,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7662293314933777,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7662293314933777,
+          "family": "extremum",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.7589526176452637,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6767632365226746,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5262107849121094,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5065552592277527,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4672645926475525,
+          "family": "safe_divide",
+          "variant": "original"
+        }
+      ],
+      "family": "extremum",
+      "method": "trained",
+      "positive_margin": 0.0,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.9737628698348999,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9547677636146545,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9545009136199951,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9545009136199951,
+          "family": "extremum",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9536523222923279,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.941074788570404,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9410132765769958,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9379650354385376,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9125539064407349,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "extremum",
+      "method": "untrained",
+      "positive_margin": 0.0,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 3,
+      "candidates": [
+        {
+          "cosine": 0.9836341142654419,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9802656173706055,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9802656173706055,
+          "family": "extremum",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9796319007873535,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9774946570396423,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9723248481750488,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.968087911605835,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9633828401565552,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9310010671615601,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "extremum",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 2
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.8006407690254357,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8006407690254357,
+          "family": "extremum",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.7849313448431118,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7752423010845507,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7536891516255932,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7396002616336388,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7238224003182336,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7045638767423834,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4889177122615932,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "extremum",
+      "method": "tokens",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 5,
+      "candidates": [
+        {
+          "cosine": 0.6666666666666666,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6324555320336759,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5892556509887896,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5773502691896257,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5773502691896257,
+          "family": "extremum",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.5345224838248488,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3849001794597505,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.29814239699997197,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "extremum",
+      "method": "operation_api",
+      "positive_margin": 0.0,
+      "related_rank": 4
+    },
+    {
+      "behavior_rank": 9,
+      "candidates": [
+        {
+          "cosine": 0.8721426725387573,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8102902770042419,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6994473934173584,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6542181968688965,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6514261960983276,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6085965037345886,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5996427536010742,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5172080397605896,
+          "family": "staged_math",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.5166969895362854,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "staged_math",
+      "method": "trained",
+      "positive_margin": -0.0005110502243041992,
+      "related_rank": 8
+    },
+    {
+      "behavior_rank": 7,
+      "candidates": [
+        {
+          "cosine": 0.9626870155334473,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9551475644111633,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9529351592063904,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9308552145957947,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9193297624588013,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9084568023681641,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8915697932243347,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8912531137466431,
+          "family": "staged_math",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.886933445930481,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "staged_math",
+      "method": "untrained",
+      "positive_margin": 0.0003166794776916504,
+      "related_rank": 7
+    },
+    {
+      "behavior_rank": 6,
+      "candidates": [
+        {
+          "cosine": 0.9775366187095642,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9772467613220215,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.975337564945221,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9654683470726013,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9395800232887268,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9395800232887268,
+          "family": "staged_math",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9308182597160339,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.923417329788208,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9226551055908203,
+          "family": "extremum",
+          "variant": "original"
+        }
+      ],
+      "family": "staged_math",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 5
+    },
+    {
+      "behavior_rank": 9,
+      "candidates": [
+        {
+          "cosine": 0.8049844718999243,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8049844718999243,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7745966692414834,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6829479558851913,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6139406135149205,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6047431568147635,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5936657514041415,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5622535302317492,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5622535302317492,
+          "family": "staged_math",
+          "variant": "negative"
+        }
+      ],
+      "family": "staged_math",
+      "method": "tokens",
+      "positive_margin": 0.0,
+      "related_rank": 8
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 1.0,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 1.0,
+          "family": "staged_math",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.5976143046671968,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.31622776601683794,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.29814239699997197,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.282842712474619,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.2581988897471611,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.2581988897471611,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.22360679774997896,
+          "family": "checkout_charge",
+          "variant": "original"
+        }
+      ],
+      "family": "staged_math",
+      "method": "operation_api",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.9245998859405518,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8696582317352295,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7786003947257996,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7786003947257996,
+          "family": "safe_divide",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.748284637928009,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6204230785369873,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5856210589408875,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.531535267829895,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4856365919113159,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "safe_divide",
+      "method": "trained",
+      "positive_margin": 0.0,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 3,
+      "candidates": [
+        {
+          "cosine": 0.9939141869544983,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9896233677864075,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9896233677864075,
+          "family": "safe_divide",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9877011179924011,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9356654286384583,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9312789440155029,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9113737940788269,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9043586254119873,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8632568717002869,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "safe_divide",
+      "method": "untrained",
+      "positive_margin": 0.0,
+      "related_rank": 2
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.9941696524620056,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9936283826828003,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.993310809135437,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.993310809135437,
+          "family": "safe_divide",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9747291207313538,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9537373781204224,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9522627592086792,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9455662369728088,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9235295057296753,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "safe_divide",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 4,
+      "candidates": [
+        {
+          "cosine": 0.9270471647242885,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9099883613178743,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9022912615145682,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9022912615145682,
+          "family": "safe_divide",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.7218735274296361,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6302708777266682,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6064784348631227,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5252257314388902,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3773333045092626,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "safe_divide",
+      "method": "tokens",
+      "positive_margin": 0.0,
+      "related_rank": 3
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.8333333333333334,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8333333333333334,
+          "family": "safe_divide",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.75,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7115124735378853,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7071067811865475,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.43301270189221935,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4008918628686366,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.2886751345948129,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.22360679774997896,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "safe_divide",
+      "method": "operation_api",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9261622428894043,
+          "family": "helper_change",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9252746105194092,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.798065185546875,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7484098672866821,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6694034337997437,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5965825319290161,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.568123459815979,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5334557294845581,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.49562644958496094,
+          "family": "checkout_charge",
+          "variant": "original"
+        }
+      ],
+      "family": "helper_change",
+      "method": "trained",
+      "positive_margin": -0.0008876323699951172,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9849076271057129,
+          "family": "helper_change",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9848889112472534,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.933329164981842,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9043064117431641,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9012746214866638,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8978370428085327,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8923795223236084,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8765352368354797,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8658297061920166,
+          "family": "safe_divide",
+          "variant": "original"
+        }
+      ],
+      "family": "helper_change",
+      "method": "untrained",
+      "positive_margin": -1.8715858459472656e-05,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9897440671920776,
+          "family": "helper_change",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9891003370285034,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9609470367431641,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.940742552280426,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9231611490249634,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9220620393753052,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.920741856098175,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9185835123062134,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9177236557006836,
+          "family": "literal_limit",
+          "variant": "original"
+        }
+      ],
+      "family": "helper_change",
+      "method": "hashed_graph",
+      "positive_margin": -0.0006437301635742188,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.967404548073363,
+          "family": "helper_change",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9578262852211514,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7138043408375252,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.689634925359229,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6636015163311972,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5833906033752271,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5828478913767354,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5635355675740084,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.43007669811582183,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "helper_change",
+      "method": "tokens",
+      "positive_margin": -0.009578262852211528,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9636241116594315,
+          "family": "helper_change",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.8894991799933214,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5883484054145521,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.554700196225229,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5262348115842176,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.49613893835683387,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.48038446141526137,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.48038446141526137,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.41602514716892186,
+          "family": "checkout_charge",
+          "variant": "original"
+        }
+      ],
+      "family": "helper_change",
+      "method": "operation_api",
+      "positive_margin": -0.07412493166611012,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9345250129699707,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9345250129699707,
+          "family": "literal_limit",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.8189812898635864,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7476451396942139,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7437519431114197,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.743356466293335,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6964420080184937,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6882731318473816,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6425864696502686,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "literal_limit",
+      "method": "trained",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9768519997596741,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9768519997596741,
+          "family": "literal_limit",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9576563835144043,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9479588270187378,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9469100832939148,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9205114245414734,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9151564240455627,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8992730379104614,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8978968262672424,
+          "family": "parameter_roles",
+          "variant": "original"
+        }
+      ],
+      "family": "literal_limit",
+      "method": "untrained",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9890440106391907,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9890440106391907,
+          "family": "literal_limit",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9763586521148682,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9740204811096191,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9670315980911255,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9431160092353821,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9338960647583008,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9331083297729492,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9116259217262268,
+          "family": "helper_change",
+          "variant": "original"
+        }
+      ],
+      "family": "literal_limit",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 1,
+      "candidates": [
+        {
+          "cosine": 0.8807048459279793,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8006407690254357,
+          "family": "literal_limit",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.7765802747153208,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.7032108464077431,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.665640235470275,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6527139518645054,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6497221227363149,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6437904401931123,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.49813548138671787,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "literal_limit",
+      "method": "tokens",
+      "positive_margin": 0.08006407690254358,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 1,
+      "candidates": [
+        {
+          "cosine": 0.5773502691896258,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4743416490252569,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4008918628686366,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.35355339059327373,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3333333333333333,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.2886751345948129,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.2886751345948129,
+          "family": "literal_limit",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.25,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.22360679774997896,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "literal_limit",
+      "method": "operation_api",
+      "positive_margin": 0.2886751345948129,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.6499360799789429,
+          "family": "parameter_roles",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.6397807598114014,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5903847813606262,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5820378065109253,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5506268739700317,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5460619926452637,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4642026424407959,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3486044108867645,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.29452240467071533,
+          "family": "checkout_charge",
+          "variant": "original"
+        }
+      ],
+      "family": "parameter_roles",
+      "method": "trained",
+      "positive_margin": -0.010155320167541504,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9659676551818848,
+          "family": "parameter_roles",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9648851752281189,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9306651949882507,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9203574657440186,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9144775867462158,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9098986387252808,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9090319275856018,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.901303231716156,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8859280943870544,
+          "family": "literal_limit",
+          "variant": "original"
+        }
+      ],
+      "family": "parameter_roles",
+      "method": "untrained",
+      "positive_margin": -0.0010824799537658691,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.9711321592330933,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9711321592330933,
+          "family": "parameter_roles",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.9418082237243652,
+          "family": "staged_math",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9363192319869995,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9104535579681396,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9096800088882446,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.9044603109359741,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8913088440895081,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8870912790298462,
+          "family": "cutoff_gate",
+          "variant": "original"
+        }
+      ],
+      "family": "parameter_roles",
+      "method": "hashed_graph",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.8007357075074448,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8007357075074448,
+          "family": "parameter_roles",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.6554304242983312,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5852057359806528,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.574376771639563,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.4590731488048886,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.45696890633444465,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.45502198824313517,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3994030012427037,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "parameter_roles",
+      "method": "tokens",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    },
+    {
+      "behavior_rank": 2,
+      "candidates": [
+        {
+          "cosine": 0.8660254037844387,
+          "family": "parameter_roles",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.8660254037844387,
+          "family": "parameter_roles",
+          "variant": "negative"
+        },
+        {
+          "cosine": 0.6546536707079772,
+          "family": "helper_change",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.6123724356957946,
+          "family": "checkout_charge",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5443310539518174,
+          "family": "safe_divide",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.5163977794943222,
+          "family": "cutoff_gate",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.47140452079103173,
+          "family": "extremum",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.47140452079103173,
+          "family": "literal_limit",
+          "variant": "original"
+        },
+        {
+          "cosine": 0.3651483716701107,
+          "family": "staged_math",
+          "variant": "original"
+        }
+      ],
+      "family": "parameter_roles",
+      "method": "operation_api",
+      "positive_margin": 0.0,
+      "related_rank": 1
+    }
+  ],
+  "split": "train",
+  "summary": {
+    "hashed_graph": {
+      "behavior_top1": 0,
+      "queries": 8,
+      "related_top1": 4
+    },
+    "operation_api": {
+      "behavior_top1": 1,
+      "queries": 8,
+      "related_top1": 6
+    },
+    "tokens": {
+      "behavior_top1": 1,
+      "queries": 8,
+      "related_top1": 5
+    },
+    "trained": {
+      "behavior_top1": 0,
+      "queries": 8,
+      "related_top1": 4
+    },
+    "untrained": {
+      "behavior_top1": 0,
+      "queries": 8,
+      "related_top1": 4
+    }
+  },
+  "test_scored": false,
+  "torch": "2.14.0",
+  "untrained_seed": 0
+}

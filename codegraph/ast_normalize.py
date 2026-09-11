@@ -8,6 +8,7 @@ import warnings
 from collections.abc import Iterable
 
 from .semantic import GraphEdge, GraphNode, ProgramGraph
+from .source_evidence import Bindings, field_evidence
 
 
 def _digest(text: str) -> str:
@@ -70,23 +71,26 @@ class ASTNormalizer:
         extra_metadata: dict[str, object] | None = None,
     ) -> list[ProgramGraph]:
         tree = self.parse(source, python_minor)
+        bindings = Bindings(tree)
         units: list[tuple[ast.AST, str, str]] = [(tree, "module", "<module>")]
+        counts = {}
+        def collect(node: ast.AST, prefix: str = "") -> None:
+            if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda)):
+                local = getattr(node, "name", "<lambda>")
+                qualified = f"{prefix}.{local}" if prefix else local
+                counts[qualified] = counts.get(qualified, 0) + 1
+                if counts[qualified] > 1:
+                    qualified += "#" + str(counts[qualified])
+                units.append((node, "class" if isinstance(node, ast.ClassDef) else "function", qualified))
+                prefix = qualified
+            for child in ast.iter_child_nodes(node):
+                collect(child, prefix)
 
-        def collect(body: list[ast.stmt], prefix: str = "") -> None:
-            for node in body:
-                if isinstance(node, ast.ClassDef):
-                    qualified = f"{prefix}.{node.name}" if prefix else node.name
-                    units.append((node, "class", qualified))
-                    collect(node.body, qualified)
-                elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                    qualified = f"{prefix}.{node.name}" if prefix else node.name
-                    units.append((node, "function", qualified))
-                    collect(node.body, qualified)
-
-        collect(tree.body)
+        collect(tree)
+        references = {id(node): name for node, _, name in units}
         return [
             self._graph_for(node, origin=origin, name=name, unit_kind=kind,
-                            extra_metadata=extra_metadata)
+                            extra_metadata=extra_metadata, bindings=bindings, references=references)
             for node, kind, name in units
         ]
 
@@ -97,10 +101,13 @@ class ASTNormalizer:
     def _graph_for(
         self, root: ast.AST, *, origin: str, name: str, unit_kind: str,
         extra_metadata: dict[str, object] | None,
+        bindings: Bindings,
+        references: dict[int, str],
     ) -> ProgramGraph:
         nodes: list[GraphNode] = []
         edges: list[GraphEdge] = []
-        definitions: dict[str, str] = {}
+        definitions: dict[str, list[tuple[str, bool]]] = {}
+        uses: list[tuple[str, str]] = []
 
         def visit(node: ast.AST, parent: str | None = None, field: str | None = None,
                   position: int | None = None) -> str:
@@ -109,6 +116,12 @@ class ASTNormalizer:
             node_id = f"n{len(nodes)}"
             attrs: dict[str, object] = {"ast_type": type(node).__name__, "semantic_kind": _semantic_kind(node)}
             available = ["ast_type", "semantic_kind"]
+            evidence = {**field_evidence(node), **bindings.attributes(node)}
+            attrs.update(evidence)
+            available.extend(evidence)
+            if id(node) in references:
+                attrs["unit_ref"] = references[id(node)]
+                available.append("unit_ref")
             if hasattr(node, "lineno"):
                 attrs.update(
                     line=getattr(node, "lineno"), column=getattr(node, "col_offset", 0),
@@ -120,20 +133,15 @@ class ASTNormalizer:
                 attrs["identifier_hash"] = _digest(node.id)
                 attrs["name_context"] = type(node.ctx).__name__
                 available.extend(("identifier_hash", "name_context"))
-                if isinstance(node.ctx, ast.Load) and node.id in definitions:
-                    edges.append(GraphEdge(definitions[node.id], node_id, "def_use",
-                                           ("identifier_hash",)))
-                elif isinstance(node.ctx, ast.Store):
-                    definitions[node.id] = node_id
+                if isinstance(node.ctx, ast.Load):
+                    uses.append((attrs["binding_identity"], node_id))
             elif isinstance(node, ast.arg):
                 attrs["identifier_hash"] = _digest(node.arg)
                 attrs["name_context"] = "Parameter"
                 available.extend(("identifier_hash", "name_context"))
-                definitions[node.arg] = node_id
             elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
                 attrs["identifier_hash"] = _digest(node.name)
                 available.append("identifier_hash")
-                definitions[node.name] = node_id
             elif isinstance(node, ast.Constant):
                 attrs["constant_category"] = _constant_category(node.value)
                 available.append("constant_category")
@@ -141,6 +149,8 @@ class ASTNormalizer:
                 attrs["attribute_hash"] = _digest(node.attr)
                 available.append("attribute_hash")
             nodes.append(GraphNode(node_id, f"core:{attrs['semantic_kind']}", attrs, tuple(available)))
+            if id(node) in bindings.declarations:
+                definitions.setdefault(attrs["binding_identity"], []).append((node_id, isinstance(node, ast.arg)))
             if parent is not None:
                 edge_attrs = {} if position is None else {"position": position}
                 edge_available = ("ast_field",) if position is None else ("ast_field", "position")
@@ -148,8 +158,7 @@ class ASTNormalizer:
 
             # A parent unit records a nested declaration, not a duplicate copy
             # of that declaration's entire implementation.
-            if node is not root and isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
-                return node_id
+            nested = node is not root and id(node) in references
             fields = list(ast.iter_fields(node))
             # Assignment values are evaluated before their targets become new
             # bindings, unlike the storage-oriented field order exposed by AST.
@@ -158,6 +167,8 @@ class ASTNormalizer:
             elif isinstance(node, ast.AnnAssign):
                 fields.sort(key=lambda item: 1 if item[0] == "target" else 0)
             for child_field, value in fields:
+                if nested and child_field == "body":
+                    continue
                 if isinstance(value, ast.AST):
                     visit(value, node_id, child_field)
                 elif isinstance(value, Iterable) and not isinstance(value, (str, bytes)):
@@ -167,13 +178,20 @@ class ASTNormalizer:
             return node_id
 
         visit(root)
+        for binding, use in uses:
+            for declaration, parameter in definitions.get(binding, []):
+                if declaration != use:
+                    edges.append(GraphEdge(declaration, use, "def_use" if parameter else "may_def_use",
+                                           ("lexical_binding",), {"analysis": "not_reaching_definitions"}))
         metadata: dict[str, object] = {
             "lane": self.lane,
             "origin": origin,
             "parser": "python.ast",
             "parser_runtime": f"{sys.version_info.major}.{sys.version_info.minor}",
             "parse_status": "valid",
-            "binding_analysis": "lexical_order_approximation",
+            "binding_analysis": "scope_candidates_not_reaching_definitions",
+            "unresolved_analysis": ["branch_sensitive_dataflow", "runtime_dispatch", "annotation_scope_versions"],
+            "field_policy": "all_ast_fields_retained_v1",
             "qualified_name": name,
         }
         if extra_metadata:

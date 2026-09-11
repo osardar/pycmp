@@ -1,5 +1,11 @@
 # Synthetic similarity projects
 
+Compatibility update: the frozen results and checkpoint below use schema 2.
+Current source ingestion uses schema 3 and deliberately rejects that checkpoint.
+Compilation/decompilation generation remains available; evaluation needs a matching
+schema-3 checkpoint or the matching historical schema-2 implementation. See the
+[migration notes](../../docs/SOURCE-REPRESENTATION-V3.md).
+
 Ten owned, concise projects reserved for evaluation, not training. Each exposes
 `main.run(payload)` and three JSON oracle cases. The manifest lists every module
 and minimum Python version; no third-party target code is executed.

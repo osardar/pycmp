@@ -1,0 +1,20 @@
+[
+  {
+    "input": [
+      9,
+      2,
+      4
+    ],
+    "expected": 2
+  },
+  {
+    "input": [],
+    "expected": null
+  },
+  {
+    "input": [
+      7
+    ],
+    "expected": 7
+  }
+]

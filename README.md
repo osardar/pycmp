@@ -14,7 +14,14 @@ evidence boundary.
 
 ## Current status
 
-The schema-2 implementation repairs critical representation, training, corpus,
+The latest local implementation is **schema 3**, with typed literals, complete
+AST-field evidence, recursive declaration discovery and lexical binding candidates.
+See the [source representation report](docs/SOURCE-REPRESENTATION-V3.md).
+There is no trained schema-3 release checkpoint yet: the schema-2 results below
+are historical, and their graphs/checkpoint/index are intentionally incompatible
+with the new loader. The full first-party suite has 43 passing tests.
+
+The schema-2 milestone repaired critical representation, training, corpus,
 and retrieval defects found in the September 2026 audit. It now validates graph
 identity, represents semantic feature values, emits module/class/function units,
 uses a multi-positive loss, creates group-disjoint stratified splits, aggregates
@@ -33,7 +40,7 @@ Unknown-family calibration and direct source↔bytecode-lane validation remain o
 
 ```text
 valid .py/.pyi          -> CPython AST normalization -------+
-partial/decompiled text -> tree-sitter recovery ------------+-> schema-2 graph
+partial/decompiled text -> tree-sitter recovery ------------+-> schema-3 graph
 .pyc                    -> isolated version-aware worker ----+       |
                                                                   shared GNN
                                                                      |
@@ -83,18 +90,18 @@ Build, train, evaluate, index, and query a reviewed corpus:
   --manifest corpus/lint-training-target.jsonl \
   --manifest corpus/extended-analysis.jsonl \
   --manifest corpus/defensive-security.jsonl \
-  --output corpus-runs/release-v0.2
+  --output corpus-runs/release-v0.3
 
-.venv/bin/python -m codegraph.cli train corpus-runs/release-v0.2 \
-  --checkpoint artifacts/model-v0.2.pt
-.venv/bin/python -m codegraph.cli benchmark corpus-runs/release-v0.2 \
-  --checkpoint artifacts/model-v0.2.pt --output artifacts/benchmark-v0.2.json
-.venv/bin/python -m codegraph.cli calibrate corpus-runs/release-v0.2 \
-  --checkpoint artifacts/model-v0.2.pt --target-precision 0.95
-.venv/bin/python -m codegraph.cli corpus-index corpus-runs/release-v0.2 \
-  --checkpoint artifacts/model-v0.2.pt --directory artifacts/index-v0.2
+.venv/bin/python -m codegraph.cli train corpus-runs/release-v0.3 \
+  --checkpoint artifacts/model-v0.3.pt
+.venv/bin/python -m codegraph.cli benchmark corpus-runs/release-v0.3 \
+  --checkpoint artifacts/model-v0.3.pt --output artifacts/benchmark-v0.3.json
+.venv/bin/python -m codegraph.cli calibrate corpus-runs/release-v0.3 \
+  --checkpoint artifacts/model-v0.3.pt --target-precision 0.95
+.venv/bin/python -m codegraph.cli corpus-index corpus-runs/release-v0.3 \
+  --checkpoint artifacts/model-v0.3.pt --directory artifacts/index-v0.3
 .venv/bin/python -m codegraph.cli search unknown.py \
-  --checkpoint artifacts/model-v0.2.pt --directory artifacts/index-v0.2 \
+  --checkpoint artifacts/model-v0.3.pt --directory artifacts/index-v0.3 \
   --threshold 0.80
 ```
 
@@ -125,7 +132,7 @@ historical demonstrations. They train separate per-graph GCNs against placeholde
 targets, so their embeddings are not comparable and must not be used by the
 shared retrieval workflow. `vocab.json` describes tree-sitter-python grammar
 0.23.4 node types; it is not the Python language specification and does not cover
-all Python versions. The schema-2 encoder uses versioned hashed features instead.
+all Python versions. The current encoder uses versioned hashed features instead.
 
 ## Documentation
 

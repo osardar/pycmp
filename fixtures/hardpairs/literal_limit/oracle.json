@@ -1,0 +1,14 @@
+[
+  {
+    "input": 39,
+    "expected": false
+  },
+  {
+    "input": 40,
+    "expected": true
+  },
+  {
+    "input": 41,
+    "expected": true
+  }
+]

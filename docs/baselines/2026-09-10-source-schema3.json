@@ -1,0 +1,5593 @@
+{
+  "code_hashes": {
+    "ast_normalize.py": "64d793423be3a948296f37d7110defe14985429d141d7faa8c56a0236b6f1c24",
+    "shared_model.py": "893b2390a7af122765af49ef420472798ec32489a6a386069480796e5d9faff5",
+    "source_audit.py": "b93ae97d803c3718b5d07579bce35398eb397761810cc0a11a64badc39b1f442",
+    "source_evidence.py": "fa0bb21db7b3c397e909dcb3adc52e15d9621b7cd606d62e5887ae0b9d3ca0ba"
+  },
+  "evidence": [
+    {
+      "family": "checkout_charge",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "e956117c4c51e14b1e489097003eb095a9566b4231aa45c312f1d3d9bf310524",
+          "selected_features": "c43eab079959d02c07af89caa1953bdeae77f8eb392e7eb2c27678ef10da5ea7",
+          "tensors": "e0e655d1349f77c2d9dc246c96b29dd2825e27382fe7095f5cab4d5b7bf84d94"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "cdd7c404d7d1ab05f7f3f57e5707cba0ae09af78297bce448d45d9c368d75f7c",
+          "selected_features": "d7af94c43f5d90783203baa214f4280729b32cd328260a6249cfbe3e8789e7dd",
+          "tensors": "1042659c49089f9522ab6226ecf136ab763e455163c660ab93a2964c1a663f01"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "cutoff_gate",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "534e5af8fdc14dedd0b03496927188edc8cccde756f834f02caa67cb502672df",
+          "selected_features": "a057b6c5f4a8b16c16edef7941ced43c8bf97b491a7a457a826c35bbe85fa34b",
+          "tensors": "34d84688d4551b9bb4120bcee1215ab58afc58e290d3d5820e72611a895accf0"
+        },
+        {
+          "graph": "aa2cca6f0f9d16062d62bf35ff338073d838753c13db3ae296c48b66d25490cd",
+          "selected_features": "49c5a7830b2078eb5a37d0ed10d6ca47751c1cf9787e9ab6a0773d0e84bad65d",
+          "tensors": "db117316164d7a26c830c7f221897a7bf779807d482393d00ece80a874714f3c"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "534e5af8fdc14dedd0b03496927188edc8cccde756f834f02caa67cb502672df",
+          "selected_features": "a057b6c5f4a8b16c16edef7941ced43c8bf97b491a7a457a826c35bbe85fa34b",
+          "tensors": "34d84688d4551b9bb4120bcee1215ab58afc58e290d3d5820e72611a895accf0"
+        },
+        {
+          "graph": "9a3c3b133679d2e83bc48993843f15af5c43198b544e5812079d360ff948f943",
+          "selected_features": "b8786314f55792475e6dd4f37dabca63cf64cc55f32dd4a5f5455c28f4b93a2b",
+          "tensors": "8bdd6558bf70cad4d0335b620681acccd3712c2217d2fca2e30023b6fed6cbd0"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "extremum",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "12851254d6a5b983aaf90fd40990652cc7e2c05f65019d82d7ad03734f1c4007",
+          "selected_features": "4b44afce69798ca945b36eec09699eb547109299f381276c280a55018ac03a74",
+          "tensors": "faae96fdc933b21afdfec7afc4548450e0b74596e0de8b4742596b64248757c7"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "ec54a7c71da32b75ea30d5a156b0e790bb555efdc99fa94fd5e45a4728f8b088",
+          "selected_features": "874d368bd640d3cbc1151f2836a7363cc2b1e43c4d9c177b14b51b18f7f79828",
+          "tensors": "3cdda974e7a77165d97ea038d6afc2cdf8a60cef81064125ee73034018b40fed"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "staged_math",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "7c0fffcf113350d7775b57a8f43f931da980b87e8af2eed6e26353cd6f1e7981",
+          "selected_features": "07f9ee117a7c349a37c2ec587497043c00b0e9aed03e28f13da4bd06ab5bce26",
+          "tensors": "552b02b16584467119c826fd40c98ac17a65430af16e89140e4a12abb1fb0b0a"
+        },
+        {
+          "graph": "1c2b010c4ce939baf46a20d58cc79869a2a1d78c1c65ea9c35a1174fd0a997ed",
+          "selected_features": "3f7ff65ef359b941cfec18682cc8b9d5b43ff24ee8399fbb8b59e0ffcebe8adc",
+          "tensors": "bcf7bb822ed3084daf3f6f9e21d2f1a3372abbf7e22228192a9d6318781e2757"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "7c0fffcf113350d7775b57a8f43f931da980b87e8af2eed6e26353cd6f1e7981",
+          "selected_features": "07f9ee117a7c349a37c2ec587497043c00b0e9aed03e28f13da4bd06ab5bce26",
+          "tensors": "552b02b16584467119c826fd40c98ac17a65430af16e89140e4a12abb1fb0b0a"
+        },
+        {
+          "graph": "86357d31893aee3a36d8426b0fcb20a05772bde5039ad6b44212d77b26742c8b",
+          "selected_features": "21c41adeed3dac6573536adc159827b60167309a5a56bf29a7b88b15140d36a7",
+          "tensors": "1dfe9800e1fc92985d1ef1a065dbbe376d5105aac04c8a0df4e5744d5b0e06a4"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "safe_divide",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "8e7297f27e9f37c0e5c0f72c06ec204423c22fe31fa1a98a15e170fddd547325",
+          "selected_features": "dd4a8026301dae5c06af5cd332d4d0f6dc9a86af2da66e27e386c2724eb97d47",
+          "tensors": "52f503f65e2c8ef1119da9577fa6912afb62a3205c93d93c34ca4373bc7df8f3"
+        },
+        {
+          "graph": "d2e98131fd23f03ace78ba8d0bc4e360ae9545eebae75a14f20486697deb32ec",
+          "selected_features": "37fbceece8427f3789c8b0d365f3532feac38b25fa0536efed349a5ef9b636f6",
+          "tensors": "b3bfeb0ea13b417e24a115d8f1f14487e97810aedbf92823f0d7b083120a601f"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "8e7297f27e9f37c0e5c0f72c06ec204423c22fe31fa1a98a15e170fddd547325",
+          "selected_features": "dd4a8026301dae5c06af5cd332d4d0f6dc9a86af2da66e27e386c2724eb97d47",
+          "tensors": "52f503f65e2c8ef1119da9577fa6912afb62a3205c93d93c34ca4373bc7df8f3"
+        },
+        {
+          "graph": "8d2d6c06de2275247657512e60aa8b08d502ca45ce82e7544f5dfb84576e999b",
+          "selected_features": "464eb769f3e53f7ad03a70e093b9de86b2f8dd254d04c4f33f3ee42521aea2f6",
+          "tensors": "e7ea9abe0d079bf00a545eb41522175aa40046519ff9e7845185d30c662cc211"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "helper_change",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "15183c5a05a6c7532dc198ecf93111ccf69e3a7b8c8e82e6378283e3c3dc5c6f",
+          "selected_features": "0c7157dfe07298d7ef986d59a4fd967320be19cf7349865f60f476bf903ee321",
+          "tensors": "f11daa009eab15c2b26b1ac960005bbb65d0fa7c52582dbc984154f8b10862f4"
+        },
+        {
+          "graph": "a7d932ae3bfd502d0a63a6e5869cdcb07100d7bfe676c841b8df283b3996e40d",
+          "selected_features": "4b33d12ec7e359f8fff1f70c9d058ceda47788173ec3e191e46603be5d598a63",
+          "tensors": "61955769fd21d62e9a6b28a9be5add968a06f4bd82a986866465004f07749854"
+        },
+        {
+          "graph": "6d960c522c92d5d8039b05efa6db9dd3b8c06bcfd3db4aea669bcd4303601dc9",
+          "selected_features": "5176b5235efbce278476c750c9e2512bfa5ecdf2255731a412107b52989ca9d3",
+          "tensors": "96f0d592a2868b807c78f7e8f68cf70024fff084582c447094a07978955e4639"
+        },
+        {
+          "graph": "4d1bc2b4f8cc3881259af7864b1362b7dbad7e4be53f49e7757a47061e99d503",
+          "selected_features": "07ad2189492296490edc5a78993d10e79ac39f79fadd2fcaeacdae0a6c8e0ab0",
+          "tensors": "0e10447424bf811768d96dde9e13f8151b880c9f49bbf47e2374c3f41adea125"
+        }
+      ],
+      "negative_units": 4,
+      "original_facts": [
+        {
+          "graph": "15183c5a05a6c7532dc198ecf93111ccf69e3a7b8c8e82e6378283e3c3dc5c6f",
+          "selected_features": "0c7157dfe07298d7ef986d59a4fd967320be19cf7349865f60f476bf903ee321",
+          "tensors": "f11daa009eab15c2b26b1ac960005bbb65d0fa7c52582dbc984154f8b10862f4"
+        },
+        {
+          "graph": "a7d932ae3bfd502d0a63a6e5869cdcb07100d7bfe676c841b8df283b3996e40d",
+          "selected_features": "4b33d12ec7e359f8fff1f70c9d058ceda47788173ec3e191e46603be5d598a63",
+          "tensors": "61955769fd21d62e9a6b28a9be5add968a06f4bd82a986866465004f07749854"
+        },
+        {
+          "graph": "100ea7033b6461ff8ec9d20d5f2d5befc1ad1fb7cf59d7e5b5115b67e9bce1fa",
+          "selected_features": "de6f90c22873496b619cf09763ef00370cd3ba6bd8c68a491151301cfe437b90",
+          "tensors": "30667a6c1d63bca6a9e0522c720cc58e8475dffbcdfab60752a0d25387fdfc61"
+        },
+        {
+          "graph": "4d1bc2b4f8cc3881259af7864b1362b7dbad7e4be53f49e7757a47061e99d503",
+          "selected_features": "07ad2189492296490edc5a78993d10e79ac39f79fadd2fcaeacdae0a6c8e0ab0",
+          "tensors": "0e10447424bf811768d96dde9e13f8151b880c9f49bbf47e2374c3f41adea125"
+        }
+      ],
+      "original_units": 4,
+      "tensors_changed": true
+    },
+    {
+      "family": "literal_limit",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "c5cb2abf9413c5ed53b971a0a4699ad1d764608cd2b77e702781990376d5278a",
+          "selected_features": "9d34406fdac8fc39d0e666c003b91558eabb20b346adbb80357f8acc8be8645c",
+          "tensors": "064bfd41ed774b3f7c7596e142d7e78e72f8e38fc2fd23e6f65f550a7f8239b4"
+        }
+      ],
+      "negative_units": 2,
+      "original_facts": [
+        {
+          "graph": "ca016f9693f2f5df79e8504cd849a5ab2426474ad9e24bfb84d31d2df9b9288c",
+          "selected_features": "bf14f71affb30c6791bbbaced40c58f425fbc4e2434b55b0a2898b22790b4bbc",
+          "tensors": "ee79163249a82e1194a355ae8033334652261b711bc31f0668f4d9a0678eb5d7"
+        },
+        {
+          "graph": "56a0c2628c89e317a3d63fffd8b9887668f69a6f8a4de30164e9e78e36a5fe40",
+          "selected_features": "db79629711ee1bef47ea05adb0b224bbe6615e904f7621cecdba3a607450869c",
+          "tensors": "41cdca2d63d87bb34c66b36563551dc4ed753b1290909f752c4401f30cde8968"
+        }
+      ],
+      "original_units": 2,
+      "tensors_changed": true
+    },
+    {
+      "family": "parameter_roles",
+      "features_changed": true,
+      "graph_changed": true,
+      "negative_facts": [
+        {
+          "graph": "665b06aa1fd3ed4b1f213453bb99a264acd6c0a919b7f358d83c2593230b0e83",
+          "selected_features": "16722d574d6349c0253a9732a9a0a8e6f3f288d0cdf02a94a797b30b52ce5220",
+          "tensors": "4a6dd6108cd1cb6c8806d3b93ac2d300a888beff315a6bd5b6fb872d1dd9c6d1"
+        },
+        {
+          "graph": "912a00d929594452885cfc52d23ad266d19c86893568f47bb9299f976addd10d",
+          "selected_features": "4dd630e2f163da3c110f01c216e8948e298a2f4f7e36ea3ff277a1cc5ea1ef78",
+          "tensors": "04cc6ec71617b6d6030afef7f8c330a33cb6ff0422fc0f4f3cac7a8def438073"
+        },
+        {
+          "graph": "599287e6f7784367e6202b6ca8499392e569fe30784c3d9864f22e1239807c50",
+          "selected_features": "9d46dbf31feb917ea1d0c6439eb89fd847aec2c0767dd1008e04966fef259c54",
+          "tensors": "63f9a692aa0f540e85b3ba5d6b7f87df06cb87459c2f009fa17c29167ed3d875"
+        }
+      ],
+      "negative_units": 3,
+      "original_facts": [
+        {
+          "graph": "665b06aa1fd3ed4b1f213453bb99a264acd6c0a919b7f358d83c2593230b0e83",
+          "selected_features": "16722d574d6349c0253a9732a9a0a8e6f3f288d0cdf02a94a797b30b52ce5220",
+          "tensors": "4a6dd6108cd1cb6c8806d3b93ac2d300a888beff315a6bd5b6fb872d1dd9c6d1"
+        },
+        {
+          "graph": "0fadbba16241d088b4019044c560b7990c1c324bffd488980e425590068b7d16",
+          "selected_features": "48bad8eb91c08eafc882c027a2331b2b3242696c8b61efe89e076b3ad53e5f6b",
+          "tensors": "badefed2e69bd1ebae9012cdaa9e75dc3f3cfc9a14173f2dae583cc76b44bc45"
+        },
+        {
+          "graph": "599287e6f7784367e6202b6ca8499392e569fe30784c3d9864f22e1239807c50",
+          "selected_features": "9d46dbf31feb917ea1d0c6439eb89fd847aec2c0767dd1008e04966fef259c54",
+          "tensors": "63f9a692aa0f540e85b3ba5d6b7f87df06cb87459c2f009fa17c29167ed3d875"
+        }
+      ],
+      "original_units": 3,
+      "tensors_changed": true
+    }
+  ],
+  "experiments": [
+    {
+      "initial_weights_hash": "41e9d0a0311189a9f3e844f54771fe963b2788174c7495a59476f4e0e6c06fb9",
+      "mean_margin": -0.0003044232726097107,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9484745264053345
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9480222463607788
+            ],
+            [
+              "extremum",
+              "original",
+              0.9187456965446472
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9566804766654968
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9428566694259644
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9113550186157227
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9150985479354858
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9306690692901611
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.9492146968841553
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.0007401704788208008
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9755038619041443
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9997907280921936
+            ],
+            [
+              "extremum",
+              "original",
+              0.9230624437332153
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9178862571716309
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9755169749259949
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9086053371429443
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9412224292755127
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9300792217254639
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.999694287776947
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 9.644031524658203e-05
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9577022790908813
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9577748775482178
+            ],
+            [
+              "extremum",
+              "original",
+              0.9556592106819153
+            ],
+            [
+              "staged_math",
+              "original",
+              0.973171591758728
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9474169015884399
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9448723793029785
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9495425224304199
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9460407495498657
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9552844166755676
+            ]
+          ],
+          "family": "extremum",
+          "margin": 0.00037479400634765625
+        },
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9628958702087402
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9340722560882568
+            ],
+            [
+              "extremum",
+              "original",
+              0.912050724029541
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9052948355674744
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9521806836128235
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9024358987808228
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9556735754013062
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9297285079956055
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.906069278717041
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0007744431495666504
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.992817759513855
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9894671440124512
+            ],
+            [
+              "extremum",
+              "original",
+              0.9141207337379456
+            ],
+            [
+              "staged_math",
+              "original",
+              0.912533164024353
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9902355074882507
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8908298015594482
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9375988245010376
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9392938613891602
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9901743531227112
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 6.115436553955078e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9022432565689087
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9123427271842957
+            ],
+            [
+              "extremum",
+              "original",
+              0.9276964068412781
+            ],
+            [
+              "staged_math",
+              "original",
+              0.915274977684021
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8898062109947205
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9858098030090332
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9149678945541382
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9279258847236633
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9861655235290527
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.00035572052001953125
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9518613219261169
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9502444863319397
+            ],
+            [
+              "extremum",
+              "original",
+              0.9245110154151917
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9167214035987854
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9619103670120239
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9135683178901672
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.976269006729126
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8983783721923828
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9762119054794312
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 5.710124969482422e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9318522214889526
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9273958206176758
+            ],
+            [
+              "extremum",
+              "original",
+              0.9118146896362305
+            ],
+            [
+              "staged_math",
+              "original",
+              0.932442307472229
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9176623225212097
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9259847402572632
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.888336181640625
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9618484973907471
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9630030393600464
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0011545419692993164
+        }
+      ],
+      "seed": 0,
+      "top1": 2,
+      "trained": false,
+      "variant": "baseline"
+    },
+    {
+      "initial_weights_hash": "41e9d0a0311189a9f3e844f54771fe963b2788174c7495a59476f4e0e6c06fb9",
+      "mean_margin": 1.8104910850524902e-05,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9726347327232361
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9661389589309692
+            ],
+            [
+              "extremum",
+              "original",
+              0.9485307931900024
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9651027917861938
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9754726886749268
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8994745016098022
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9445724487304688
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.966949462890625
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.9723095893859863
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 0.00032514333724975586
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9892300963401794
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9999014139175415
+            ],
+            [
+              "extremum",
+              "original",
+              0.9608504176139832
+            ],
+            [
+              "staged_math",
+              "original",
+              0.945758581161499
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9915022253990173
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9371615648269653
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.969826340675354
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9659831523895264
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9998652338981628
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 3.618001937866211e-05
+        },
+        {
+          "behavior_rank": 5,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9882985949516296
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9852296710014343
+            ],
+            [
+              "extremum",
+              "original",
+              0.9742264747619629
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9572699666023254
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9888612627983093
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9381433129310608
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9584890604019165
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9758814573287964
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9736096858978271
+            ]
+          ],
+          "family": "extremum",
+          "margin": 0.0006167888641357422
+        },
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9666763544082642
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.963952898979187
+            ],
+            [
+              "extremum",
+              "original",
+              0.9375721216201782
+            ],
+            [
+              "staged_math",
+              "original",
+              0.936531126499176
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9613137245178223
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9081472754478455
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9729840755462646
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9401630163192749
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.936737060546875
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0002059340476989746
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9964022636413574
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.996221125125885
+            ],
+            [
+              "extremum",
+              "original",
+              0.9601656198501587
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9491627216339111
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9957672357559204
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9231089353561401
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9694242477416992
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.975896954536438
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9957386255264282
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 2.86102294921875e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9272111058235168
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9347965717315674
+            ],
+            [
+              "extremum",
+              "original",
+              0.9492383003234863
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8818268179893494
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9293818473815918
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9889094829559326
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.917225182056427
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9266164302825928
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9894163608551025
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.0005068778991699219
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9788565039634705
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9774825572967529
+            ],
+            [
+              "extremum",
+              "original",
+              0.9420919418334961
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9336887001991272
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9819473624229431
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9140942096710205
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9864333868026733
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.947002649307251
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9864194393157959
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 1.3947486877441406e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9521573185920715
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9360608458518982
+            ],
+            [
+              "extremum",
+              "original",
+              0.9260098934173584
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9559788703918457
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9498302936553955
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8709936141967773
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9059600830078125
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9771655797958374
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9773285984992981
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.00016301870346069336
+        }
+      ],
+      "seed": 0,
+      "top1": 2,
+      "trained": false,
+      "variant": "reverse_ast"
+    },
+    {
+      "initial_weights_hash": "41e9d0a0311189a9f3e844f54771fe963b2788174c7495a59476f4e0e6c06fb9",
+      "mean_margin": -0.0002977699041366577,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9450641870498657
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9496577978134155
+            ],
+            [
+              "extremum",
+              "original",
+              0.9448134899139404
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9598729610443115
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9332115650177002
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8834103345870972
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9087754487991333
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9259319305419922
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.9449830055236816
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 8.118152618408203e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9745919704437256
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9998201131820679
+            ],
+            [
+              "extremum",
+              "original",
+              0.9361972212791443
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9313884973526001
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9779319763183594
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8824076056480408
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9422876238822937
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9402447938919067
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9996481537818909
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 0.00017195940017700195
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9605686664581299
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9580180048942566
+            ],
+            [
+              "extremum",
+              "original",
+              0.9701416492462158
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9692614078521729
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9492000341415405
+            ],
+            [
+              "helper_change",
+              "original",
+              0.934202253818512
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9507911205291748
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9534183740615845
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9700834155082703
+            ]
+          ],
+          "family": "extremum",
+          "margin": 5.823373794555664e-05
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9558539390563965
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9250868558883667
+            ],
+            [
+              "extremum",
+              "original",
+              0.9260706901550293
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9134079217910767
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9481656551361084
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9151380658149719
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.954513669013977
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9401724934577942
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.9139871001243591
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0005791783332824707
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9933240413665771
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9911156296730042
+            ],
+            [
+              "extremum",
+              "original",
+              0.9417128562927246
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9283370971679688
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9915655255317688
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8792906999588013
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9457637071609497
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9498412609100342
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9914975166320801
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 6.80088996887207e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9010930061340332
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9018105268478394
+            ],
+            [
+              "extremum",
+              "original",
+              0.9522268176078796
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9106957316398621
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8831218481063843
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9854978919029236
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9377952814102173
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9402642846107483
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9861547946929932
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.0006569027900695801
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9557027816772461
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9488523602485657
+            ],
+            [
+              "extremum",
+              "original",
+              0.942107617855072
+            ],
+            [
+              "staged_math",
+              "original",
+              0.930420458316803
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9607387781143188
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9196175336837769
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9656394720077515
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9314984083175659
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9655925035476685
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 4.696846008300781e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9334954023361206
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9342502355575562
+            ],
+            [
+              "extremum",
+              "original",
+              0.9453405141830444
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9467591643333435
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9180318117141724
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9182721376419067
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9142084717750549
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9548722505569458
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9564446806907654
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.00157243013381958
+        }
+      ],
+      "seed": 0,
+      "top1": 3,
+      "trained": false,
+      "variant": "conditioned_relation"
+    },
+    {
+      "initial_weights_hash": "41e9d0a0311189a9f3e844f54771fe963b2788174c7495a59476f4e0e6c06fb9",
+      "mean_margin": -0.00022009015083312988,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9152281880378723
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9100016355514526
+            ],
+            [
+              "extremum",
+              "original",
+              0.8645515441894531
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9306812286376953
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9037927389144897
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8110698461532593
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8822981119155884
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8711426258087158
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.9160517454147339
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.0008235573768615723
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9568336009979248
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9996308088302612
+            ],
+            [
+              "extremum",
+              "original",
+              0.8736242055892944
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8711847066879272
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.956450343132019
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8243261575698853
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.903408408164978
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8883911371231079
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9994595050811768
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 0.00017130374908447266
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9271986484527588
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.925523042678833
+            ],
+            [
+              "extremum",
+              "original",
+              0.9229816198348999
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9544773101806641
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9082266688346863
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8739200830459595
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9105549454689026
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9140064716339111
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9223799705505371
+            ]
+          ],
+          "family": "extremum",
+          "margin": 0.000601649284362793
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9358883500099182
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8839704990386963
+            ],
+            [
+              "extremum",
+              "original",
+              0.8653455376625061
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8552979230880737
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9171668887138367
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8740266561508179
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9205683469772339
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9066449403762817
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8559337258338928
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0006358027458190918
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.987511157989502
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9815071821212769
+            ],
+            [
+              "extremum",
+              "original",
+              0.8643592596054077
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8602885603904724
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9827927350997925
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8217743635177612
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9006251692771912
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9064647555351257
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9826810359954834
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 0.00011169910430908203
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8472447991371155
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8367509841918945
+            ],
+            [
+              "extremum",
+              "original",
+              0.8490214943885803
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8476605415344238
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8320584893226624
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9581459760665894
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8431095480918884
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8621774911880493
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9583070874214172
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.00016111135482788086
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9154587388038635
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9106113910675049
+            ],
+            [
+              "extremum",
+              "original",
+              0.8792970180511475
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8747200965881348
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.932937502861023
+            ],
+            [
+              "helper_change",
+              "original",
+              0.846537709236145
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.957086443901062
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8614622354507446
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9569939374923706
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 9.250640869140625e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9142191410064697
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9011244773864746
+            ],
+            [
+              "extremum",
+              "original",
+              0.890235424041748
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9020663499832153
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8908964395523071
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8600942492485046
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8658956289291382
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9350404739379883
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9361578822135925
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.001117408275604248
+        }
+      ],
+      "seed": 0,
+      "top1": 2,
+      "trained": false,
+      "variant": "unit_matching"
+    },
+    {
+      "initial_weights_hash": "015ec3fe7a0ea42d1c26575a3082fa00b79e1e8ea263a4b0c049bd090e19100e",
+      "mean_margin": 0.0006230250000953674,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9017212390899658
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.882774829864502
+            ],
+            [
+              "extremum",
+              "original",
+              0.9035391807556152
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9652040600776672
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8809014558792114
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8212704062461853
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.889270544052124
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9136022329330444
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.8989467620849609
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 0.002774477005004883
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9608262777328491
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9995989799499512
+            ],
+            [
+              "extremum",
+              "original",
+              0.9323917031288147
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8613231778144836
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9600746631622314
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8566056489944458
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9412044882774353
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9245060086250305
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.999315619468689
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 0.00028336048126220703
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9600474834442139
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9593645930290222
+            ],
+            [
+              "extremum",
+              "original",
+              0.9535775184631348
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9337313175201416
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9450299143791199
+            ],
+            [
+              "helper_change",
+              "original",
+              0.876197099685669
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9334725737571716
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.956751823425293
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9534024596214294
+            ]
+          ],
+          "family": "extremum",
+          "margin": 0.00017505884170532227
+        },
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9358835220336914
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9142212867736816
+            ],
+            [
+              "extremum",
+              "original",
+              0.8462032079696655
+            ],
+            [
+              "staged_math",
+              "original",
+              0.831339955329895
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9254011511802673
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8921748995780945
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9347882866859436
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8829821944236755
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8311316967010498
+            ]
+          ],
+          "family": "staged_math",
+          "margin": 0.00020825862884521484
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9824254512786865
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9881700873374939
+            ],
+            [
+              "extremum",
+              "original",
+              0.9341162443161011
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8678605556488037
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.970766544342041
+            ],
+            [
+              "helper_change",
+              "original",
+              0.868179976940155
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.945677638053894
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9400712847709656
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9708360433578491
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": -6.949901580810547e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8567713499069214
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8357044458389282
+            ],
+            [
+              "extremum",
+              "original",
+              0.8294204473495483
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9135712385177612
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.807112455368042
+            ],
+            [
+              "helper_change",
+              "original",
+              0.979831337928772
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.852421224117279
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9055835604667664
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9797614812850952
+            ]
+          ],
+          "family": "helper_change",
+          "margin": 6.985664367675781e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9210342764854431
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9157976508140564
+            ],
+            [
+              "extremum",
+              "original",
+              0.8555417656898499
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8244528770446777
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9442965388298035
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8439100980758667
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9716417789459229
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8634399771690369
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9716242551803589
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 1.7523765563964844e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8510525822639465
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8263441324234009
+            ],
+            [
+              "extremum",
+              "original",
+              0.8604952096939087
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9349925518035889
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8023800849914551
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8342025279998779
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8171913623809814
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9417199492454529
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9401947855949402
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": 0.0015251636505126953
+        }
+      ],
+      "seed": 1,
+      "top1": 4,
+      "trained": false,
+      "variant": "baseline"
+    },
+    {
+      "initial_weights_hash": "015ec3fe7a0ea42d1c26575a3082fa00b79e1e8ea263a4b0c049bd090e19100e",
+      "mean_margin": 0.00052623450756073,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 5,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9076602458953857
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9172150492668152
+            ],
+            [
+              "extremum",
+              "original",
+              0.958022952079773
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9671012759208679
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8957077264785767
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8394732475280762
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9037690758705139
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9423366785049438
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.9032488465309143
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 0.0044113993644714355
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9881405830383301
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9998897314071655
+            ],
+            [
+              "extremum",
+              "original",
+              0.9289997816085815
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9081642031669617
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9882140159606934
+            ],
+            [
+              "helper_change",
+              "original",
+              0.952448844909668
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9528968334197998
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9606331586837769
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9997661113739014
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 0.00012362003326416016
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9633481502532959
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9729162454605103
+            ],
+            [
+              "extremum",
+              "original",
+              0.968010425567627
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9536843299865723
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9569586515426636
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9208426475524902
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9360337853431702
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9659798741340637
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9679131507873535
+            ]
+          ],
+          "family": "extremum",
+          "margin": 9.72747802734375e-05
+        },
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.969511866569519
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9534686803817749
+            ],
+            [
+              "extremum",
+              "original",
+              0.8696579933166504
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8449611067771912
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9680507183074951
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9348450899124146
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9375379681587219
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9295942783355713
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8448874950408936
+            ]
+          ],
+          "family": "staged_math",
+          "margin": 7.361173629760742e-05
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9944404363632202
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9950875639915466
+            ],
+            [
+              "extremum",
+              "original",
+              0.9253625869750977
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9013230800628662
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9906324148178101
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9451780319213867
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9526807069778442
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9686333537101746
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9906622171401978
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": -2.9802322387695312e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9402264356613159
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9510599970817566
+            ],
+            [
+              "extremum",
+              "original",
+              0.9032579660415649
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9387441873550415
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9406330585479736
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9722188711166382
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9090835452079773
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.934780478477478
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9720197916030884
+            ]
+          ],
+          "family": "helper_change",
+          "margin": 0.0001990795135498047
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9663490056991577
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9594547748565674
+            ],
+            [
+              "extremum",
+              "original",
+              0.8930642604827881
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8594353199005127
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9684122800827026
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9258468151092529
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9837166666984558
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9320752620697021
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9834491610527039
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 0.0002675056457519531
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8792569637298584
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8886024951934814
+            ],
+            [
+              "extremum",
+              "original",
+              0.9281681776046753
+            ],
+            [
+              "staged_math",
+              "original",
+              0.952852725982666
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8647936582565308
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8206075429916382
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.871015191078186
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9477623701095581
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.948695182800293
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0009328126907348633
+        }
+      ],
+      "seed": 1,
+      "top1": 3,
+      "trained": false,
+      "variant": "reverse_ast"
+    },
+    {
+      "initial_weights_hash": "015ec3fe7a0ea42d1c26575a3082fa00b79e1e8ea263a4b0c049bd090e19100e",
+      "mean_margin": 0.00026519596576690674,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9150282740592957
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8924617767333984
+            ],
+            [
+              "extremum",
+              "original",
+              0.9253548383712769
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9641204476356506
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.89913010597229
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8143808245658875
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.888243556022644
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8915683627128601
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.912699818611145
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 0.0023284554481506348
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9543039202690125
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9995373487472534
+            ],
+            [
+              "extremum",
+              "original",
+              0.9104766845703125
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8708856105804443
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9583266973495483
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8518661260604858
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9328087568283081
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9312896728515625
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9995075464248657
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 2.9802322387695312e-05
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9556679725646973
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9668179154396057
+            ],
+            [
+              "extremum",
+              "original",
+              0.9563111662864685
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9320736527442932
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9495845437049866
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8506895303726196
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9331653714179993
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9330179691314697
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9564800262451172
+            ]
+          ],
+          "family": "extremum",
+          "margin": -0.00016885995864868164
+        },
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9416152834892273
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9020373821258545
+            ],
+            [
+              "extremum",
+              "original",
+              0.8871554136276245
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8361833691596985
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9451085329055786
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8778122663497925
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9334465265274048
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9031044244766235
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8346605896949768
+            ]
+          ],
+          "family": "staged_math",
+          "margin": 0.0015227794647216797
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.978855550289154
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9872314929962158
+            ],
+            [
+              "extremum",
+              "original",
+              0.916658878326416
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8784401416778564
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9704160690307617
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8573553562164307
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9350889921188354
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9530177116394043
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.970405638217926
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 1.043081283569336e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8729467391967773
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8515146970748901
+            ],
+            [
+              "extremum",
+              "original",
+              0.854162335395813
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8867173194885254
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8400059342384338
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9802106618881226
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8332144618034363
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.872624933719635
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9805191159248352
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.0003084540367126465
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9224339723587036
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8931921720504761
+            ],
+            [
+              "extremum",
+              "original",
+              0.9005890488624573
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8291077613830566
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9500422477722168
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8230058550834656
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9600619077682495
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8633270859718323
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9601266980171204
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": -6.479024887084961e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9020911455154419
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8746792078018188
+            ],
+            [
+              "extremum",
+              "original",
+              0.8888728022575378
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9119555354118347
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8658447861671448
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8509063720703125
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8475861549377441
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9427728056907654
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9440006017684937
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0012277960777282715
+        }
+      ],
+      "seed": 1,
+      "top1": 1,
+      "trained": false,
+      "variant": "conditioned_relation"
+    },
+    {
+      "initial_weights_hash": "015ec3fe7a0ea42d1c26575a3082fa00b79e1e8ea263a4b0c049bd090e19100e",
+      "mean_margin": 0.0008313953876495361,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8509820699691772
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8200633525848389
+            ],
+            [
+              "extremum",
+              "original",
+              0.8582674264907837
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9547087550163269
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.836471676826477
+            ],
+            [
+              "helper_change",
+              "original",
+              0.7237645387649536
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8409115076065063
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8322618007659912
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.8477457761764526
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": 0.0032362937927246094
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9381331205368042
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9993587732315063
+            ],
+            [
+              "extremum",
+              "original",
+              0.8984077572822571
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7994776368141174
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9303083419799805
+            ],
+            [
+              "helper_change",
+              "original",
+              0.7839834094047546
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8991979360580444
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8747198581695557
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9988927841186523
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 0.0004659891128540039
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.939712405204773
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9415497779846191
+            ],
+            [
+              "extremum",
+              "original",
+              0.9308545589447021
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9012771844863892
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9071587324142456
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8107207417488098
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.890472948551178
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.898914098739624
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9306600689888
+            ]
+          ],
+          "family": "extremum",
+          "margin": 0.0001944899559020996
+        },
+        {
+          "behavior_rank": 7,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9002968668937683
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.866844892501831
+            ],
+            [
+              "extremum",
+              "original",
+              0.7758955955505371
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7799837589263916
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8728808164596558
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8237094283103943
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8912272453308105
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8068429827690125
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.7799087762832642
+            ]
+          ],
+          "family": "staged_math",
+          "margin": 7.49826431274414e-05
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9721914529800415
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9811921119689941
+            ],
+            [
+              "extremum",
+              "original",
+              0.9015709757804871
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8099077343940735
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9467961192131042
+            ],
+            [
+              "helper_change",
+              "original",
+              0.7953243255615234
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9061393737792969
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8776594400405884
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9469044208526611
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": -0.00010830163955688477
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8008155226707458
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.7602292895317078
+            ],
+            [
+              "extremum",
+              "original",
+              0.7803344130516052
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8193618059158325
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.7720755338668823
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9477007985115051
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.7986682653427124
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8392026424407959
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9469431042671204
+            ]
+          ],
+          "family": "helper_change",
+          "margin": 0.0007576942443847656
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8695632219314575
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8588924407958984
+            ],
+            [
+              "extremum",
+              "original",
+              0.8133352994918823
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7894020080566406
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9007433652877808
+            ],
+            [
+              "helper_change",
+              "original",
+              0.7979156970977783
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9516725540161133
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8189363479614258
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9516249895095825
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": 4.756450653076172e-05
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8325239419937134
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.7964012622833252
+            ],
+            [
+              "extremum",
+              "original",
+              0.8421902656555176
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8867553472518921
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.7972637414932251
+            ],
+            [
+              "helper_change",
+              "original",
+              0.7910284996032715
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.805963933467865
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9067531824111938
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9047707319259644
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": 0.001982450485229492
+        }
+      ],
+      "seed": 1,
+      "top1": 4,
+      "trained": false,
+      "variant": "unit_matching"
+    },
+    {
+      "initial_weights_hash": "4d83c5b983d9bc90ad00a8a113474dd11c20fcb09cdcccac309fe47937db955c",
+      "mean_margin": -0.0006685629487037659,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 8,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8815412521362305
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9107068777084351
+            ],
+            [
+              "extremum",
+              "original",
+              0.9251323938369751
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9614449739456177
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8727836608886719
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9392650127410889
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9000646471977234
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9192517995834351
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.8825016021728516
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.0009603500366210938
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9601775407791138
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9998034238815308
+            ],
+            [
+              "extremum",
+              "original",
+              0.8738795518875122
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8656188249588013
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9592589139938354
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9024263024330139
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9337105751037598
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9426385164260864
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9998078346252441
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": -4.410743713378906e-06
+        },
+        {
+          "behavior_rank": 4,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9162769317626953
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9446254968643188
+            ],
+            [
+              "extremum",
+              "original",
+              0.9475301504135132
+            ],
+            [
+              "staged_math",
+              "original",
+              0.964124321937561
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9213452339172363
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9563214182853699
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9262934327125549
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9344363212585449
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9477538466453552
+            ]
+          ],
+          "family": "extremum",
+          "margin": -0.00022369623184204102
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9747369885444641
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9173118472099304
+            ],
+            [
+              "extremum",
+              "original",
+              0.8500307202339172
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8268901109695435
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9662805795669556
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8837393522262573
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9166472554206848
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9236538410186768
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8286466598510742
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0017565488815307617
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9914634227752686
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9824424386024475
+            ],
+            [
+              "extremum",
+              "original",
+              0.8528852462768555
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8513303995132446
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9799760580062866
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8971900939941406
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9298588633537292
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9605215787887573
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9798877239227295
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 8.83340835571289e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8464478850364685
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8670938611030579
+            ],
+            [
+              "extremum",
+              "original",
+              0.9315416812896729
+            ],
+            [
+              "staged_math",
+              "original",
+              0.930569052696228
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8332866430282593
+            ],
+            [
+              "helper_change",
+              "original",
+              0.978571355342865
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8728866577148438
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9235507845878601
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9790588021278381
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.00048744678497314453
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9511951208114624
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9209827184677124
+            ],
+            [
+              "extremum",
+              "original",
+              0.9230391383171082
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8737016916275024
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9557632803916931
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9150097966194153
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9741080403327942
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9214014410972595
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9742604494094849
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": -0.00015240907669067383
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8225023746490479
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8471990823745728
+            ],
+            [
+              "extremum",
+              "original",
+              0.8582149147987366
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9120498299598694
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.7978800535202026
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9178928136825562
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.811660885810852
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9204568266868591
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9223088026046753
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0018519759178161621
+        }
+      ],
+      "seed": 2,
+      "top1": 0,
+      "trained": false,
+      "variant": "baseline"
+    },
+    {
+      "initial_weights_hash": "4d83c5b983d9bc90ad00a8a113474dd11c20fcb09cdcccac309fe47937db955c",
+      "mean_margin": -0.0007442161440849304,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 7,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8837437629699707
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9093077182769775
+            ],
+            [
+              "extremum",
+              "original",
+              0.9647687673568726
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9582425951957703
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8936219215393066
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9281049966812134
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8575667142868042
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8798873424530029
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.8867177367210388
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.0029739737510681152
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.976037323474884
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9999561905860901
+            ],
+            [
+              "extremum",
+              "original",
+              0.8978527784347534
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8422818779945374
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9801338911056519
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9391908049583435
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9522490501403809
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9184354543685913
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9999160766601562
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 4.011392593383789e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9241540431976318
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9526968002319336
+            ],
+            [
+              "extremum",
+              "original",
+              0.9676597714424133
+            ],
+            [
+              "staged_math",
+              "original",
+              0.939028799533844
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9337676763534546
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9625329971313477
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8922694325447083
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9161131381988525
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9679484963417053
+            ]
+          ],
+          "family": "extremum",
+          "margin": -0.0002887248992919922
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9699745774269104
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9318211674690247
+            ],
+            [
+              "extremum",
+              "original",
+              0.8032436370849609
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7747637629508972
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9635556936264038
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8678389191627502
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9320241808891296
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8565165996551514
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.7750539183616638
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.00029015541076660156
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9930071234703064
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9905569553375244
+            ],
+            [
+              "extremum",
+              "original",
+              0.8722549080848694
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8191410303115845
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9909315705299377
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9178140163421631
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9420375823974609
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9298367500305176
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9909777045249939
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": -4.6133995056152344e-05
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8243634700775146
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8710945844650269
+            ],
+            [
+              "extremum",
+              "original",
+              0.945876955986023
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8925118446350098
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8363430500030518
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9682491421699524
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.7965906262397766
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.884867787361145
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9699388742446899
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.0016897320747375488
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9423543214797974
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9390836358070374
+            ],
+            [
+              "extremum",
+              "original",
+              0.8328361511230469
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8096855878829956
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9441882371902466
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8824655413627625
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9828206300735474
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8271058797836304
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9832334518432617
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": -0.00041282176971435547
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.7973486185073853
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8163039684295654
+            ],
+            [
+              "extremum",
+              "original",
+              0.9034847617149353
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8776053190231323
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.7980973720550537
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8847793936729431
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.7020550966262817
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9153026938438416
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9155949950218201
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0002923011779785156
+        }
+      ],
+      "seed": 2,
+      "top1": 1,
+      "trained": false,
+      "variant": "reverse_ast"
+    },
+    {
+      "initial_weights_hash": "4d83c5b983d9bc90ad00a8a113474dd11c20fcb09cdcccac309fe47937db955c",
+      "mean_margin": -0.0006826743483543396,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8680084943771362
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9076145887374878
+            ],
+            [
+              "extremum",
+              "original",
+              0.9078311920166016
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9695764780044556
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.871909499168396
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9235974550247192
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9020221829414368
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9185353517532349
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.8719953298568726
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.003986835479736328
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9578999280929565
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9998174905776978
+            ],
+            [
+              "extremum",
+              "original",
+              0.8842449188232422
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8657909631729126
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9613428711891174
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8873530626296997
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9313332438468933
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9440644979476929
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.9997621774673462
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": 5.53131103515625e-05
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9060792922973633
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9411548376083374
+            ],
+            [
+              "extremum",
+              "original",
+              0.9525198936462402
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9626592397689819
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9181317090988159
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9458455443382263
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9381866455078125
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9360846281051636
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9528727531433105
+            ]
+          ],
+          "family": "extremum",
+          "margin": -0.0003528594970703125
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9718968868255615
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9178549647331238
+            ],
+            [
+              "extremum",
+              "original",
+              0.8731447458267212
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8404860496520996
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9598880410194397
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8707930445671082
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9222601652145386
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9157382249832153
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.8405203223228455
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -3.427267074584961e-05
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.991244912147522
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9804659485816956
+            ],
+            [
+              "extremum",
+              "original",
+              0.8526923060417175
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8372304439544678
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9799102544784546
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8681339025497437
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9257136583328247
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9509071111679077
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9797606468200684
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 0.00014960765838623047
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8187023401260376
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8538175821304321
+            ],
+            [
+              "extremum",
+              "original",
+              0.9204188585281372
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9182299971580505
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8208045959472656
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9818552732467651
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8752063512802124
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9167077541351318
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.9820116758346558
+            ]
+          ],
+          "family": "helper_change",
+          "margin": -0.000156402587890625
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9589079022407532
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.932628870010376
+            ],
+            [
+              "extremum",
+              "original",
+              0.9154103398323059
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8531397581100464
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9610270261764526
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9041255712509155
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9791445732116699
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9239547252655029
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.9792211651802063
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": -7.659196853637695e-05
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.7955837249755859
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8464641571044922
+            ],
+            [
+              "extremum",
+              "original",
+              0.8583099842071533
+            ],
+            [
+              "staged_math",
+              "original",
+              0.928192138671875
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8020663261413574
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9082487225532532
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8218121528625488
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9194142818450928
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.9204736351966858
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0010593533515930176
+        }
+      ],
+      "seed": 2,
+      "top1": 1,
+      "trained": false,
+      "variant": "conditioned_relation"
+    },
+    {
+      "initial_weights_hash": "4d83c5b983d9bc90ad00a8a113474dd11c20fcb09cdcccac309fe47937db955c",
+      "mean_margin": -0.0006807595491409302,
+      "queries": 8,
+      "results": [
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8164452314376831
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8586780428886414
+            ],
+            [
+              "extremum",
+              "original",
+              0.886142373085022
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9455664157867432
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8184909820556641
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8510662317276001
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8621869087219238
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8430124521255493
+            ],
+            [
+              "checkout_charge",
+              "negative",
+              0.818132221698761
+            ]
+          ],
+          "family": "checkout_charge",
+          "margin": -0.0016869902610778809
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9359924793243408
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.999680757522583
+            ],
+            [
+              "extremum",
+              "original",
+              0.7977088689804077
+            ],
+            [
+              "staged_math",
+              "original",
+              0.796134352684021
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9351588487625122
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8224508762359619
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8911083936691284
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9060131311416626
+            ],
+            [
+              "cutoff_gate",
+              "negative",
+              0.999690055847168
+            ]
+          ],
+          "family": "cutoff_gate",
+          "margin": -9.298324584960938e-06
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8667459487915039
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9110736846923828
+            ],
+            [
+              "extremum",
+              "original",
+              0.9174599647521973
+            ],
+            [
+              "staged_math",
+              "original",
+              0.945679783821106
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8726761341094971
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8832149505615234
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8850240111351013
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8948098421096802
+            ],
+            [
+              "extremum",
+              "negative",
+              0.9177814722061157
+            ]
+          ],
+          "family": "extremum",
+          "margin": -0.00032150745391845703
+        },
+        {
+          "behavior_rank": 9,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9588794112205505
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8667643070220947
+            ],
+            [
+              "extremum",
+              "original",
+              0.8040464520454407
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7765116691589355
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9448913931846619
+            ],
+            [
+              "helper_change",
+              "original",
+              0.865544319152832
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.876822292804718
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8856726288795471
+            ],
+            [
+              "staged_math",
+              "negative",
+              0.7778384685516357
+            ]
+          ],
+          "family": "staged_math",
+          "margin": -0.0013267993927001953
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9854034185409546
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.9721143245697021
+            ],
+            [
+              "extremum",
+              "original",
+              0.7849976420402527
+            ],
+            [
+              "staged_math",
+              "original",
+              0.7780119776725769
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.9678685665130615
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8440523147583008
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8875679969787598
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9104994535446167
+            ],
+            [
+              "safe_divide",
+              "negative",
+              0.9677399396896362
+            ]
+          ],
+          "family": "safe_divide",
+          "margin": 0.00012862682342529297
+        },
+        {
+          "behavior_rank": 1,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.7938063144683838
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8115053176879883
+            ],
+            [
+              "extremum",
+              "original",
+              0.9002379179000854
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8833465576171875
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.8012305498123169
+            ],
+            [
+              "helper_change",
+              "original",
+              0.9608317017555237
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8509644865989685
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.877144455909729
+            ],
+            [
+              "helper_change",
+              "negative",
+              0.960822582244873
+            ]
+          ],
+          "family": "helper_change",
+          "margin": 9.119510650634766e-06
+        },
+        {
+          "behavior_rank": 2,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.9150432348251343
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8774808645248413
+            ],
+            [
+              "extremum",
+              "original",
+              0.8799190521240234
+            ],
+            [
+              "staged_math",
+              "original",
+              0.8414020538330078
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.920006513595581
+            ],
+            [
+              "helper_change",
+              "original",
+              0.882148027420044
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.9536255598068237
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.9114941358566284
+            ],
+            [
+              "literal_limit",
+              "negative",
+              0.953900158405304
+            ]
+          ],
+          "family": "literal_limit",
+          "margin": -0.0002745985984802246
+        },
+        {
+          "behavior_rank": 3,
+          "candidates": [
+            [
+              "checkout_charge",
+              "original",
+              0.8014576435089111
+            ],
+            [
+              "cutoff_gate",
+              "original",
+              0.8315081596374512
+            ],
+            [
+              "extremum",
+              "original",
+              0.8794652223587036
+            ],
+            [
+              "staged_math",
+              "original",
+              0.9100960493087769
+            ],
+            [
+              "safe_divide",
+              "original",
+              0.7961370944976807
+            ],
+            [
+              "helper_change",
+              "original",
+              0.8836855292320251
+            ],
+            [
+              "literal_limit",
+              "original",
+              0.8349956274032593
+            ],
+            [
+              "parameter_roles",
+              "original",
+              0.8911744952201843
+            ],
+            [
+              "parameter_roles",
+              "negative",
+              0.893139123916626
+            ]
+          ],
+          "family": "parameter_roles",
+          "margin": -0.0019646286964416504
+        }
+      ],
+      "seed": 2,
+      "top1": 1,
+      "trained": false,
+      "variant": "unit_matching"
+    }
+  ],
+  "fixture_lock": "55fbac94b12c66af4e2d407761833fefb0741264d478e884ba95c2720d3c6657",
+  "oracles": {
+    "checkout_charge": {
+      "negative": [
+        false,
+        true,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "cutoff_gate": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "extremum": {
+      "negative": [
+        false,
+        true,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "helper_change": {
+      "negative": [
+        false,
+        false,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "literal_limit": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "parameter_roles": {
+      "negative": [
+        false,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "safe_divide": {
+      "negative": [
+        true,
+        false,
+        true
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    },
+    "staged_math": {
+      "negative": [
+        false,
+        false,
+        false
+      ],
+      "original": [
+        true,
+        true,
+        true
+      ],
+      "positive": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "python": "3.14.6",
+  "schema": 3,
+  "source_hashes": {
+    "checkout_charge/negative.py": "535bdf3cb1f49f41678a91b128924520946d83f9dde6d75e9a72f1ffebde2a51",
+    "checkout_charge/original.py": "995729ed7443067ac0df8380e87b290a72ff44b6d284ccb8339dc5e74d9b45a3",
+    "checkout_charge/positive.py": "efbfd8f1f44cf93646dc44b3f3d7df15921344067ee7cb52b649728e413b16ab",
+    "cutoff_gate/negative.py": "a0e74197232a77d32bf11ea2bb153f7eeef10f3f9e69e105c2587a5d0bc81311",
+    "cutoff_gate/original.py": "b163188210dbc694e22e8d7ffdb302bf3807b6fa2418487f02ea86146ea703de",
+    "cutoff_gate/positive.py": "ea8f0b4d4390488540416ac96fd36e1e303a4cc90eaf79ee909e3fcd1c79ac65",
+    "extremum/negative.py": "b03038bbab455ef0b4874d65739bbdc6bf7c4a6d97da2d8aff4997ccbf0478c5",
+    "extremum/original.py": "6cba4414f753942813279dfa01140df9114bc72f98fde63523b2e46c33959df1",
+    "extremum/positive.py": "d606fbd835c068a353b23ff8396f1bd1fc9749fd057683568445bcd376bec698",
+    "helper_change/negative.py": "80060384022a9617192721734696c56ee2fdbbd29f64b88b830d08fd26853e50",
+    "helper_change/original.py": "827465395c137cfca836b3882746274c479756dce7d4921bea61c6011347fc57",
+    "helper_change/positive.py": "cb360f2a02cf9b1f9f9dc030f2e417a9853d99c0b7d4403c27fdeb0d634f5093",
+    "literal_limit/negative.py": "a84cc42aedb809f1ebecc375707718b93356500dd4119ce055e004c6fae8dd61",
+    "literal_limit/original.py": "3e7798c49ffd044f812fc939d946594babbb4a2ef2826deb79f82213eb91d7d9",
+    "literal_limit/positive.py": "4bcbf418841d5bdbee44ffb8754f427dc662474e0f72086a6e6a36f82056ed15",
+    "parameter_roles/negative.py": "0e0cea44d95005a143fc5574704c1da6c14806784886995ef96d40fda5e12665",
+    "parameter_roles/original.py": "902727f5377430c4f47480b8dcc0e86c2cb957c5389dc6ec03a3850d6f6f9055",
+    "parameter_roles/positive.py": "dee3c6037e3c4c217c8e673b94b7284a770b84fe1a5e7025dc22c599e7d49d4e",
+    "safe_divide/negative.py": "75a33d680d7fcb49980b57c309e627d39a6d7875ecfee670e1eca28da6a9a17e",
+    "safe_divide/original.py": "7a7d40eace222406b9a2aecdf7b3b68359e4a9e3ed798a42b51ffad1fd2dd863",
+    "safe_divide/positive.py": "e35f45cfa8bc2815cf21e1511467f608ee1a816af4609398856c19df6e8bdfc0",
+    "staged_math/negative.py": "bfa539cea40657c001de4c582046ee155405d0e942fbf63536a73b4deac29b04",
+    "staged_math/original.py": "f1f1abf8f52070410763432293ca639dcd77c50dd5b05d505a040cd164628586",
+    "staged_math/positive.py": "7dff573db2be52c8783b69367719307e921c27b449b738ee3bed0824bdbc054e"
+  },
+  "split": "train",
+  "test_scored": false,
+  "torch": "2.14.0",
+  "trained": false
+}

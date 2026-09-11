@@ -16,13 +16,13 @@ from pathlib import Path
 from .ingest import ingest_source
 from .fixtures import FixtureInput, extract_fixture
 from .manifest import CorpusProject, artifact_id, load_manifest, write_lock
-from .semantic import ProgramGraph
+from .semantic import ProgramGraph, SCHEMA_VERSION
 from .synthetic import damaged_view, formatted_view, renamed_view
 from .curation import CuratedInput, canonical_hash, curated_inputs, load_release, raw_hash, write_report
 
 
-GRAPH_PIPELINE_VERSION = "graph-v2-transform-v2"
-RELEASE_VERSION = "v0.2"
+GRAPH_PIPELINE_VERSION = "graph-v3-fields-bindings-v1-transform-v2"
+RELEASE_VERSION = "v0.3"
 
 
 def _repository_identity(url: str) -> str:
@@ -276,7 +276,7 @@ def derive_unit_capped_release(source_root: str | Path, output_root: str | Path,
                  for name in inventory_names}
     _atomic_text(output / "COMPLETE.json", json.dumps(
         {"format": 1, "graph_pipeline": GRAPH_PIPELINE_VERSION,
-         "schema_version": 2, "derived_from": str(source), "inventory": inventory},
+         "schema_version": SCHEMA_VERSION, "derived_from": str(source), "inventory": inventory},
         indent=2, sort_keys=True) + "\n")
     return {**stats, "output": str(output), "graph_files": len(graph_manifest)}
 
@@ -383,7 +383,7 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
                            "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
     _atomic_text(output / "COMPLETE.json", json.dumps(
         {"format": 1, "graph_pipeline": GRAPH_PIPELINE_VERSION,
-         "schema_version": 2, "inventory": inventory}, indent=2, sort_keys=True) + "\n")
+         "schema_version": SCHEMA_VERSION, "inventory": inventory}, indent=2, sort_keys=True) + "\n")
     return {"projects": len(projects), "views": len(records), "output": str(output),
             "curated": curate, "retained_units": report.retained_units if report else None}
 

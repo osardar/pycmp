@@ -29,6 +29,12 @@ def _load_graphs(path: Path) -> list[ProgramGraph]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="codegraph")
     commands = parser.add_subparsers(dest="command", required=True)
+    source_audit = commands.add_parser("source-audit")
+    source_audit.add_argument("--output", required=True)
+    diagnostics = commands.add_parser("hardpair-diagnose")
+    diagnostics.add_argument("--checkpoint", required=True)
+    diagnostics.add_argument("--output", required=True)
+    diagnostics.add_argument("--split", choices=("train", "validation"), default="train")
     similarity = commands.add_parser("similarity-benchmark")
     similarity_commands = similarity.add_subparsers(dest="similarity_command", required=True)
     similarity_build = similarity_commands.add_parser("build")
@@ -102,6 +108,16 @@ def main(argv: list[str] | None = None) -> int:
     decompile.add_argument("--backlog", required=True)
     decompile.add_argument("--output", required=True)
     args = parser.parse_args(argv)
+
+    if args.command == "source-audit":
+        from .source_audit import audit
+        print(json.dumps(audit(args.output), sort_keys=True))
+        return 0
+
+    if args.command == "hardpair-diagnose":
+        from .hardpair_diagnostics import diagnose
+        print(json.dumps(diagnose(args.checkpoint, args.output, split=args.split), sort_keys=True))
+        return 0
 
     if args.command == "similarity-benchmark":
         from .similarity_benchmark import build as similarity_build, evaluate as similarity_evaluate

@@ -56,7 +56,7 @@ def _decode_cross_version(path: str, magic: str) -> dict:
     # Portable xdis code objects differ by CPython era. Preserve an explicitly
     # partial semantic graph rather than inventing host-runtime opcode meanings.
     graph = _code_graph(code, path, magic) if isinstance(code, CodeType) else {
-        "schema_version": 2, "unit_id": f"{path}:bytecode", "unit_kind": "function",
+        "schema_version": 3, "unit_id": f"{path}:bytecode", "unit_kind": "function",
         "nodes": [{"id": "n0", "kind": "core:function", "attributes": {"semantic_kind": "function", "code_name": name},
                    "available": ["semantic_kind", "code_name"]},
                   {"id": "n1", "kind": "core:operation", "attributes": {"semantic_kind": "operation", "opcode": "foreign_bytecode"},
@@ -121,7 +121,7 @@ def _code_graph(root: CodeType, origin: str, magic: str) -> dict:
 
     add_code(root)
     return {
-        "schema_version": 2, "unit_id": f"{origin}:bytecode", "unit_kind": "function",
+        "schema_version": 3, "unit_id": f"{origin}:bytecode", "unit_kind": "function",
         "nodes": nodes, "edges": edges,
         "metadata": {"lane": "bytecode", "origin": origin, "parser": "isolated-cpython-dis",
                      "bytecode_magic": magic, "parse_status": "valid", "confidence": "medium",
