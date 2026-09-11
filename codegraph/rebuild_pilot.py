@@ -11,14 +11,14 @@ import resource
 import sys
 import time
 
-from .corpus_builder import _checkout, build_corpus
+from .corpus_builder import RELEASE_VERSION, _checkout, build_corpus
 from .curation import curated_inputs
 from .hardpair_diagnostics import facts
 from .ingest import ingest_source
 from .manifest import artifact_id, load_manifest
 from .semantic import ProgramGraph, SCHEMA_VERSION
 from .shared_model import FEATURE_KEYS, SharedGraphEncoder
-from .synthetic import renamed_view
+from .synthetic import format_result, rename_result
 
 
 def sha(path):
@@ -89,6 +89,33 @@ def verify_release(root: Path) -> dict:
     return {"totals": dict(totals), "largest": largest, "units_per_project": dict(counts)}
 
 
+def verify_generated_transforms(root: Path, model) -> dict:
+    rows = [json.loads(s) for s in (root / "views.jsonl").read_text().splitlines()]
+    signatures = {}
+    for relative in sorted({r["graph_path"] for r in rows}):
+        for line in (root / relative).read_text().splitlines():
+            graph = ProgramGraph.from_dict(json.loads(line))
+            signatures[(relative, graph.unit_id)] = (graph.metadata.get("qualified_name"), facts(graph, model)["tensors"])
+    originals = {}
+    for row in rows:
+        if row["view_kind"].split(":")[-1] == "source":
+            name, signature = signatures[(row["graph_path"], row["metadata"]["unit_id"])]
+            originals[(row["metadata"]["source_artifact_id"], name)] = signature
+    checked = Counter()
+    failures = []
+    for row in rows:
+        kind = row["view_kind"].split(":")[-1]
+        if kind not in {"renamed", "formatted"}:
+            continue
+        name, signature = signatures[(row["graph_path"], row["metadata"]["unit_id"])]
+        key = (row["metadata"]["source_artifact_id"], name)
+        checked[kind] += 1
+        if originals.get(key) != signature or row["metadata"].get("transform_status") != "static_checked":
+            failures.append({"project": row["project"], "kind": kind, "unit": name,
+                             "missing_source": key not in originals})
+    return {"checked": dict(checked), "failures": failures}
+
+
 def run(manifest: Path, checkouts: Path, output: Path, legacy: Path, cap: int = 50) -> dict:
     if output.exists():
         raise ValueError("choose a new pilot directory")
@@ -107,15 +134,17 @@ def run(manifest: Path, checkouts: Path, output: Path, legacy: Path, cap: int = 
                               "max_graph_file_bytes": 32*1024**2},
                   "network_fetch": False, "third_party_execution": False, "training": False,
                   "code_hashes": {name: sha(Path(__file__).with_name(name)) for name in
-                                  ("rebuild_pilot.py", "corpus_builder.py", "ast_normalize.py", "source_evidence.py")}}
+                                  ("rebuild_pilot.py", "corpus_builder.py", "ast_normalize.py", "source_evidence.py",
+                                   "synthetic.py", "curation.py", "fixtures.py", "semantic.py", "shared_model.py")}}
     (output / "definition.json").write_text(json.dumps(definition, indent=2)+"\n")
     started = time.perf_counter()
     release = output / "release"
     build_corpus(manifest, release, checkout_root=checkouts, curate=True, max_units_per_project=cap)
     build_seconds = time.perf_counter()-started
     integrity = verify_release(release)
-    inputs, curation = curated_inputs(projects, checkouts, cap=cap)
+    inputs, curation = curated_inputs(projects, checkouts, cap=cap, release=RELEASE_VERSION)
     model = SharedGraphEncoder(dimension=8, layers=1).eval()  # buckets only, no embedding/scoring
+    generated_transforms = verify_generated_transforms(release, model)
     profiles = []
     for index, item in enumerate(inputs, 1):
         begin = time.perf_counter()
@@ -141,14 +170,19 @@ def run(manifest: Path, checkouts: Path, output: Path, legacy: Path, cap: int = 
                 "nodes": sum(len(g["nodes"]) for g in old_graphs),
                 "edges": sum(len(g["edges"]) for g in old_graphs)}
         if all(g.metadata["lane"] == "ast" for g in graphs):
-            renamed = renamed_view(item.fixture.source, seed_material="schema3-pilot")
-            others = ingest_source(renamed, origin=item.relative).graphs
             left = {g.metadata["qualified_name"]: facts(g, model)["tensors"] for g in graphs}
-            right = {g.metadata["qualified_name"]: facts(g, model)["tensors"] for g in others}
-            profile["rename_tensor_equal"] = left == right
-            profile["rename_changed_units"] = sorted(n for n in left.keys() | right.keys() if left.get(n) != right.get(n))
-            if left != right:
-                profile["rename_findings"] = transformation_findings(item.fixture.source, renamed, graphs, others)
+            for label, transformed in (("rename", rename_result(item.fixture.source, seed_material="schema3-pilot")),
+                                       ("format", format_result(item.fixture.source))):
+                profile[label+"_status"] = transformed.status
+                profile[label+"_reason"] = transformed.reason
+                if transformed.status != "applied":
+                    continue
+                others = ingest_source(transformed.source, origin=item.relative).graphs
+                right = {g.metadata["qualified_name"]: facts(g, model)["tensors"] for g in others}
+                profile[label+"_tensor_equal"] = left == right
+                profile[label+"_changed_units"] = sorted(n for n in left.keys() | right.keys() if left.get(n) != right.get(n))
+                if left != right:
+                    profile[label+"_findings"] = transformation_findings(item.fixture.source, transformed.source, graphs, others)
         profiles.append(profile)
         if index % 10 == 0 or index == len(inputs):
             print(f"Profiled {index}/{len(inputs)} curated inputs", flush=True)
@@ -156,17 +190,25 @@ def run(manifest: Path, checkouts: Path, output: Path, legacy: Path, cap: int = 
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     rss_bytes = int(rss if sys.platform == "darwin" else rss * 1024)
     failures = [p for p in profiles if p.get("rename_tensor_equal") is False]
+    transformation_counts = {label: dict(Counter(p[label+"_status"] for p in profiles if label+"_status" in p))
+                             for label in ("rename", "format")}
     gates = {"inventory_and_graph_checksums": True,
              "repository_cap": all(n <= cap for n in integrity["units_per_project"].values()),
              "time_budget": total_seconds <= definition["budgets"]["wall_seconds"],
              "memory_budget": rss_bytes <= definition["budgets"]["peak_rss_bytes"],
              "graph_file_budget": integrity["largest"]["file_bytes"] <= definition["budgets"]["max_graph_file_bytes"],
-             "rename_invariance": not failures}
+             "rename_invariance": not failures and transformation_counts["rename"].get("applied", 0) > 0,
+             "format_invariance": not any(p.get("format_tensor_equal") is False for p in profiles)
+                                   and transformation_counts["format"].get("applied", 0) > 0,
+             "curation_version": curation.release == RELEASE_VERSION,
+             "generated_transform_invariance": not generated_transforms["failures"]}
     report = {"definition": definition, "stats": json.loads((release / "release-stats.json").read_text()),
               "curation": curation.as_dict(), "integrity": integrity,
               "build_seconds": build_seconds, "total_seconds": total_seconds, "peak_rss_bytes": rss_bytes,
               "rss_scope": "single pilot process including imports/build/verification/profile; excludes child git processes",
-              "gates": gates, "ready_for_full_rebuild": all(gates.values()), "profiles": profiles}
+              "gates": gates, "transformation_counts": transformation_counts,
+              "generated_transforms": generated_transforms,
+              "ready_for_full_rebuild": all(gates.values()), "profiles": profiles}
     (output / "pilot.json").write_text(json.dumps(report, indent=2, sort_keys=True)+"\n")
     return {k:v for k,v in report.items() if k not in {"profiles", "definition", "curation"}}
 

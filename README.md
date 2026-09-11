@@ -17,12 +17,14 @@ evidence boundary.
 The latest local implementation is **schema 3**, with typed literals, complete
 AST-field evidence, recursive declaration discovery and lexical binding candidates.
 See the [source representation report](docs/SOURCE-REPRESENTATION-V3.md).
-There is no trained schema-3 release checkpoint yet: the schema-2 results below
-are historical, and their graphs/checkpoint/index are intentionally incompatible
-with the new loader. The full first-party suite has 46 passing tests.
-The [schema-3 rebuild pilot](docs/baselines/2026-09-10-schema3-rebuild-pilot.md)
-passed resource/integrity checks but exposed unsafe nested-scope renaming and
-type-comment loss. Full rebuilding/training is deferred pending transformation repairs.
+The [full schema-3 rebuild and baseline](docs/baselines/2026-09-11-schema3-capped.md)
+contains 8,070 comparable units / 25,687 views. All release integrity gates pass,
+including tensor invariance for 12,235 retained transformed-unit views. Three small
+schema-3 baseline checkpoints now exist, but show no consistent learned advantage:
+paired Recall@5 is 97.01–97.23%, versus 97.14% untrained; harder development
+behavior ranking succeeds on only 2–3 of 8 families. The suite has 57 passing tests.
+Schema-2 results below remain historical, and their artifacts are incompatible
+with the new loader. Harder training and cross-lane validation remain open.
 
 The schema-2 milestone repaired critical representation, training, corpus,
 and retrieval defects found in the September 2026 audit. It now validates graph

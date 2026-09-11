@@ -22,10 +22,10 @@ class RebuildPilotTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "new pilot directory"):
                 run(root / "missing-manifest", root, root, root)
 
-    def test_diagnostics_record_type_comment_loss(self):
+    def test_diagnostics_confirm_type_comment_preservation(self):
         source = "x = 1  # type: int\n"
         transformed = renamed_view(source, seed_material="pilot")
         result = transformation_findings(source, transformed, ingest_source(source).graphs,
                                          ingest_source(transformed).graphs)
-        self.assertEqual((result["type_facts_before"], result["type_facts_after"]), (1, 0))
-        self.assertTrue(result["units"])
+        self.assertEqual((result["type_facts_before"], result["type_facts_after"]), (1, 1))
+        self.assertFalse(result["units"])

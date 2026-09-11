@@ -1,5 +1,16 @@
 # Corpus guide
 
+## Current schema-3 release — 2026-09-11
+
+The [full rebuilt release](baselines/2026-09-11-schema3-capped.md) is available at
+`corpus-runs/release-v0.3-capped`: 8,070 comparable units, 25,687 views, 7,850 graph
+files and 1.44 GiB of serialized graphs. It covers 40 Python-contributing records
+across 38 repository URLs; Certify remains explicitly noncontributing. All release
+checksums, split-group and cap checks pass, and all 12,235 generated transformed
+unit views preserve encoder tensors. Conservative transform exclusions are logged.
+Three small schema-3 checkpoints now exist, without a consistent learned advantage.
+Older counts below are historical, not the current compatible release.
+
 ## Schema-2 curation update — 2026-09-07
 
 The previous `release-v0.1` directory is preserved as an incomplete, invalidated

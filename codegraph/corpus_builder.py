@@ -17,11 +17,11 @@ from .ingest import ingest_source
 from .fixtures import FixtureInput, extract_fixture
 from .manifest import CorpusProject, artifact_id, load_manifest, write_lock
 from .semantic import ProgramGraph, SCHEMA_VERSION
-from .synthetic import damaged_view, formatted_view, renamed_view
+from .synthetic import damaged_view, format_result, rename_result
 from .curation import CuratedInput, canonical_hash, curated_inputs, load_release, raw_hash, write_report
 
 
-GRAPH_PIPELINE_VERSION = "graph-v3-fields-bindings-v1-transform-v2"
+GRAPH_PIPELINE_VERSION = "graph-v3-fields-bindings-v1-transform-v3"
 RELEASE_VERSION = "v0.3"
 
 
@@ -293,7 +293,7 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
     if curate:
         for project in projects:
             _checkout(project, checkouts)
-        inputs, report = curated_inputs(projects, checkouts, cap=max_units_per_project)
+        inputs, report = curated_inputs(projects, checkouts, cap=max_units_per_project, release=RELEASE_VERSION)
         write_report(output / "curation-report.json", report)
     else:
         inputs, report = _uncurated_inputs(projects, checkouts), None
@@ -312,11 +312,19 @@ def build_corpus(manifest_path: str | Path, output_root: str | Path, *, checkout
                 warnings.simplefilter("ignore", SyntaxWarning)
                 ast.parse(source)
             for transform_name, transform in (
-                ("formatted", lambda: formatted_view(source)),
-                ("renamed", lambda: renamed_view(source, seed_material=source_id)),
+                ("formatted", lambda: format_result(source)),
+                ("renamed", lambda: rename_result(source, seed_material=source_id)),
             ):
                 try:
-                    variants.append((transform_name, transform(), dict(base_metadata)))
+                    transformed = transform()
+                    if transformed.status == "applied":
+                        variants.append((transform_name, transformed.source,
+                                         {**base_metadata, "transform_status": "static_checked",
+                                          "transform_policy": "v3_conservative",
+                                          "changed_bindings": transformed.changed_bindings}))
+                    else:
+                        variants[0][2].setdefault("transformation_gaps", []).append(
+                            {"view": transform_name, "status": transformed.status, "reason": transformed.reason})
                 except (RecursionError, ValueError, TypeError) as exc:
                     variants[0][2].setdefault("transformation_gaps", []).append(
                         {"view": transform_name, "error": type(exc).__name__})

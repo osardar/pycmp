@@ -2,17 +2,34 @@
 
 Date: 2026-09-07. Evidence and finding IDs are in the [audit](AUDIT-2026-09-07.md); intended decisions are in the [classification strategy](CLASSIFICATION-STRATEGY.md).
 
-Execution status updated: 2026-09-08. The phases below retain the original audit
+Execution status updated: 2026-09-11. The phases below retain the original audit
 scope; they are not a list of wholly unimplemented features. Use this ledger and
 the [current status](STATUS.md) to distinguish delivered work from open gates.
 
 ## Execution ledger
 
-The September 10 [rebuild pilot](baselines/2026-09-10-schema3-rebuild-pilot.md)
+September 11: the [full schema-3 rebuild and three-seed baseline](baselines/2026-09-11-schema3-capped.md)
+are complete. The 8,070-unit / 25,687-view release passes all static gates, including
+12,235 actual transformed-unit tensor comparisons. There are 57 passing tests.
+Paired Recall@5 meets the historical threshold (97.01–97.23%), but does not show
+consistent advantage over the untrained encoder (97.14%). Development behavior
+top-1 is only 2–3/8. Do not promote these checkpoints as classifiers. The next
+experiment needs genuinely structural, behavior-checked positives and matched
+behavior-changing negatives, project-balanced/node-budget batches and project-level
+uncertainty reporting. The full harder-training and cross-lane gates remain open.
+
+The [transform repair and final pilot](baselines/2026-09-10-transform-repair-pilot.md)
+now pass all nine gates, with 53 passing tests. Binding-aware source-span renaming
+and typed-AST-checked formatting exclude unsupported/unchanged cases explicitly.
+All 284 retained transformed-unit views preserve encoder inputs. The next gate
+was a fresh full capped schema-3 corpus build and coverage/integrity review, not
+an immediate claim of a trained or validated classifier.
+
+The initial September 10 [rebuild pilot](baselines/2026-09-10-schema3-rebuild-pilot.md)
 passed resource/integrity checks but failed rename invariance (14/49 valid inputs).
 An owned counterexample proves nested-parameter shadowing can change behavior
-under the corpus renamer. Fix or exclude unsupported transformations and preserve
-typing evidence before the full rebuild; do not proceed directly to model training.
+under the old corpus renamer. Its generated positives remain unsuitable for
+training; the repair above supersedes this blocker without rewriting its evidence.
 
 September 10 update: the [schema-3 source repair](SOURCE-REPRESENTATION-V3.md)
 implements typed literals, scalar-field preservation, recursive unit discovery,

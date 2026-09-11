@@ -1,0 +1,413 @@
+{
+  "definition": {
+    "release": "corpus-runs/release-v0.3-capped",
+    "audit_sha256": "342a07a0e472de7084cf2bd0a4feb05c90b405b754844e22cddf864702141f6e",
+    "complete_sha256": "7564d126521a38b7c55354063df827188e89cc92f7e65e8eed40f23b937381ab",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 1,
+    "dimension": 64,
+    "layers": 2,
+    "batch_size": 32,
+    "device": "cpu",
+    "torch_threads": 1,
+    "hardpair_split": "train",
+    "reserved_hardpair_test_scored": false,
+    "code_hashes": {
+      "release_baseline.py": "3a159e160e877b24f259175162afd6943b03118c4d14f9bb971b217893c18742",
+      "workflow.py": "b8c1420d8de1b24b81d54a0849a43dd44b0fb646d85f7e8208e5e79fc7d09c2d",
+      "training.py": "f31672a6630b7662878ea0b5b5882b2fec500144f359ce08a537d68f83875133",
+      "shared_model.py": "893b2390a7af122765af49ef420472798ec32489a6a386069480796e5d9faff5",
+      "hardpair_diagnostics.py": "a6a63de6243e62573950f42e67a2e448c01026013ea24d83342f3eca1b93eae6"
+    }
+  },
+  "results": [
+    {
+      "seed": 0,
+      "training": {
+        "examples": 14083,
+        "epochs": 1,
+        "loss": 0.021855921309476067,
+        "checkpoint": "corpus-runs/schema3-baseline-v1/model-seed0.pt"
+      },
+      "training_seconds": 46.632174166996265,
+      "checkpoint_sha256": "6977e90753a0a4a166e3ef3ab696b1c9bfe3a0385195585559c066590897f1db",
+      "benchmark": {
+        "report": "corpus-runs/schema3-baseline-v1/benchmark-seed0.json",
+        "eligible_queries": 3215,
+        "mrr": 0.9550907699981153,
+        "status": "ok",
+        "paired_recall_at_1": 0.942457231726283,
+        "paired_recall_at_5": 0.9701399688958009,
+        "paired_recall_at_10": 0.983203732503888,
+        "split": "test",
+        "examples": 3232,
+        "baselines": {
+          "hashed_graph_cosine": {
+            "eligible_queries": 3215,
+            "mrr": 0.9534349749034141,
+            "status": "ok",
+            "paired_recall_at_1": 0.9390357698289269,
+            "paired_recall_at_5": 0.9701399688958009,
+            "paired_recall_at_10": 0.981959564541213
+          },
+          "untrained_shared_encoder": {
+            "eligible_queries": 3215,
+            "mrr": 0.9549818130949193,
+            "status": "ok",
+            "paired_recall_at_1": 0.9415241057542768,
+            "paired_recall_at_5": 0.9713841368584759,
+            "paired_recall_at_10": 0.9835147744945568
+          }
+        },
+        "by_research_tier": {
+          "analysis_fixtures": {
+            "eligible_queries": 905,
+            "mrr": 0.8635741154272812,
+            "status": "ok",
+            "paired_recall_at_1": 0.8276243093922652,
+            "paired_recall_at_5": 0.9060773480662984,
+            "paired_recall_at_10": 0.9447513812154696
+          },
+          "defensive_security": {
+            "eligible_queries": 1456,
+            "mrr": 0.9856334142048427,
+            "status": "ok",
+            "paired_recall_at_1": 0.9800824175824175,
+            "paired_recall_at_5": 0.992445054945055,
+            "paired_recall_at_10": 0.9972527472527473
+          },
+          "standard": {
+            "eligible_queries": 854,
+            "mrr": 1.0,
+            "status": "ok",
+            "paired_recall_at_1": 1.0,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          }
+        },
+        "by_diagnostic_family": {
+          "formatting": {
+            "eligible_queries": 334,
+            "mrr": 0.9950099800399201,
+            "status": "ok",
+            "paired_recall_at_1": 0.9910179640718563,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          },
+          "lint": {
+            "eligible_queries": 194,
+            "mrr": 0.7140067657613705,
+            "status": "ok",
+            "paired_recall_at_1": 0.634020618556701,
+            "paired_recall_at_5": 0.8350515463917526,
+            "paired_recall_at_10": 0.9072164948453608
+          },
+          "transformation": {
+            "eligible_queries": 2687,
+            "mrr": 0.967534864031597,
+            "status": "ok",
+            "paired_recall_at_1": 0.9586899888351321,
+            "paired_recall_at_5": 0.9761816151842203,
+            "paired_recall_at_10": 0.9866021585411239
+          }
+        },
+        "accepts": true
+      }
+    },
+    {
+      "seed": 1,
+      "training": {
+        "examples": 14083,
+        "epochs": 1,
+        "loss": 0.02499559661085731,
+        "checkpoint": "corpus-runs/schema3-baseline-v1/model-seed1.pt"
+      },
+      "training_seconds": 53.06919883299997,
+      "checkpoint_sha256": "f4a212fcfc33e37dc7ea5a1b0cfed552deabda58ddace0379f32d70f3e7d2f11",
+      "benchmark": {
+        "report": "corpus-runs/schema3-baseline-v1/benchmark-seed1.json",
+        "eligible_queries": 3215,
+        "mrr": 0.9549247540745928,
+        "status": "ok",
+        "paired_recall_at_1": 0.9412130637636081,
+        "paired_recall_at_5": 0.9723172628304821,
+        "paired_recall_at_10": 0.983203732503888,
+        "split": "test",
+        "examples": 3232,
+        "baselines": {
+          "hashed_graph_cosine": {
+            "eligible_queries": 3215,
+            "mrr": 0.9534349749034141,
+            "status": "ok",
+            "paired_recall_at_1": 0.9390357698289269,
+            "paired_recall_at_5": 0.9701399688958009,
+            "paired_recall_at_10": 0.981959564541213
+          },
+          "untrained_shared_encoder": {
+            "eligible_queries": 3215,
+            "mrr": 0.9549818130949193,
+            "status": "ok",
+            "paired_recall_at_1": 0.9415241057542768,
+            "paired_recall_at_5": 0.9713841368584759,
+            "paired_recall_at_10": 0.9835147744945568
+          }
+        },
+        "by_research_tier": {
+          "analysis_fixtures": {
+            "eligible_queries": 905,
+            "mrr": 0.8631300016015276,
+            "status": "ok",
+            "paired_recall_at_1": 0.825414364640884,
+            "paired_recall_at_5": 0.9060773480662984,
+            "paired_recall_at_10": 0.9414364640883978
+          },
+          "defensive_security": {
+            "eligible_queries": 1456,
+            "mrr": 0.9855428797393082,
+            "status": "ok",
+            "paired_recall_at_1": 0.9787087912087912,
+            "paired_recall_at_5": 0.9972527472527473,
+            "paired_recall_at_10": 0.9993131868131868
+          },
+          "standard": {
+            "eligible_queries": 854,
+            "mrr": 1.0,
+            "status": "ok",
+            "paired_recall_at_1": 1.0,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          }
+        },
+        "by_diagnostic_family": {
+          "formatting": {
+            "eligible_queries": 334,
+            "mrr": 0.9950099800399201,
+            "status": "ok",
+            "paired_recall_at_1": 0.9910179640718563,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          },
+          "lint": {
+            "eligible_queries": 194,
+            "mrr": 0.7166239313707475,
+            "status": "ok",
+            "paired_recall_at_1": 0.6288659793814433,
+            "paired_recall_at_5": 0.8195876288659794,
+            "paired_recall_at_10": 0.9123711340206185
+          },
+          "transformation": {
+            "eligible_queries": 2687,
+            "mrr": 0.9671472677076878,
+            "status": "ok",
+            "paired_recall_at_1": 0.9575735020468924,
+            "paired_recall_at_5": 0.9799032378116859,
+            "paired_recall_at_10": 0.9862299962783774
+          }
+        },
+        "accepts": true
+      }
+    },
+    {
+      "seed": 2,
+      "training": {
+        "examples": 14083,
+        "epochs": 1,
+        "loss": 0.02558212646836182,
+        "checkpoint": "corpus-runs/schema3-baseline-v1/model-seed2.pt"
+      },
+      "training_seconds": 52.003111250000075,
+      "checkpoint_sha256": "13bfabe9df059bc703d73bb19647c4f61f5375326bc012451105a40b81e26ae9",
+      "benchmark": {
+        "report": "corpus-runs/schema3-baseline-v1/benchmark-seed2.json",
+        "eligible_queries": 3215,
+        "mrr": 0.9549200723901259,
+        "status": "ok",
+        "paired_recall_at_1": 0.9418351477449456,
+        "paired_recall_at_5": 0.9710730948678071,
+        "paired_recall_at_10": 0.9828926905132193,
+        "split": "test",
+        "examples": 3232,
+        "baselines": {
+          "hashed_graph_cosine": {
+            "eligible_queries": 3215,
+            "mrr": 0.9534349749034141,
+            "status": "ok",
+            "paired_recall_at_1": 0.9390357698289269,
+            "paired_recall_at_5": 0.9701399688958009,
+            "paired_recall_at_10": 0.981959564541213
+          },
+          "untrained_shared_encoder": {
+            "eligible_queries": 3215,
+            "mrr": 0.9549818130949193,
+            "status": "ok",
+            "paired_recall_at_1": 0.9415241057542768,
+            "paired_recall_at_5": 0.9713841368584759,
+            "paired_recall_at_10": 0.9835147744945568
+          }
+        },
+        "by_research_tier": {
+          "analysis_fixtures": {
+            "eligible_queries": 905,
+            "mrr": 0.8631186317553414,
+            "status": "ok",
+            "paired_recall_at_1": 0.8265193370165745,
+            "paired_recall_at_5": 0.9038674033149171,
+            "paired_recall_at_10": 0.9414364640883978
+          },
+          "defensive_security": {
+            "eligible_queries": 1456,
+            "mrr": 0.9855396092003235,
+            "status": "ok",
+            "paired_recall_at_1": 0.9793956043956044,
+            "paired_recall_at_5": 0.9958791208791209,
+            "paired_recall_at_10": 0.9986263736263736
+          },
+          "standard": {
+            "eligible_queries": 854,
+            "mrr": 1.0,
+            "status": "ok",
+            "paired_recall_at_1": 1.0,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          }
+        },
+        "by_diagnostic_family": {
+          "formatting": {
+            "eligible_queries": 334,
+            "mrr": 0.9950099800399201,
+            "status": "ok",
+            "paired_recall_at_1": 0.9910179640718563,
+            "paired_recall_at_5": 1.0,
+            "paired_recall_at_10": 1.0
+          },
+          "lint": {
+            "eligible_queries": 194,
+            "mrr": 0.7213170277537801,
+            "status": "ok",
+            "paired_recall_at_1": 0.6288659793814433,
+            "paired_recall_at_5": 0.8195876288659794,
+            "paired_recall_at_10": 0.9072164948453608
+          },
+          "transformation": {
+            "eligible_queries": 2687,
+            "mrr": 0.9668028269507586,
+            "status": "ok",
+            "paired_recall_at_1": 0.9583178265723855,
+            "paired_recall_at_5": 0.9784145887606996,
+            "paired_recall_at_10": 0.9862299962783774
+          }
+        },
+        "accepts": true
+      }
+    }
+  ],
+  "seconds": 237.52334570899984,
+  "peak_rss_bytes": 4038688768,
+  "limitations": [
+    "One-epoch baseline, not a harder-training or model-promotion gate.",
+    "Corpus test retrieval is paired-query retrieval, not classification accuracy.",
+    "Development hard-pair results do not replace untouched final evaluation."
+  ],
+  "hardpair_development": [
+    {
+      "seed": 0,
+      "diagnostics_sha256": "8d229b6c3d67df01418c9d115add1f6c3ec199052f2ded7e7c370566a2de0b53",
+      "summary": {
+        "hashed_graph": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "operation_api": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 6
+        },
+        "tokens": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 5
+        },
+        "trained": {
+          "behavior_top1": 3,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "untrained": {
+          "behavior_top1": 2,
+          "queries": 8,
+          "related_top1": 4
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "diagnostics_sha256": "dd075c850320683020436f3c88d94bd380b00fa7bea982cb83a3680f35be2357",
+      "summary": {
+        "hashed_graph": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "operation_api": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 6
+        },
+        "tokens": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 5
+        },
+        "trained": {
+          "behavior_top1": 2,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "untrained": {
+          "behavior_top1": 2,
+          "queries": 8,
+          "related_top1": 4
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "diagnostics_sha256": "3e6e036b998b254114acf05e82837665691a89abd300e8b345bfffa15c32f9c7",
+      "summary": {
+        "hashed_graph": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "operation_api": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 6
+        },
+        "tokens": {
+          "behavior_top1": 1,
+          "queries": 8,
+          "related_top1": 5
+        },
+        "trained": {
+          "behavior_top1": 2,
+          "queries": 8,
+          "related_top1": 4
+        },
+        "untrained": {
+          "behavior_top1": 2,
+          "queries": 8,
+          "related_top1": 4
+        }
+      }
+    }
+  ],
+  "batched_training_views": 13653,
+  "paired_training_units": 5267,
+  "unpaired_training_views_excluded": 430
+}

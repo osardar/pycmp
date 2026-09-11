@@ -1,18 +1,53 @@
 # pycmp status
 
-Last updated: 2026-09-10. Schema-3 repairs and diagnostics are committed as
+Last updated: 2026-09-11. Initial schema-3 repairs and diagnostics are committed as
 `4fbf20f`; the latest pushed implementation remains `d071b4c`.
 
-## Rebuild pilot: resource pass, correctness blocker
+## Full schema-3 rebuild and baseline
+
+The [full rebuild and measured baseline](baselines/2026-09-11-schema3-capped.md)
+supersede the pilot-only status below. The fresh capped release contains 8,070
+comparable units / 25,687 views from 40 contributing records / 38 repository URLs.
+All seven static release gates pass. All 12,235 retained transformed-unit views
+preserve encoder tensors; no split-group leaks or over-cap repositories were found.
+The rebuild took 15.9 minutes and peaked at 1.37 GiB RSS. Referenced graphs occupy
+1.44 GiB. Transformation exclusions are recorded in the linked audit.
+
+Three schema-3 checkpoints were trained for one epoch, with fixed seeds 0/1/2,
+64 dimensions and two layers. Paired Recall@5 is 97.01–97.23%, versus 97.14% for
+the fixed untrained encoder. Behavior-match top-1 on eight development families
+is 3/8, 2/8 and 2/8. These are experimental baselines, not promoted models.
+No new retrieval index or unknown-family calibration was produced. The suite has
+57 passing tests. The next work is hard-positive/hard-negative training and
+project-level evaluation, not more repository collection. Reserved hard-pair test
+families remain untouched. This execution's source/report changes are captured
+in Git; generated corpus and checkpoint artifacts remain ignored by Git.
+
+## Repaired-transform pilot: all gates pass
+
+The [repair and final rerun](baselines/2026-09-10-transform-repair-pilot.md)
+preserves lexical bindings, literal spelling, type comments and source lines for
+accepted renames. Formatting must preserve the typed AST. Unsupported and
+unchanged transforms are recorded without generating duplicate positives.
+All 10 applied rename inputs, 45 applied formatting inputs and 284 retained
+transformed-unit views preserve encoder tensors. The six-repository pilot retains
+255 units / 700 views, uses 53.45 MiB of graphs, takes 7.57 seconds including
+profiling and peaks at 345.88 MiB RSS. All nine gates pass; 53 tests pass.
+
+At this pilot milestone, the next step was a fresh capped schema-3 full-corpus rebuild using
+the transform-v3 pipeline, followed by integrity/coverage review before controlled
+training. No new checkpoint or index was produced. Static transform checks are
+not a universal behavioral-equivalence guarantee.
+
+## Initial rebuild pilot: historical correctness blocker
 
 The [six-repository pilot](baselines/2026-09-10-schema3-rebuild-pilot.md) completed:
 255 units / 950 views, 68.54 MiB of graphs, 7.07 seconds including profiling,
 and 355.22 MiB peak process RSS. Integrity and resource gates passed, but 14/49
 valid inputs changed tensors after renaming. Type-comment loss and nested-scope
 renaming defects were identified; an owned counterexample changes result 3 to 11.
-Do not run full training on these generated positives. Fix/restrict the renamer
-and preserve type-comment evidence, then rerun the pinned pilot. The suite has
-46 passing tests; no new trained checkpoint or index was produced.
+Do not train on these older generated positives. The repair and rerun above
+supersede this blocker; the old pilot remains diagnostic evidence.
 
 ## Schema-3 repair execution update
 
@@ -24,9 +59,9 @@ Independent three-seed architecture probes are untrained and do not justify a
 default architecture change. See the [implementation and measured report](SOURCE-REPRESENTATION-V3.md).
 
 The old schema-2 release remains historical evidence. Its graphs, model and index
-are rejected by current compatibility checks. No trained schema-3 release model
-exists yet. The next milestone is a new corpus build and controlled training,
-after reviewing scope limitations and resource costs. Bytecode worker images need
+are rejected by current compatibility checks. No promoted schema-3 release model
+exists yet; the rebuild and small trained baselines above now exist. Harder
+training remains open. Bytecode worker images need
 rebuilding for the new envelope; direct-bytecode alignment remains unvalidated.
 
 ## Steps 1–2 execution update
@@ -67,7 +102,7 @@ must not be treated as current release counts.
 | Synthetic benchmark | Ten held-out projects, 60 obfuscations, ten behavior-changing near-copies; 1,624 comparisons | Small, correlated evaluation set; not a population-level accuracy estimate |
 | Compiled artifacts | 111 project/runtime/optimization variants, 123 module binaries; all bytecode behavior checks and 12 optimization probes passed | Compilation success does not imply decompilation or embedding alignment |
 | Decompilation | 63 of 222 attempts yielded complete, behavior-checked reconstructions | No verified Python 3.14 reconstruction in this matrix; only six successes on 3.12 |
-| First-party tests | Last completed suite: 46 passing tests | Tests validate implemented behavior, not classifier accuracy |
+| First-party tests | Last completed suite: 57 passing tests | Tests validate implemented behavior, not classifier accuracy |
 
 The ten new similarity projects are separate from the earlier synthetic fixtures
 and were not used to train the frozen baseline. Their 60 obfuscations mean two

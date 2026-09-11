@@ -1,0 +1,196 @@
+{
+  "code_hashes": {
+    "ast_normalize.py": "64d793423be3a948296f37d7110defe14985429d141d7faa8c56a0236b6f1c24",
+    "corpus_builder.py": "16fd7037afdeea66ab4bfcbc212bf891d92737d65d19687cf9af06df6a56d761",
+    "curation.py": "11cb4f7a351460ed50a48a96caa8482843ab0feba83bba5a46db5a2763b4a7e5",
+    "fixtures.py": "9a76ca5f4d73768e17724cc0b2a0d51685961738051bdca80c4a04d34cc63809",
+    "rebuild_pilot.py": "7194eff05d849c28485386b779aba28dd138f9de78a7a39d92d53eb9c00418b0",
+    "release_audit.py": "efcf34b2bc71fb83296963bb8215fc8ad3ce136ca4f0a45e382c79cf55d823a4",
+    "semantic.py": "541a30675652869ce9a4aa3a5e733775fe62a4ff50f67c8647f0144e14e88f9f",
+    "shared_model.py": "893b2390a7af122765af49ef420472798ec32489a6a386069480796e5d9faff5",
+    "source_evidence.py": "fa0bb21db7b3c397e909dcb3adc52e15d9621b7cd606d62e5887ae0b9d3ca0ba",
+    "synthetic.py": "3490b7efb8b7cfd6bd9066615adea820968c7eea10cc60247ffa25238bd7e165"
+  },
+  "complete_sha256": "7564d126521a38b7c55354063df827188e89cc92f7e65e8eed40f23b937381ab",
+  "coverage": {
+    "retained_source_inputs": 2409,
+    "semantic_views_by_split": {
+      "test": 3232,
+      "train": 14083,
+      "validation": 3002
+    },
+    "split_group_leaks": {},
+    "transformation_gaps": {
+      "formatted/error/RecursionError": 1,
+      "formatted/unchanged/already_formatted": 7,
+      "formatted/unsupported/ast_roundtrip_changes_evidence": 283,
+      "renamed/unchanged/no_eligible_local_bindings": 666,
+      "renamed/unsupported/annotation_scope_unverified": 3,
+      "renamed/unsupported/dynamic_or_reflective_call": 100,
+      "renamed/unsupported/dynamic_scope": 67,
+      "renamed/unsupported/frame_or_code_introspection": 21
+    }
+  },
+  "gates": {
+    "curation_version": true,
+    "generated_transform_invariance": true,
+    "inventory_and_graph_checksums": true,
+    "pipeline_version": true,
+    "repository_cap": true,
+    "semantic_split_coverage": true,
+    "split_group_disjoint": true
+  },
+  "generated_transforms": {
+    "checked": {
+      "formatted": 6402,
+      "renamed": 5833
+    },
+    "failures": []
+  },
+  "integrity": {
+    "largest": {
+      "edges": 36384,
+      "file_bytes": 12039181,
+      "nodes": 36385
+    },
+    "totals": {
+      "edges": 2740752,
+      "graph_files": 7850,
+      "graphs": 25687,
+      "nodes": 2500300,
+      "serialized_bytes": 1542654910
+    },
+    "units_per_project": {
+      "bandit": 250,
+      "bbot": 250,
+      "beartype": 250,
+      "black_fixtures": 125,
+      "black_source": 125,
+      "bloodhound_py": 250,
+      "capa": 250,
+      "certipy": 250,
+      "clean_code_in_python": 83,
+      "clean_code_python": 13,
+      "coercer": 250,
+      "cpython_grammar": 64,
+      "crackmapexec": 250,
+      "django": 250,
+      "donpapi": 250,
+      "fastapi": 250,
+      "flake8_fixtures": 250,
+      "flask": 250,
+      "httpx": 250,
+      "hypothesis": 250,
+      "impacket": 250,
+      "krbrelayx": 149,
+      "ldapdomaindump": 93,
+      "libcst": 250,
+      "mitm6": 24,
+      "mypy_fixtures": 125,
+      "mypy_source": 125,
+      "netexec": 250,
+      "powerview_py": 250,
+      "pycodestyle_fixtures": 104,
+      "pydantic": 250,
+      "pyflakes_fixtures": 250,
+      "pylint_fixtures": 250,
+      "pypykatz": 250,
+      "pytest": 250,
+      "pywhisker": 40,
+      "refurb": 250,
+      "requests": 250,
+      "responder": 250,
+      "ruff_fixtures": 250
+    },
+    "units_per_repository": {
+      "github.com/aniqfakhrul/powerview.py": 250,
+      "github.com/astral-sh/ruff": 250,
+      "github.com/beartype/beartype": 250,
+      "github.com/blacklanternsecurity/bbot": 250,
+      "github.com/byt3bl33d3r/crackmapexec": 250,
+      "github.com/dirkjanm/bloodhound.py": 250,
+      "github.com/dirkjanm/krbrelayx": 149,
+      "github.com/dirkjanm/ldapdomaindump": 93,
+      "github.com/dirkjanm/mitm6": 24,
+      "github.com/django/django": 250,
+      "github.com/dosisod/refurb": 250,
+      "github.com/encode/httpx": 250,
+      "github.com/fastapi/fastapi": 250,
+      "github.com/fortra/impacket": 250,
+      "github.com/hypothesisworks/hypothesis": 250,
+      "github.com/instagram/libcst": 250,
+      "github.com/lgandx/responder": 250,
+      "github.com/login-securite/donpapi": 250,
+      "github.com/ly4k/certipy": 250,
+      "github.com/mandiant/capa": 250,
+      "github.com/p0dalirius/coercer": 250,
+      "github.com/pallets/flask": 250,
+      "github.com/pennyw0rth/netexec": 250,
+      "github.com/psf/black": 250,
+      "github.com/psf/requests": 250,
+      "github.com/pycqa/bandit": 250,
+      "github.com/pycqa/flake8": 250,
+      "github.com/pycqa/pycodestyle": 104,
+      "github.com/pycqa/pyflakes": 250,
+      "github.com/pycqa/pylint": 250,
+      "github.com/pydantic/pydantic": 250,
+      "github.com/pytest-dev/pytest": 250,
+      "github.com/python/cpython": 64,
+      "github.com/python/mypy": 250,
+      "github.com/pythonmonty/clean-code-in-python": 83,
+      "github.com/shutdownrepo/pywhisker": 40,
+      "github.com/skelsec/pypykatz": 250,
+      "github.com/zedr/clean-code-python": 13
+    }
+  },
+  "limitations": [
+    "Static transform consistency is not behavioral equivalence.",
+    "Coverage gaps and resource measurements require review before training.",
+    "This audit does not establish retrieval or classification accuracy."
+  ],
+  "manifest_sha256": "c287ecc14cc8a57dade2bb6ff0a1710f33d8999a2461f52fddd32453c927a4c0",
+  "peak_rss_bytes": 562233344,
+  "release": "corpus-runs/release-v0.3-capped",
+  "seconds": 258.3214267079966,
+  "static_gates_pass": true,
+  "stats": {
+    "by_lane": {
+      "ast": 25317,
+      "recovery": 370
+    },
+    "by_split": {
+      "test": 4109,
+      "train": 17813,
+      "validation": 3765
+    },
+    "by_task_family": {
+      "formatting": 414,
+      "lint": 274,
+      "syntax": 189,
+      "transformation": 24448,
+      "typing": 362
+    },
+    "by_view_kind": {
+      "damaged": 5249,
+      "formatted": 6275,
+      "input:damaged": 30,
+      "input:formatted": 61,
+      "input:renamed": 21,
+      "input:source": 77,
+      "output:damaged": 35,
+      "output:formatted": 66,
+      "output:renamed": 13,
+      "output:source": 76,
+      "renamed": 5799,
+      "source": 7957,
+      "untransformed": 28
+    },
+    "projects": 41,
+    "retained_graph_units": 8070,
+    "uncapped_views": 214340,
+    "views": 25687
+  },
+  "zero_contribution_projects": [
+    "certify"
+  ]
+}
