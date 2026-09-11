@@ -4,6 +4,12 @@ Implemented and measured: 2026-09-10. This executes the source-field, unit,
 binding, mutation-test and independent architecture-probe milestone. It is not
 a claim of complete Python behavioral analysis or a newly trained classifier.
 
+Subsequent [production/fixture rebuild pilot](baselines/2026-09-10-schema3-rebuild-pilot.md)
+found corpus-renamer defects not covered by the six owned renaming families below.
+Those defects change nested bindings and drop type comments. The representation
+repair remains useful evidence, but full rebuilding/training must wait for
+transformation repairs; the small invariance suite was not a general guarantee.
+
 ## What changed
 
 1. **All available AST fields are retained.** Every visited AST node stores an

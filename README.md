@@ -19,7 +19,10 @@ AST-field evidence, recursive declaration discovery and lexical binding candidat
 See the [source representation report](docs/SOURCE-REPRESENTATION-V3.md).
 There is no trained schema-3 release checkpoint yet: the schema-2 results below
 are historical, and their graphs/checkpoint/index are intentionally incompatible
-with the new loader. The full first-party suite has 43 passing tests.
+with the new loader. The full first-party suite has 46 passing tests.
+The [schema-3 rebuild pilot](docs/baselines/2026-09-10-schema3-rebuild-pilot.md)
+passed resource/integrity checks but exposed unsafe nested-scope renaming and
+type-comment loss. Full rebuilding/training is deferred pending transformation repairs.
 
 The schema-2 milestone repaired critical representation, training, corpus,
 and retrieval defects found in the September 2026 audit. It now validates graph

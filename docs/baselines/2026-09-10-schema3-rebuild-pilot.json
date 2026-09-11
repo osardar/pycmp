@@ -1,0 +1,1558 @@
+{
+  "build_seconds": 3.9921398339938605,
+  "curation": {
+    "by_project": {
+      "black_fixtures": 3,
+      "hypothesis": 1,
+      "impacket": 1,
+      "mypy_fixtures": 45,
+      "pydantic": 1,
+      "requests": 2
+    },
+    "excluded": {
+      "repository_cap": 0
+    },
+    "matched_paths": {
+      "black_fixtures": 2,
+      "hypothesis": 1,
+      "impacket": 1,
+      "mypy_fixtures": 1,
+      "pydantic": 1,
+      "requests": 2
+    },
+    "projects": 6,
+    "release": "v0.2",
+    "retained_units": 53,
+    "splits": {
+      "test": [
+        "requests",
+        "black_fixtures",
+        "impacket"
+      ],
+      "train": [
+        "pydantic",
+        "mypy_fixtures",
+        "hypothesis"
+      ],
+      "validation": []
+    }
+  },
+  "definition": {
+    "budgets": {
+      "max_graph_file_bytes": 33554432,
+      "peak_rss_bytes": 1073741824,
+      "wall_seconds": 300
+    },
+    "cap": 50,
+    "checkouts": "corpus-runs/checkouts-v0.2",
+    "code_hashes": {
+      "ast_normalize.py": "64d793423be3a948296f37d7110defe14985429d141d7faa8c56a0236b6f1c24",
+      "corpus_builder.py": "74fd285e514dcbb4187a1988d7290f68d9f902592875f7b41b6170add555c51a",
+      "rebuild_pilot.py": "5108941e850d5431b059524ba719f8d6b02956aeb954fac55a186b0b6c503f69",
+      "source_evidence.py": "fa0bb21db7b3c397e909dcb3adc52e15d9621b7cd606d62e5887ae0b9d3ca0ba"
+    },
+    "legacy": "corpus-runs/release-v0.2",
+    "manifest": "corpus/schema3-pilot.jsonl",
+    "manifest_sha256": "4f45f8766625e46bff88b42b2b277c1ad783b7797d12944b50cac7026f47bf38",
+    "network_fetch": false,
+    "schema": 3,
+    "third_party_execution": false,
+    "training": false
+  },
+  "gates": {
+    "graph_file_budget": true,
+    "inventory_and_graph_checksums": true,
+    "memory_budget": true,
+    "rename_invariance": false,
+    "repository_cap": true,
+    "time_budget": true
+  },
+  "integrity": {
+    "largest": {
+      "edges": 14336,
+      "file_bytes": 8339655,
+      "nodes": 14337
+    },
+    "totals": {
+      "edges": 132112,
+      "graph_files": 163,
+      "graphs": 950,
+      "nodes": 120888,
+      "serialized_bytes": 71873975
+    },
+    "units_per_project": {
+      "black_fixtures": 14,
+      "hypothesis": 50,
+      "impacket": 50,
+      "mypy_fixtures": 50,
+      "pydantic": 50,
+      "requests": 41
+    }
+  },
+  "peak_rss_bytes": 372473856,
+  "profiles": [
+    {
+      "binding_edges": 1312,
+      "edges": 14723,
+      "fixture": "source",
+      "nodes": 13466,
+      "normalize_seconds": 0.12792116699711187,
+      "path": "pydantic/fields.py",
+      "project": "pydantic",
+      "raw_sha256": "4bea0b4ee6c6bae657eb8ae33b746e96af86be843ac916920c557f8442a5fad4",
+      "rename_changed_units": [
+        "<module>",
+        "computed_field#3.dec"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 15,
+        "units": [
+          {
+            "after_nodes": 3344,
+            "before_nodes": 3359,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          },
+          {
+            "after_nodes": 152,
+            "before_nodes": 152,
+            "binding_examples": [
+              {
+                "after": "scope:59:function:slot:4",
+                "before": "scope:59:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 2032
+              },
+              {
+                "after": "scope:59:function:slot:4",
+                "before": "scope:59:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 2041
+              },
+              {
+                "after": "scope:59:function:slot:4",
+                "before": "scope:59:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 2041
+              },
+              {
+                "after": "scope:59:function:slot:4",
+                "before": "scope:59:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 2045
+              },
+              {
+                "after": "scope:59:function:slot:4",
+                "before": "scope:59:function:slot:5",
+                "feature": "binding_identity",
+                "source_line": 2045
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 9
+            },
+            "unit": "computed_field#3.dec"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "schema2_reference": {
+        "bytes": 3554093,
+        "edges": 10001,
+        "nodes": 9435,
+        "path": "corpus-runs/release-v0.2/graphs/pydantic/fdcb3dd013cb4bd104f3a3b6.source.jsonl",
+        "sha256": "cbaee94080e4d5f6e586285a81c0c82362807d27d0853aa69ada331aaa8ef4c1",
+        "units": 54
+      },
+      "serialized_bytes": 8798543,
+      "source_bytes": 88328,
+      "units": 55,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 62,
+      "edges": 558,
+      "fixture": "source",
+      "nodes": 505,
+      "normalize_seconds": 0.007428583005093969,
+      "path": "src/requests/api.py",
+      "project": "requests",
+      "raw_sha256": "4d15480ac046f089209798e8650476ef4a28ebe6f81b400758f8ef42ec6b5509",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "schema2_reference": {
+        "bytes": 129859,
+        "edges": 351,
+        "nodes": 336,
+        "path": "corpus-runs/release-v0.2/graphs/requests/f4bbb1106ba309bcce38ed5e.source.jsonl",
+        "sha256": "24567fc1689116bc3440e16e412deeb2fb84ef324ebc8c10b2864e2e35d50bc3",
+        "units": 9
+      },
+      "serialized_bytes": 342238,
+      "source_bytes": 7152,
+      "units": 9,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 543,
+      "edges": 4350,
+      "fixture": "source",
+      "nodes": 3839,
+      "normalize_seconds": 0.03347937500075204,
+      "path": "src/requests/sessions.py",
+      "project": "requests",
+      "raw_sha256": "3d2089736ced93b2b405624a943f866d22652b17df06a85eb010f86272fc3e7d",
+      "rename_changed_units": [
+        "<module>"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 4,
+        "units": [
+          {
+            "after_nodes": 147,
+            "before_nodes": 151,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "schema2_reference": {
+        "bytes": 1250311,
+        "edges": 3605,
+        "nodes": 3255,
+        "path": "corpus-runs/release-v0.2/graphs/requests/b38d5611361688f05b206d8e.source.jsonl",
+        "sha256": "76c21c4bccd37f5ca660ad5932ebb425c12c9860793b58e1c70db781935f040a",
+        "units": 32
+      },
+      "serialized_bytes": 2539593,
+      "source_bytes": 34072,
+      "units": 32,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 34,
+      "fixture": "testInvalidArgumentCount",
+      "nodes": 34,
+      "normalize_seconds": 0.0015522090034210123,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "85f884525d3d63a629a0b97d48a90ed2c889d50ca4f4089e3721a0e895738578",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "schema2_reference": {
+        "bytes": 11967,
+        "edges": 30,
+        "nodes": 30,
+        "path": "corpus-runs/release-v0.2/graphs/mypy_fixtures/590d2e9c183bbf5f5e641063.source.jsonl",
+        "sha256": "87f562053513c8a0c95551481bdc79d309dccba5c9da2a9e9e131c71c21258f1",
+        "units": 2
+      },
+      "serialized_bytes": 24034,
+      "source_bytes": 83,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 36,
+      "fixture": "testAssignmentInvariantNoteForDict",
+      "nodes": 34,
+      "normalize_seconds": 0.00033083299786085263,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "571ae6ce9decdd0fc9ba6cbf264f50b5bdc9b1392f19f4daddc4b4570ac239fa",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 21297,
+      "source_bytes": 370,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 19,
+      "fixture": "testReturnAnyFromFunctionDeclaredToReturnObject",
+      "nodes": 20,
+      "normalize_seconds": 0.00023841700021876022,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "e514a9eafe04ce7abc4d1dbef0d11a39f11a3575a845793187baf5aad5043a23",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 14342,
+      "source_bytes": 97,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 9,
+      "fixture": "testTooManyConstructorArgs",
+      "nodes": 10,
+      "normalize_seconds": 0.00011862500105053186,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "a25b8d16e0d7aebb677e76a6c472cd151f89040feada467c59fe2d2f2f8d29e4",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 6481,
+      "source_bytes": 30,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 35,
+      "fixture": "testImportModuleAsClassMember",
+      "nodes": 37,
+      "normalize_seconds": 0.0004264579984010197,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "b6da6d767b269a082fe1675d9cddbf14bb98fa10a5c603833404d0dcf6f2ff2a",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 28372,
+      "source_bytes": 142,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 55,
+      "fixture": "testVariableInitializationWithSubtype",
+      "nodes": 56,
+      "normalize_seconds": 0.00021304099936969578,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "8b96c83d1001bf68bbf1ded8fdf6bab06e7308b733331404f2bcafa4e6be9be8",
+      "serialized_bytes": 18577,
+      "source_bytes": 185,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 5,
+      "edges": 37,
+      "fixture": "testModuleAsTypeNoCrash",
+      "nodes": 35,
+      "normalize_seconds": 0.0003595420057536103,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "af41ffb5b59df69c85cad6c3015689f298853e7ef22bd7408b62b3255e4d2962",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 24683,
+      "source_bytes": 249,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 12,
+      "fixture": "testEmptyYieldInAnyTypedFunction",
+      "nodes": 13,
+      "normalize_seconds": 0.00016450000111944973,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "f041ccef5169b139f56822f9aa356e8e21a9d414efc7bab3cfbc2fabfcaa16f0",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 9693,
+      "source_bytes": 46,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 15,
+      "fixture": "testInvalidReturn",
+      "nodes": 19,
+      "normalize_seconds": 0.00023883300309535116,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "93c5cbc969d6cba02f3f80be3e5aa327a0d44ee488983b773d51b6db1b72b638",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 15178,
+      "source_bytes": 70,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 7,
+      "edges": 51,
+      "fixture": "testSubtypeArgument",
+      "nodes": 48,
+      "normalize_seconds": 0.0007695829990552738,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "322a502bd2ead42960288580ec89f5835b2234af91c268bb816b2abdbcc573a9",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 35590,
+      "source_bytes": 167,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 12,
+      "fixture": "testTrailingCommaInIfParsing_no_native_parse",
+      "nodes": 13,
+      "normalize_seconds": 6.595799641218036e-05,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "e758e9fed0c62a53fe934d1c84a9137ac32b41cd039077042f83ebfa8bd7ee62",
+      "serialized_bytes": 4433,
+      "source_bytes": 17,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 10,
+      "fixture": "testNotCallable",
+      "nodes": 11,
+      "normalize_seconds": 0.00013387500075623393,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "cb64b282534464a8e5a609466de33acd8cd41b4814373c5aaa147d84e4564161",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 8002,
+      "source_bytes": 56,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 7,
+      "fixture": "testInitReturnTypeError",
+      "nodes": 10,
+      "normalize_seconds": 0.0001632089988561347,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "f1d1cf4d8b2d970e531b00ca21cf737e76a9fd3eb08d0b261bc4b808fda9d119",
+      "rename_changed_units": [
+        "C",
+        "C.__init__"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 1,
+        "units": [
+          {
+            "after_nodes": 4,
+            "before_nodes": 4,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "C"
+          },
+          {
+            "after_nodes": 4,
+            "before_nodes": 4,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "C.__init__"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 9163,
+      "source_bytes": 71,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 20,
+      "fixture": "testDeclaredVariableInParentheses",
+      "nodes": 21,
+      "normalize_seconds": 0.0002387080021435395,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "264a47f4916d6a296798051c1c15c1fa914f8f8eda63d2595cafd257a69f968a",
+      "rename_changed_units": [
+        "<module>"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 1,
+        "units": [
+          {
+            "after_nodes": 21,
+            "before_nodes": 21,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 13643,
+      "source_bytes": 151,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 69,
+      "fixture": "testGlobalDefinedInBlockWithType",
+      "nodes": 70,
+      "normalize_seconds": 0.00040254199848277494,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "f9002885e9c0438d958a7fa5af119585ef56d66f051d6b0ecc323494af7a8b62",
+      "serialized_bytes": 22824,
+      "source_bytes": 220,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 129,
+      "fixture": "testIncompatibleAssignmentAmbiguousShortnames",
+      "nodes": 130,
+      "normalize_seconds": 0.0002915419972850941,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "dcacd3e715ea604e85a7de41e93ffdea4bb4e344ba3bff0f7888e750087d2c67",
+      "serialized_bytes": 42711,
+      "source_bytes": 622,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 13,
+      "fixture": "testFunctionSignatureAsComment",
+      "nodes": 14,
+      "normalize_seconds": 0.00017429199942853302,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "d0ba0144959ad5ccee7310be5c33580ac60656f222d2d5a6b9f40d3a3edd4e44",
+      "rename_changed_units": [
+        "<module>",
+        "f"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 1,
+        "units": [
+          {
+            "after_nodes": 9,
+            "before_nodes": 9,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          },
+          {
+            "after_nodes": 5,
+            "before_nodes": 5,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "f"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 10986,
+      "source_bytes": 49,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 22,
+      "fixture": "testTopLevelContextAndInvalidReturn",
+      "nodes": 25,
+      "normalize_seconds": 0.00028841599851148203,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "a127282774cef56f143f84ea1e9a5ba907dc833e1d538bcf5c54f7282a950714",
+      "rename_changed_units": [
+        "<module>"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 1,
+        "units": [
+          {
+            "after_nodes": 14,
+            "before_nodes": 14,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 19044,
+      "source_bytes": 237,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 27,
+      "fixture": "testMethodSignatureAsComment",
+      "nodes": 28,
+      "normalize_seconds": 0.0005292920031934045,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "ccd0d979f76da06216b43da3440621914cd6c4250e6675aea2e1976ecfd1de56",
+      "rename_changed_units": [
+        "A",
+        "A.f"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 1,
+        "units": [
+          {
+            "after_nodes": 5,
+            "before_nodes": 5,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "A"
+          },
+          {
+            "after_nodes": 13,
+            "before_nodes": 13,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "A.f"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 21018,
+      "source_bytes": 117,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 22,
+      "fixture": "testMultilineQuotedAnnotation",
+      "nodes": 21,
+      "normalize_seconds": 0.00020958399545634165,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "403f45e3deec316c17ded608892ed26d2f16fda9da991db497f228a419bec7e4",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 13767,
+      "source_bytes": 197,
+      "units": 1,
+      "unresolved_references": 2
+    },
+    {
+      "binding_edges": 0,
+      "edges": 36,
+      "fixture": "testLocalVariableScope",
+      "nodes": 41,
+      "normalize_seconds": 0.0004280419962015003,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "115ffd44004fdc26a6236fcbab3aa615960b4063b22195b26d49d2a09077c2fd",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 30171,
+      "source_bytes": 182,
+      "units": 5,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 28,
+      "fixture": "testAssignmentInvariantNoteForList",
+      "nodes": 26,
+      "normalize_seconds": 0.0002426670034765266,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "13a443348c2aa70900c6919706ee5e641fb5dc3093dfcb34a1054f19fc76d0af",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 16756,
+      "source_bytes": 333,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 17,
+      "fixture": "testVarDefWithInit",
+      "nodes": 18,
+      "normalize_seconds": 0.0001941660011652857,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "0d497a96c88ec53ca2a19363e03dcca8e33b8b1a61b24f000ff5688457cdeca6",
+      "rename_changed_units": [
+        "<module>"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 2,
+        "units": [
+          {
+            "after_nodes": 16,
+            "before_nodes": 16,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 2
+            },
+            "unit": "<module>"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 12575,
+      "source_bytes": 161,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 2,
+      "fixture": "testDistinctTypes",
+      "nodes": 3,
+      "normalize_seconds": 4.420799814397469e-05,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "07bd536ba15bfea61cd7e7a574993f4c0cbad7abcf0c7de6be03ddfd0ccda300",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 2272,
+      "source_bytes": 8,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 5,
+      "edges": 44,
+      "fixture": "testFunctionArguments",
+      "nodes": 43,
+      "normalize_seconds": 0.0004476249960134737,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "90851b5fc64a96bc07a664a39b3b00642c566375a3aadc83125de942d10ac23b",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 32711,
+      "source_bytes": 203,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 4,
+      "fixture": "testWritesCacheErrors-writescache",
+      "nodes": 5,
+      "normalize_seconds": 6.579199543921277e-05,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "f6f08c1b6846ab8ef079dbfa5ffdc9469d02025d687d4a30ee04e5740bf9941e",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 3649,
+      "source_bytes": 17,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 5,
+      "edges": 68,
+      "fixture": "testLocalVariableShadowing",
+      "nodes": 67,
+      "normalize_seconds": 0.0008851250022416934,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "3395d4d041af1567de33491f6e0d24188019cb1863e2ae5015c17ac6b0562156",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 45106,
+      "source_bytes": 418,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 25,
+      "fixture": "testNoneHasBool",
+      "nodes": 25,
+      "normalize_seconds": 0.0002795409964164719,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "cc6794bee648f6d2e529937feab1d59816ca92bc02fb905d41017181aa9528c0",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 17333,
+      "source_bytes": 118,
+      "units": 2,
+      "unresolved_references": 1
+    },
+    {
+      "binding_edges": 1,
+      "edges": 11,
+      "fixture": "testEmptyReturnInAnyTypedFunction",
+      "nodes": 12,
+      "normalize_seconds": 0.00015691700536990538,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "d0659fcc570596cddc2b605ca25b7929a041a38119c9d98c20c2bc7cc2d3a685",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 9178,
+      "source_bytes": 47,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 23,
+      "fixture": "testLocalVariableInitialization",
+      "nodes": 27,
+      "normalize_seconds": 0.0005732500067097135,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "fac2842277029809ce0a26d618ef45b1bc2dd24c8012b2d20be0b3cf5fcbbfd6",
+      "rename_changed_units": [
+        "f"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 2,
+        "units": [
+          {
+            "after_nodes": 15,
+            "before_nodes": 15,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 2
+            },
+            "unit": "f"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 20171,
+      "source_bytes": 105,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 38,
+      "fixture": "testConstructionAndAssignment",
+      "nodes": 40,
+      "normalize_seconds": 0.0004285000031813979,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "9317f194913658e96f0974c614b5a0ab5ae672ba4b1ad5e049c11c72fff69c69",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 30618,
+      "source_bytes": 198,
+      "units": 5,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 41,
+      "fixture": "testMissingPositionalArguments",
+      "nodes": 43,
+      "normalize_seconds": 0.0004398339951876551,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "55ba329072e47d2478e82d638f59950311d73a8a4d0ad656dd78aa81a137aa3f",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 32676,
+      "source_bytes": 106,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 6,
+      "edges": 38,
+      "fixture": "testAssignmentAndVarDef",
+      "nodes": 35,
+      "normalize_seconds": 0.0003472500029602088,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "9b33001808408257f839f5c0c3f4ad443df091cfa04b2a23dbb36e1755879bdc",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 24425,
+      "source_bytes": 164,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 25,
+      "fixture": "testInheritanceBasedSubtyping",
+      "nodes": 25,
+      "normalize_seconds": 0.0002590000003692694,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "3d1306feae808d826b1b805a5409d2c242cb59c5da00100396d423ec0a502eb8",
+      "rename_changed_units": [
+        "<module>"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 2,
+        "units": [
+          {
+            "after_nodes": 19,
+            "before_nodes": 19,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 2
+            },
+            "unit": "<module>"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 18036,
+      "source_bytes": 168,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 1,
+      "edges": 13,
+      "fixture": "testTrailingCommaParsing",
+      "nodes": 13,
+      "normalize_seconds": 0.0001519170036772266,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "0eb5ac86f2deb9e91869dc86469b5d5f0be9930ec36e77d277078101a4e17d10",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 8254,
+      "source_bytes": 65,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 36,
+      "fixture": "testLocalImportModuleAsClassMember",
+      "nodes": 37,
+      "normalize_seconds": 0.0004171250038780272,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "a15c2e7db28686728ea3d5d28d0c2947b497607dc86010c718f1c89216f0efdf",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 28549,
+      "source_bytes": 150,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 3,
+      "edges": 40,
+      "fixture": "testInheritInitFromObject",
+      "nodes": 40,
+      "normalize_seconds": 0.00037570799759123474,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "12b0f0eaba30c615d1450c07d0b94ba631d8a9621483bc8e8b6eec45635af054",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 27165,
+      "source_bytes": 179,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 4,
+      "fixture": "testWritesCache-writescache",
+      "nodes": 5,
+      "normalize_seconds": 6.783300341339782e-05,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "f6f08c1b6846ab8ef079dbfa5ffdc9469d02025d687d4a30ee04e5740bf9941e",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 3649,
+      "source_bytes": 17,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 7,
+      "edges": 49,
+      "fixture": "testImplicitInheritInitFromObject",
+      "nodes": 45,
+      "normalize_seconds": 0.0004088749992661178,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "d0c6bca8dcb97207cbbdf741596abe47568947207841dfd5105b73afb605e36b",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 30653,
+      "source_bytes": 196,
+      "units": 3,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 0,
+      "edges": 9,
+      "fixture": "testInlineAssertions",
+      "nodes": 10,
+      "normalize_seconds": 0.00011491699842736125,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "0a63a165b5bee632c79e1569e0db19d386cbc65c3cffba914bddc4473a32eb50",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 7037,
+      "source_bytes": 116,
+      "units": 1,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 9,
+      "edges": 86,
+      "fixture": "testModuleAsTypeNoCrash2",
+      "nodes": 81,
+      "normalize_seconds": 0.0007208749957499094,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "fe7849fa108c855a3dd9bc78aa26fa5b22b71c91676194b3ca182863dad028db",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 57491,
+      "source_bytes": 326,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 2,
+      "edges": 60,
+      "fixture": "testModuleImplicitAttributes",
+      "nodes": 60,
+      "normalize_seconds": 0.0006892499950481579,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "a49f876ffdf18797059503cee412920576e00cb6d7f900031a1da773d1521604",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 38066,
+      "source_bytes": 742,
+      "units": 2,
+      "unresolved_references": 10
+    },
+    {
+      "binding_edges": 0,
+      "edges": 12,
+      "fixture": "testPartialTypeComments",
+      "nodes": 14,
+      "normalize_seconds": 0.00018104199989465997,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "26d54802d0b000d7f7aef2c1007d1d780004a52a1cf82c4aaab044e4de7f30ef",
+      "rename_changed_units": [
+        "<module>",
+        "foo"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 2,
+        "units": [
+          {
+            "after_nodes": 7,
+            "before_nodes": 7,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 2
+            },
+            "unit": "<module>"
+          },
+          {
+            "after_nodes": 7,
+            "before_nodes": 7,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 2
+            },
+            "unit": "foo"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 12366,
+      "source_bytes": 88,
+      "units": 2,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 4,
+      "edges": 34,
+      "fixture": "testFunction",
+      "nodes": 34,
+      "normalize_seconds": 0.00035220899735577404,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "4816d359fe30e7e3ce25e105d1f49eb8f16824e7bbd1f926c7fd512cfe079fae",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 25635,
+      "source_bytes": 146,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 4,
+      "edges": 37,
+      "fixture": "testLocalVariables",
+      "nodes": 37,
+      "normalize_seconds": 0.0003772909985855222,
+      "path": "test-data/unit/check-basic.test",
+      "project": "mypy_fixtures",
+      "raw_sha256": "3a87b6f68f791372a039bf3c014d1817a6bc6214b49ffb33170ee3d81520bfb0",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "serialized_bytes": 26969,
+      "source_bytes": 181,
+      "units": 4,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 168,
+      "edges": 753,
+      "fixture": "input",
+      "nodes": 586,
+      "normalize_seconds": 0.005345041005057283,
+      "path": "tests/data/cases/pattern_matching_complex.py",
+      "project": "black_fixtures",
+      "raw_sha256": "ae1daca43fdef04a994828a36c47e11e3b2a5e142944f7b7d369c77f2bc556ce",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "schema2_reference": {
+        "bytes": 225528,
+        "edges": 611,
+        "nodes": 586,
+        "path": "corpus-runs/release-v0.2/graphs/black_fixtures/7607e609114aa8a1d7f21992.source.jsonl",
+        "sha256": "6c1125e05f96968bf418426786c8c13765aaf3635d1a00c0ecbe716d99de832a",
+        "units": 1
+      },
+      "serialized_bytes": 399501,
+      "source_bytes": 2965,
+      "units": 1,
+      "unresolved_references": 7
+    },
+    {
+      "binding_edges": 8,
+      "edges": 593,
+      "fixture": "output",
+      "nodes": 598,
+      "normalize_seconds": 0.005907541002670769,
+      "path": "tests/data/cases/function.py",
+      "project": "black_fixtures",
+      "raw_sha256": "acde9dba18e9c8a81dcaa6fe38b24eb8da9b64530f079c333c822a291a6f4f4b",
+      "rename_changed_units": [
+        "func_no_args"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 0,
+        "units": [
+          {
+            "after_nodes": 43,
+            "before_nodes": 43,
+            "binding_examples": [
+              {
+                "after": "dynamic_unresolved:local_0",
+                "before": "dynamic_unresolved:i",
+                "feature": "binding_identity",
+                "source_line": 20
+              },
+              {
+                "after": "dynamic_unresolved:local_0",
+                "before": "dynamic_unresolved:i",
+                "feature": "binding_identity",
+                "source_line": 21
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 2
+            },
+            "unit": "func_no_args"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "schema2_reference": {
+        "bytes": 179957,
+        "edges": 465,
+        "nodes": 471,
+        "path": "corpus-runs/release-v0.2/graphs/black_fixtures/22c74bcda46ca9795d5d8384.source.jsonl",
+        "sha256": "da6bc216028c456db951b8c60459f6f4bbf755e532c9d3061491d5352edf3c2d",
+        "units": 12
+      },
+      "serialized_bytes": 405416,
+      "source_bytes": 3338,
+      "units": 13,
+      "unresolved_references": 49
+    },
+    {
+      "binding_edges": 8,
+      "edges": 593,
+      "fixture": "input",
+      "nodes": 598,
+      "normalize_seconds": 0.005668875004630536,
+      "path": "tests/data/cases/function.py",
+      "project": "black_fixtures",
+      "raw_sha256": "ef0b19b01fe6204a6560b5e148636eee50114e0cc8c672e97faeda5fcff7c13f",
+      "rename_changed_units": [
+        "func_no_args"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 0,
+        "units": [
+          {
+            "after_nodes": 43,
+            "before_nodes": 43,
+            "binding_examples": [
+              {
+                "after": "dynamic_unresolved:local_0",
+                "before": "dynamic_unresolved:i",
+                "feature": "binding_identity",
+                "source_line": 14
+              },
+              {
+                "after": "dynamic_unresolved:local_0",
+                "before": "dynamic_unresolved:i",
+                "feature": "binding_identity",
+                "source_line": 15
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 2
+            },
+            "unit": "func_no_args"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "serialized_bytes": 405395,
+      "source_bytes": 3056,
+      "units": 13,
+      "unresolved_references": 49
+    },
+    {
+      "binding_edges": 2187,
+      "edges": 15338,
+      "fixture": "source",
+      "nodes": 13272,
+      "normalize_seconds": 0.1208970000006957,
+      "path": "hypothesis/src/hypothesis/strategies/_internal/core.py",
+      "project": "hypothesis",
+      "raw_sha256": "1891a3b569ca3c897133c20da83e3e9164275054a27bec404584837c26577aeb",
+      "rename_changed_units": [
+        "<module>",
+        "_from_type._get_annotation_arg",
+        "_from_type._get_typeddict_qualifiers",
+        "builds.<lambda>",
+        "complex_numbers.constrained_complex",
+        "fractions.dm_func"
+      ],
+      "rename_findings": {
+        "caution": "node comparisons use traversal order; differing shapes are diagnostic only",
+        "type_facts_after": 0,
+        "type_facts_before": 12,
+        "units": [
+          {
+            "after_nodes": 2141,
+            "before_nodes": 2153,
+            "binding_examples": [],
+            "feature_changes": {
+              "scalar_identity": 1
+            },
+            "unit": "<module>"
+          },
+          {
+            "after_nodes": 34,
+            "before_nodes": 34,
+            "binding_examples": [
+              {
+                "after": "unresolved:local_4",
+                "before": "scope:71:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1515
+              },
+              {
+                "after": "unresolved:local_4",
+                "before": "scope:71:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1518
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 2
+            },
+            "unit": "_from_type._get_annotation_arg"
+          },
+          {
+            "after_nodes": 179,
+            "before_nodes": 179,
+            "binding_examples": [
+              {
+                "after": "scope:72:function:slot:6",
+                "before": "scope:72:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1526
+              },
+              {
+                "after": "scope:72:function:slot:6",
+                "before": "scope:72:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1528
+              },
+              {
+                "after": "scope:72:function:slot:6",
+                "before": "scope:72:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1529
+              },
+              {
+                "after": "scope:72:function:slot:6",
+                "before": "scope:72:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1535
+              },
+              {
+                "after": "scope:72:function:slot:6",
+                "before": "scope:72:function:slot:1",
+                "feature": "binding_identity",
+                "source_line": 1535
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 12
+            },
+            "unit": "_from_type._get_typeddict_qualifiers"
+          },
+          {
+            "after_nodes": 10,
+            "before_nodes": 10,
+            "binding_examples": [
+              {
+                "after": "scope:58:function:slot:14",
+                "before": "scope:61:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 1264
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 1
+            },
+            "unit": "builds.<lambda>"
+          },
+          {
+            "after_nodes": 185,
+            "before_nodes": 185,
+            "binding_examples": [
+              {
+                "after": "scope:106:function:slot:2",
+                "before": "scope:105:function:slot:7",
+                "feature": "binding_identity",
+                "source_line": 2291
+              },
+              {
+                "after": "scope:106:function:slot:4",
+                "before": "scope:105:function:slot:6",
+                "feature": "binding_identity",
+                "source_line": 2296
+              },
+              {
+                "after": "scope:106:function:slot:4",
+                "before": "scope:105:function:slot:6",
+                "feature": "binding_identity",
+                "source_line": 2297
+              },
+              {
+                "after": "scope:106:function:slot:2",
+                "before": "scope:105:function:slot:7",
+                "feature": "binding_identity",
+                "source_line": 2298
+              },
+              {
+                "after": "scope:106:function:slot:4",
+                "before": "scope:105:function:slot:6",
+                "feature": "binding_identity",
+                "source_line": 2301
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 8
+            },
+            "unit": "complex_numbers.constrained_complex"
+          },
+          {
+            "after_nodes": 194,
+            "before_nodes": 194,
+            "binding_examples": [
+              {
+                "after": "scope:81:function:slot:3",
+                "before": "scope:81:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 1792
+              },
+              {
+                "after": "scope:81:function:slot:3",
+                "before": "scope:81:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 1793
+              },
+              {
+                "after": "scope:81:function:slot:3",
+                "before": "scope:81:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 1795
+              },
+              {
+                "after": "scope:81:function:slot:3",
+                "before": "scope:81:function:slot:0",
+                "feature": "binding_identity",
+                "source_line": 1796
+              },
+              {
+                "after": "scope:81:function:slot:4",
+                "before": "scope:81:function:slot:3",
+                "feature": "binding_identity",
+                "source_line": 1798
+              }
+            ],
+            "feature_changes": {
+              "binding_identity": 21
+            },
+            "unit": "fractions.dm_func"
+          }
+        ]
+      },
+      "rename_tensor_equal": false,
+      "schema2_reference": {
+        "bytes": 4046648,
+        "edges": 11562,
+        "nodes": 10571,
+        "path": "corpus-runs/release-v0.2/graphs/hypothesis/b2ccd19d3d28e12fd17e6689.source.jsonl",
+        "sha256": "d6d05382729e577d46605c4aaf9c0bfdda917f7e32a5600a748f7715415ded3a",
+        "units": 95
+      },
+      "serialized_bytes": 8837857,
+      "source_bytes": 118931,
+      "units": 121,
+      "unresolved_references": 0
+    },
+    {
+      "binding_edges": 833,
+      "edges": 6373,
+      "fixture": "source",
+      "nodes": 5611,
+      "normalize_seconds": 0.057669333000376355,
+      "path": "impacket/ntlm.py",
+      "project": "impacket",
+      "raw_sha256": "6279df6bc863d3d2341e59aefecd500d79dbd1d99d3470a1914eae29f3563616",
+      "rename_changed_units": [],
+      "rename_tensor_equal": true,
+      "schema2_reference": {
+        "bytes": 2039136,
+        "edges": 5828,
+        "nodes": 5305,
+        "path": "corpus-runs/release-v0.2/graphs/impacket/b9a185fab3659076137f6cec.source.jsonl",
+        "sha256": "df876db48d85ee8f985aa64e431aa7fb56041bd020fd34b1862ee3ab56c138fb",
+        "units": 71
+      },
+      "serialized_bytes": 3778152,
+      "source_bytes": 43753,
+      "units": 71,
+      "unresolved_references": 0
+    }
+  ],
+  "ready_for_full_rebuild": false,
+  "rss_scope": "single pilot process including imports/build/verification/profile; excludes child git processes",
+  "stats": {
+    "by_lane": {
+      "ast": 937,
+      "recovery": 13
+    },
+    "by_split": {
+      "test": 410,
+      "train": 540
+    },
+    "by_task_family": {
+      "formatting": 95,
+      "transformation": 666,
+      "typing": 189
+    },
+    "by_view_kind": {
+      "damaged": 134,
+      "formatted": 241,
+      "input:damaged": 12,
+      "input:formatted": 13,
+      "input:renamed": 13,
+      "input:source": 13,
+      "output:damaged": 1,
+      "output:formatted": 13,
+      "output:renamed": 13,
+      "output:source": 13,
+      "renamed": 241,
+      "source": 242,
+      "untransformed": 1
+    },
+    "projects": 6,
+    "retained_graph_units": 255,
+    "uncapped_views": 1546,
+    "views": 950
+  },
+  "total_seconds": 7.071055833999708
+}

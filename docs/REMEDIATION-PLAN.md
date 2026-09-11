@@ -8,6 +8,12 @@ the [current status](STATUS.md) to distinguish delivered work from open gates.
 
 ## Execution ledger
 
+The September 10 [rebuild pilot](baselines/2026-09-10-schema3-rebuild-pilot.md)
+passed resource/integrity checks but failed rename invariance (14/49 valid inputs).
+An owned counterexample proves nested-parameter shadowing can change behavior
+under the corpus renamer. Fix or exclude unsupported transformations and preserve
+typing evidence before the full rebuild; do not proceed directly to model training.
+
 September 10 update: the [schema-3 source repair](SOURCE-REPRESENTATION-V3.md)
 implements typed literals, scalar-field preservation, recursive unit discovery,
 lexical binding candidates, mutation/renaming tests, and independent untrained
@@ -34,7 +40,7 @@ remain open; this closes the initial dataset-contract/diagnosis gates only.
 | Compiled similarity experiment | 111 compiled variants and 12 optimization probes verified; 63/222 decompiler attempts successful; all three source/obfuscated/decompiled pair directions scored | direct bytecode-lane alignment, broader verified runtime support, integration regression coverage |
 | Release | complete expansion plus derived capped release; 8,066 units/29,647 views; graph checksums verified; bounded training/benchmark/index report published | repeated-seed hard-task model run and final release naming cleanup |
 
-The last completed 43-test first-party suite passed in the repository environment, including a
+The last completed 46-test first-party suite passed in the repository environment, including a
 schema-2 build→train→index→exact-search round trip. None of the
 remaining quality gates should be inferred from that unit-test result.
 

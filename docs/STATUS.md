@@ -1,7 +1,18 @@
 # pycmp status
 
-Last updated: 2026-09-10. Latest pushed implementation: `d071b4c`;
-subsequent diagnostics and schema-3 repairs are implemented locally, pending commit.
+Last updated: 2026-09-10. Schema-3 repairs and diagnostics are committed as
+`4fbf20f`; the latest pushed implementation remains `d071b4c`.
+
+## Rebuild pilot: resource pass, correctness blocker
+
+The [six-repository pilot](baselines/2026-09-10-schema3-rebuild-pilot.md) completed:
+255 units / 950 views, 68.54 MiB of graphs, 7.07 seconds including profiling,
+and 355.22 MiB peak process RSS. Integrity and resource gates passed, but 14/49
+valid inputs changed tensors after renaming. Type-comment loss and nested-scope
+renaming defects were identified; an owned counterexample changes result 3 to 11.
+Do not run full training on these generated positives. Fix/restrict the renamer
+and preserve type-comment evidence, then rerun the pinned pilot. The suite has
+46 passing tests; no new trained checkpoint or index was produced.
 
 ## Schema-3 repair execution update
 
@@ -56,7 +67,7 @@ must not be treated as current release counts.
 | Synthetic benchmark | Ten held-out projects, 60 obfuscations, ten behavior-changing near-copies; 1,624 comparisons | Small, correlated evaluation set; not a population-level accuracy estimate |
 | Compiled artifacts | 111 project/runtime/optimization variants, 123 module binaries; all bytecode behavior checks and 12 optimization probes passed | Compilation success does not imply decompilation or embedding alignment |
 | Decompilation | 63 of 222 attempts yielded complete, behavior-checked reconstructions | No verified Python 3.14 reconstruction in this matrix; only six successes on 3.12 |
-| First-party tests | Last completed suite: 43 passing tests | Tests validate implemented behavior, not classifier accuracy |
+| First-party tests | Last completed suite: 46 passing tests | Tests validate implemented behavior, not classifier accuracy |
 
 The ten new similarity projects are separate from the earlier synthetic fixtures
 and were not used to train the frozen baseline. Their 60 obfuscations mean two
