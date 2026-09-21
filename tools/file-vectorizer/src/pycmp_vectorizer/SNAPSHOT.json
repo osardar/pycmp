@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "origin": "netx_nn first-party working tree; no standalone license declared",
+  "adaptations": [
+    "Source and bytecode constructors enforce node/edge budgets without truncation.",
+    "Bytecode compile, batch, and command entrypoints removed; decoding semantics unchanged."
+  ],
+  "originals": [
+    {
+      "path": "codegraph/semantic.py",
+      "sha256": "541a30675652869ce9a4aa3a5e733775fe62a4ff50f67c8647f0144e14e88f9f"
+    },
+    {
+      "path": "codegraph/source_evidence.py",
+      "sha256": "fa0bb21db7b3c397e909dcb3adc52e15d9621b7cd606d62e5887ae0b9d3ca0ba"
+    },
+    {
+      "path": "codegraph/ast_normalize.py",
+      "sha256": "64d793423be3a948296f37d7110defe14985429d141d7faa8c56a0236b6f1c24"
+    },
+    {
+      "path": "codegraph/shared_model.py",
+      "sha256": "893b2390a7af122765af49ef420472798ec32489a6a386069480796e5d9faff5"
+    },
+    {
+      "path": "codegraph/_compiled_worker.py",
+      "sha256": "9ad01f5afa76f1e178d41ceecf3c42399534d768e3c0d4470a1808601f13e0db"
+    }
+  ],
+  "vendored": [
+    {
+      "path": "__init__.py",
+      "sha256": "19f219de968599200d32242a8783961cfe6865d20692f3c6bbdd9d7d02175a1a"
+    },
+    {
+      "path": "ast_normalize.py",
+      "sha256": "6c2a68ad60798c86140b063c4c4363f8e3957720bad1110fe48031eaa4c48c5f"
+    },
+    {
+      "path": "bytecode_reference.py",
+      "sha256": "6c967cceb0ec552c5ddde36c5a20eade4d11e887cc0bacc46ed3766056b97d7e"
+    },
+    {
+      "path": "limits.py",
+      "sha256": "bab8b7e46da510c7bda90cf8ad67a3aba96afc51ef90394d14f3ee914c45175a"
+    },
+    {
+      "path": "semantic.py",
+      "sha256": "541a30675652869ce9a4aa3a5e733775fe62a4ff50f67c8647f0144e14e88f9f"
+    },
+    {
+      "path": "shared_model.py",
+      "sha256": "893b2390a7af122765af49ef420472798ec32489a6a386069480796e5d9faff5"
+    },
+    {
+      "path": "source_evidence.py",
+      "sha256": "fa0bb21db7b3c397e909dcb3adc52e15d9621b7cd606d62e5887ae0b9d3ca0ba"
+    }
+  ]
+}
