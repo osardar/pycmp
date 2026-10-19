@@ -1,12 +1,27 @@
 # Classifying unknown files against known files
 
+## Deferred scope — 2026-09-11
+
+The [active scope decision](SIMILARITY-SCOPE.md) is pure similarity retrieval,
+without classifying the type of similarity. This document is retained as future
+research context, not the current implementation mandate. In particular, the
+pairwise relation-predictor idea discussed after the latest experiments is deferred.
+Three experimental schema-3 checkpoints now exist; the older implementation
+status below is historical. See the [latest measured report](baselines/2026-09-11-schema3-capped.md).
+
 ## Implementation boundary
 
-September 10: [schema-3 repairs](SOURCE-REPRESENTATION-V3.md) preserve the literal,
+Historical snapshot warning: the dated implementation and metric statements in
+this document describe the schema-2/classification-oriented research phase. They
+are not current delivery status. Similarity retrieval is active; relation/type
+classification is deferred. For current results, see [STATUS.md](STATUS.md) and
+the [schema-3 baseline](baselines/2026-09-11-schema3-capped.md).
+
+September 10: [schema-3 repairs](SOURCE-REPRESENTATION-V3.md) preserved the literal,
 scalar and binding evidence missing in the measurements below. The mutations now
-change model inputs; this is not yet trained-quality evidence. Current loaders
-reject the historical schema-2 model/index, and a schema-3 release model has not
-been trained. The following schema-2 measurements remain historical baselines.
+changed model inputs; this was not trained-quality evidence. Current loaders
+reject the historical schema-2 model/index. The following schema-2 measurements
+remain historical baselines.
 
 The schema-2 code now implements the first usable inference skeleton: all units
 of a file are mean-pooled and normalized, the local index returns cosine scores

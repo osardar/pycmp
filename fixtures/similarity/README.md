@@ -6,6 +6,12 @@ Compilation/decompilation generation remains available; evaluation needs a match
 schema-3 checkpoint or the matching historical schema-2 implementation. See the
 [migration notes](../../docs/SOURCE-REPRESENTATION-V3.md).
 
+Historical benchmark recipe: its pinned local checkpoint and runtime artifacts are
+not distributed in a clone, and its results are superseded as current quality
+evidence by the later schema-3 experiments. Do not run the schema-2 command below
+against the current loader or present its scores as current model quality; see the
+[current status](../../docs/STATUS.md).
+
 Ten owned, concise projects reserved for evaluation, not training. Each exposes
 `main.run(payload)` and three JSON oracle cases. The manifest lists every module
 and minimum Python version; no third-party target code is executed.

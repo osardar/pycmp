@@ -1,12 +1,16 @@
 # Standalone Python file vectorizer
 
-Status: revised implementation plan. Supersedes the earlier proposal to extend
-the research CLI. The existing standalone scaffold is incomplete; this document
-does not claim implementation or validation is finished.
+Status: standalone project implemented locally; release packaging and full runtime
+qualification remain incomplete. This document records the design and acceptance
+contract; it is not a claim that every packaging item below has shipped. The
+independent CLI/API and its current limits are documented in the
+[user guide](../tools/file-vectorizer/README.md). It supersedes the earlier
+proposal to extend the research CLI.
 
 ## Summary
 
-Build an independent CPU-only project at `tools/file-vectorizer`, with package
+The delivered local implementation is an independent CPU-only project at
+`tools/file-vectorizer`, with package
 and executable name `pycmp-vectorizer`. Its CLI and Python API accept supported
 Python source or bytecode files and emit one normalized embedding per accepted
 file. Package everything in one Docker image, with Python 3.8–3.14 decoding

@@ -6,7 +6,21 @@ Execution status updated: 2026-09-11. The phases below retain the original audit
 scope; they are not a list of wholly unimplemented features. Use this ledger and
 the [current status](STATUS.md) to distinguish delivered work from open gates.
 
-## Execution ledger
+This is a historical remediation ledger, not a fresh project plan. Its execution
+tables and “still required” entries are snapshots from their dated updates and
+may have been superseded. Current retrieval experiments, model quality, partial
+run state, and the standalone vectorizer's delivery boundary are summarized in
+[STATUS.md](STATUS.md) and the [documentation map](README.md).
+
+Scope update, September 11: [pure similarity retrieval is the active objective](SIMILARITY-SCOPE.md).
+Similarity-type classifiers, relation-specific prediction heads and capability
+classification are deferred. Retrieval-quality, representation, resource and
+cross-lane checks remain relevant. Historical behavioral tests remain diagnostics;
+their negatives must not automatically become unrelated-code negatives for the
+current similarity objective. This decision takes precedence over older proposed
+classification deliverables below.
+
+## Historical execution ledger
 
 September 11: the [full schema-3 rebuild and three-seed baseline](baselines/2026-09-11-schema3-capped.md)
 are complete. The 8,070-unit / 25,687-view release passes all static gates, including

@@ -1,167 +1,114 @@
 # pycmp
 
-`pycmp` is a research system for turning Python artifacts into comparable graph
-embeddings, retrieving related known files, and studying when a system should
-reject an unfamiliar file as unknown. Its inputs may be valid source, `.pyi`
-stubs, incomplete/decompiler reconstructions, or isolated `.pyc` bytecode.
+`pycmp` is an experimental Python-code similarity research project. It converts
+source, stubs, reconstructions, and supported compiled Python into graph
+representations and embeddings, then evaluates similarity ranking. It is not a
+malware classifier, and a similarity score is not evidence of common behavior,
+authorship, or intent.
 
-This project is developed entirely with AI assistance, specifically
-`gpt-5.6-terra` at medium reasoning effort. It is deliberately an exploratory
-environment for understanding graph embeddings and finding interesting, unique
-applications of them. AI authorship is not evidence that its outputs are
-correct: the tests, audit, corpus provenance, and measured benchmarks are the
-evidence boundary.
+The project is developed with AI assistance (`gpt-5.6-terra`, medium reasoning
+effort). AI authorship is not evidence that outputs are correct; tests, provenance,
+audits, and measured evaluation are the evidence boundary.
 
-## Current status
+## Current state
 
-The latest local implementation is **schema 3**, with typed literals, complete
-AST-field evidence, recursive declaration discovery and lexical binding candidates.
-See the [source representation report](docs/SOURCE-REPRESENTATION-V3.md).
-The [full schema-3 rebuild and baseline](docs/baselines/2026-09-11-schema3-capped.md)
-contains 8,070 comparable units / 25,687 views. All release integrity gates pass,
-including tensor invariance for 12,235 retained transformed-unit views. Three small
-schema-3 baseline checkpoints now exist, but show no consistent learned advantage:
-paired Recall@5 is 97.01–97.23%, versus 97.14% untrained; harder development
-behavior ranking succeeds on only 2–3 of 8 families. The suite has 57 passing tests.
-Schema-2 results below remain historical, and their artifacts are incompatible
-with the new loader. Harder training and cross-lane validation remain open.
+The current representation is graph schema 3. Three frozen 64-dimensional
+checkpoints are documented in [their model cards](docs/modelcards/README.md),
+but the checkpoint files themselves are generated local artifacts and are not
+included in a Git clone. On source-to-source retrieval, the trained checkpoints
+do not show a consistent advantage over the untrained encoder or simple feature
+baselines. Direct bytecode-to-bytecode retrieval finds known compiled lineages in
+its development gallery, but the opcode-structure baseline currently outperforms
+all trained checkpoints. The measurements are development evidence, not malware
+family generalization or production validation. Cross-lane source↔bytecode
+alignment has not been demonstrated.
 
-The schema-2 milestone repaired critical representation, training, corpus,
-and retrieval defects found in the September 2026 audit. It now validates graph
-identity, represents semantic feature values, emits module/class/function units,
-uses a multi-positive loss, creates group-disjoint stratified splits, aggregates
-whole-file embeddings, fingerprints indexes, returns scores, and can abstain.
+There are two separate command-line projects:
 
-It is still a research prototype, not a validated malware classifier or proof of
-behavioral equivalence. The existing ignored `corpus-runs/release-v0.1` is an
-interrupted schema-1 build and must not be reused. A capped schema-2 corpus and
-trained baseline now exist, but the model has not met its acceptance gate.
-The [synthetic similarity benchmark](docs/baselines/2026-09-07-synthetic-similarity.md)
-tests ten held-out projects, 60 obfuscations, 111 compiled variants, and two
-decompilers. Its hard-negative results expose weak behavioral discrimination.
-Unknown-family calibration and direct source↔bytecode-lane validation remain open.
+- The research CLI (`codegraph.cli`) builds corpora, trains/evaluates models, and
+  runs experiments. Its generated corpora, indexes, and weights are not generally
+  shipped in Git.
+- The independent [`pycmp-vectorizer`](tools/file-vectorizer/README.md) project
+  accepts `.py`, `.pyi`, and supported `.pyc` files and emits JSONL vectors. Its
+  local CPU CLI/API is implemented, but a clone does not include a checkpoint.
+  The all-runtime release Docker image and complete Python 3.8–3.14 qualification
+  are not yet delivered. See its README for the exact runtime and checkpoint
+  requirements. Unlike the broader research ingestion pipeline, this standalone
+  utility rejects malformed source instead of using the recovery parser.
 
-## Architecture
+## Run the standalone vectorizer locally
 
-```text
-valid .py/.pyi          -> CPython AST normalization -------+
-partial/decompiled text -> tree-sitter recovery ------------+-> schema-3 graph
-.pyc                    -> isolated version-aware worker ----+       |
-                                                                  shared GNN
-                                                                     |
-                                               whole-file normalized embedding
-                                                                     |
-                                  exact hash + scored retrieval + unknown rejection
+Use Python 3.14 and `uv`. From `tools/file-vectorizer`:
+
+```sh
+uv sync --locked --python 3.14
+uv run --locked pycmp-vectorizer check \
+  --host-runtime --checkpoint /path/to/model-seed0.pt
+uv run --locked pycmp-vectorizer vectorize path/to/sample.py \
+  --host-runtime --checkpoint /path/to/model-seed0.pt --output -
 ```
 
-One shared `SharedGraphEncoder` is used for every lane. A lane-independent
-semantic node kind is the primary feature. Named optional evidence—such as AST
-operation type, constant category, attribute hash, and bytecode opcode—has a
-bounded contribution; missing optional facts are not represented as a lane ID.
-Every checkpoint and local index is tied to the graph schema and feature profile.
+The checkpoint must be obtained separately and match the vectorizer's schema and
+feature profile. `--host-runtime` only enables bytecode produced by the current
+Python interpreter; it does not provide multi-version bytecode support. The full
+interface, input limits, JSONL format, safety boundaries, and known collisions
+are in the [vectorizer guide](tools/file-vectorizer/README.md).
 
-Source ingestion uses the authoritative CPython AST when possible. Tree-sitter
-is an error-tolerant recovery path, not a substitute Python specification or a
-pretend AST. Current-runtime bytecode receives instruction and branch edges in a
-constrained worker; foreign-version support remains explicitly partial.
+## Research CLI
 
-## Quick start
+The root package is the research/development environment, not the standalone
+distribution. Create an environment and install its requirements:
 
-Create an environment and install the development dependencies:
-
-```bash
+```sh
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m codegraph.cli --help
 ```
 
-Run the first-party suite:
+For corpus provenance and supported workflows, start with the [documentation
+index](docs/README.md). Do not reuse old schema-2 graphs, checkpoints, or indexes
+with schema 3; the compatibility checks intentionally reject them.
 
-```bash
-.venv/bin/python -m unittest discover -s tests -v
+## Architecture and interpretation
+
+```text
+source / stub / recovery text ─┐
+                               ├─> schema-3 graph -> shared encoder -> file vector
+supported isolated .pyc ──────┘                              │
+                                                cosine ranking / retrieval
 ```
 
-Ingest source or bytecode:
+The encoder uses typed graph features and normalized mean pooling across units.
+Source parsing uses the current CPython AST where accepted; tree-sitter is an
+error-tolerant recovery path. Bytecode decoding is version-sensitive and only
+accepted when the configured decoder recognizes the input. Same vector length
+does not establish that two input lanes are meaningfully aligned.
 
-```bash
-.venv/bin/python -m codegraph.cli ingest sample.py --output sample.graphs.jsonl
-docker build -f docker/bytecode-worker/Dockerfile -t pycmp-bytecode-worker:latest .
-.venv/bin/python -m codegraph.cli ingest sample.pyc --output sample-pyc.graphs.jsonl
-```
+Third-party corpus code is handled as data: it is not installed, imported, or
+executed. Similarity retrieval is the active scope. Relation classification,
+malware verdicts, model promotion, and production deployment remain out of scope.
 
-Build, train, evaluate, index, and query a reviewed corpus:
+## Key documents
 
-```bash
-.venv/bin/python -m codegraph.cli corpus release \
-  --manifest corpus/lint-training-target.jsonl \
-  --manifest corpus/extended-analysis.jsonl \
-  --manifest corpus/defensive-security.jsonl \
-  --output corpus-runs/release-v0.3
-
-.venv/bin/python -m codegraph.cli train corpus-runs/release-v0.3 \
-  --checkpoint artifacts/model-v0.3.pt
-.venv/bin/python -m codegraph.cli benchmark corpus-runs/release-v0.3 \
-  --checkpoint artifacts/model-v0.3.pt --output artifacts/benchmark-v0.3.json
-.venv/bin/python -m codegraph.cli calibrate corpus-runs/release-v0.3 \
-  --checkpoint artifacts/model-v0.3.pt --target-precision 0.95
-.venv/bin/python -m codegraph.cli corpus-index corpus-runs/release-v0.3 \
-  --checkpoint artifacts/model-v0.3.pt --directory artifacts/index-v0.3
-.venv/bin/python -m codegraph.cli search unknown.py \
-  --checkpoint artifacts/model-v0.3.pt --directory artifacts/index-v0.3 \
-  --threshold 0.80
-```
-
-The threshold above is only a CLI default. `calibrate` can fit a preliminary
-validation threshold using different artifacts as proxy negatives; genuine novel
-families are still required before its `matched`/`unknown` result is interpreted
-as unknown-file performance.
-
-## Corpus
-
-The intended release has 41 manifest records representing 39 repository URLs:
-production libraries, analysis/typing/lint fixtures, educational pairs, and a
-separately labeled static-only defensive-security collection. MyPy and Black
-appear in two roles but share one repository cap and split lineage. NetExec and
-CrackMapExec share a lineage group. GhostPack Certify is retained in provenance
-with a documented zero-Python disposition.
-
-The builder never installs or executes third-party projects. It checks out full
-pinned trees, applies one zero-or-more-directory glob contract, records exact and
-structural hashes, caps each repository deterministically, and keeps repository
-groups out of multiple splits. Generated corpora and checkpoints remain ignored;
-canonical manifests, policies, tests, and reports belong in Git.
+- [Documentation map and current evidence](docs/README.md)
+- [Current project status and experiment progress](docs/STATUS.md)
+- [Similarity scope decision](docs/SIMILARITY-SCOPE.md)
+- [Corpus and provenance guide](docs/CORPUS.md)
+- [Schema-3 representation](docs/SOURCE-REPRESENTATION-V3.md)
+- [Checkpoint model cards](docs/modelcards/README.md)
+- [Standalone vectorizer](tools/file-vectorizer/README.md)
 
 ## Legacy prototype and vocabulary
 
 `pycmp.py`, `ptg.py`, `gcn_model.py`, the GraphML samples, and `vocab.json` are
 historical demonstrations. They train separate per-graph GCNs against placeholder
-targets, so their embeddings are not comparable and must not be used by the
-shared retrieval workflow. `vocab.json` describes tree-sitter-python grammar
-0.23.4 node types; it is not the Python language specification and does not cover
-all Python versions. The current encoder uses versioned hashed features instead.
-
-## Documentation
-
-- [Full project audit](docs/AUDIT-2026-09-07.md)
-- [Remediation plan and execution ledger](docs/REMEDIATION-PLAN.md)
-- [Unknown-file classification strategy](docs/CLASSIFICATION-STRATEGY.md)
-- [Current status](docs/STATUS.md)
-- [Corpus guide](docs/CORPUS.md)
-- [First schema-2 capped baseline](docs/baselines/2026-09-07-schema2-capped.md)
-
-## Safety and interpretation
-
-Security-tool provenance is not a malicious label. Similarity is not proof of
-authorship, intent, exploitability, or equivalent behavior. Low-coverage recovery
-inputs return `insufficient_evidence`; below-threshold valid inputs return
-`unknown`. Unsupported decoders must fail explicitly rather than enter a scored
-index as placeholder evidence.
-
-Untrusted `.pyc` decoding defaults to a network-disabled, read-only, non-root
-Docker worker. Third-party corpus source is treated as data and is never imported
-or executed.
+targets, so their vectors are not comparable and must not be used by the shared
+retrieval workflow. `vocab.json` describes tree-sitter-python grammar 0.23.4 node
+types; it is not a Python language specification.
 
 ## License
 
 First-party project licensing and third-party corpus licensing are separate.
-Each corpus record preserves its source-host license identifier and research
-handling policy; that metadata is not a substitute for a legal license audit.
+Corpus records preserve source-host license identifiers and handling policies;
+that metadata is not a substitute for a legal license audit. Checkpoint artifacts
+have no separately declared license in the recorded metadata.

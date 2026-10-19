@@ -4,6 +4,12 @@ Implemented and measured: 2026-09-10. This executes the source-field, unit,
 binding, mutation-test and independent architecture-probe milestone. It is not
 a claim of complete Python behavioral analysis or a newly trained classifier.
 
+Historical implementation report: subsequent work completed a capped schema-3
+rebuild and trained three small, frozen baseline checkpoints. See the
+[current status](STATUS.md) and [model cards](modelcards/README.md) for current
+availability and measured quality. The results below retain their original
+September 2026 milestone scope; forward-looking statements are not current status.
+
 Subsequent [production/fixture rebuild pilot](baselines/2026-09-10-schema3-rebuild-pilot.md)
 found corpus-renamer defects not covered by the six owned renaming families below.
 Those defects change nested bindings and drop type comments. The representation
@@ -129,8 +135,10 @@ tested in this milestone.
 Graph schema is now **3**, the graph-pipeline identity changes, and the corpus
 release version is `v0.3`. Model loaders reject schema-2 checkpoints; graph readers
 reject schema-2 graphs. Index fingerprints include the new schema and feature keys.
-There is **no trained schema-3 release checkpoint yet**. Existing schema-2 corpus,
-model, index and reports are preserved unchanged as historical evidence.
+Three schema-3 baseline checkpoints were later trained; they are small research
+baselines, not promoted release models. Their local weight files are not tracked.
+Existing schema-2 corpus, model, index and reports are preserved unchanged as
+historical evidence.
 
 ```bash
 .venv/bin/python -m codegraph.cli source-audit \
@@ -142,21 +150,17 @@ The audit uses owned train/development fixtures only and needs no checkpoint.
 It writes a field inventory, report JSON and Markdown. The measured run is
 `corpus-runs/source-schema3-audit-v2/`; output directories are never overwritten.
 
-For current inference, build a new corpus in a new directory, train a schema-3
-checkpoint, then create a new index. Do not relabel old graphs/checkpoints as
-schema 3. Historical similarity commands referencing the frozen schema-2 checkpoint
-must use matching historical source code; they intentionally fail under the new
-loader. The standalone bytecode worker now emits the schema-3 envelope, but its
-decoding capabilities have not improved. Rebuild `docker/bytecode-worker/Dockerfile`
-before Docker bytecode ingestion; an existing schema-2 worker image is incompatible.
-The schema bump does not establish cross-lane alignment.
+Do not relabel old graphs/checkpoints as schema 3. Historical similarity commands
+referencing the frozen schema-2 checkpoint must use matching historical source
+code; they intentionally fail under the new loader. The schema bump does not
+establish cross-lane alignment. See the current vectorizer documentation for its
+separate packaging and runtime constraints.
 
 ## Next milestone
 
-Freeze and review this feature policy, especially unresolved scope cases and
-resource costs, before the full corpus rebuild. Then generate broader verified
-development pairs, train schema-3 baselines with project-balanced batches, and
-compare trained architecture variants using validation only. Preserve the reserved
-test families until choices are fixed. Named optional-feature profiles, CFG/data
-flow, direct-bytecode alignment, and calibrated unknown rejection remain separate
-unfinished work.
+At the time of this report, the next milestone was a full corpus rebuild and
+schema-3 baseline training. That rebuild and initial training are now complete;
+harder project-balanced training, named optional-feature profiles, CFG/data flow,
+calibrated unknown rejection, and improved cross-lane retrieval remain separate
+research questions. Consult the current status before treating any historical
+“next milestone” statement as active work.

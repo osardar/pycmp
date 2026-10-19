@@ -11,6 +11,9 @@ Python 3.14 bytecode**. The seven-runtime release container, GKE deployment exam
 and full 3.8–3.14 integration qualification are **not yet delivered**. Runtime
 dispatch supports an explicit fingerprinted inventory; do not interpret this as
 completed multi-version validation. No checkpoint is distributed in this project.
+Consequently, a fresh Git clone is not currently sufficient to emit a vector:
+you must obtain a compatible schema-3 checkpoint separately and supply its path.
+The model cards provide checkpoint hashes for provenance, not a download source.
 
 ## Install and run locally
 

@@ -44,10 +44,11 @@ experimental. See the [audit](AUDIT-2026-09-07.md) and
 
 ## Goal
 
-The corpus trains and evaluates one shared graph embedding space, rather than
-separate lane-specific spaces. A comparison may filter or mask features that do
-not exist in both inputs, but the encoder output remains comparable across
-source, reconstructed source, bytecode, and declared stub inputs.
+The research design uses one shared graph encoder across input lanes, rather than
+separate lane-specific encoders. This is an architectural choice, not evidence
+that the output spaces are aligned for every lane pair. In particular, measured
+source↔bytecode retrieval has not demonstrated alignment. Always retain lane and
+profile provenance and consult the relevant experiment before comparing vectors.
 
 ## Inputs and lanes
 
