@@ -29,6 +29,15 @@ def _load_graphs(path: Path) -> list[ProgramGraph]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="codegraph")
     commands = parser.add_subparsers(dest="command", required=True)
+    compiled = commands.add_parser("compiled-retrieval")
+    compiled_commands = compiled.add_subparsers(dest="compiled_operation", required=True)
+    for operation in ("prepare", "evaluate", "run"):
+        experiment = compiled_commands.add_parser(operation)
+        experiment.add_argument("--input-run", required=True)
+        experiment.add_argument("--output", required=True)
+        experiment.add_argument("--checkpoint", action="append", required=True)
+        experiment.add_argument("--resume", action="store_true")
+        experiment.add_argument("--max-seconds", type=int, default=43200)
     source_audit = commands.add_parser("source-audit")
     source_audit.add_argument("--output", required=True)
     diagnostics = commands.add_parser("hardpair-diagnose")
@@ -43,6 +52,25 @@ def main(argv: list[str] | None = None) -> int:
     similarity_eval = similarity_commands.add_parser("evaluate")
     similarity_eval.add_argument("run")
     similarity_eval.add_argument("--checkpoint", required=True)
+    corpus_similarity = commands.add_parser("corpus-similarity")
+    corpus_similarity_commands = corpus_similarity.add_subparsers(
+        dest="corpus_similarity_command", required=True)
+    for operation in ("build", "evaluate", "run"):
+        experiment = corpus_similarity_commands.add_parser(operation)
+        experiment.add_argument("--output", required=True)
+        experiment.add_argument("--release", required=True)
+        experiment.add_argument("--checkouts", required=True)
+        experiment.add_argument("--checkpoint", action="append", required=True)
+        experiment.add_argument("--audit")
+        experiment.add_argument("--phase", choices=("pilot", "expansion"), default="pilot")
+        experiment.add_argument("--resume", action="store_true")
+        experiment.add_argument("--max-seconds", type=int, default=12 * 60 * 60)
+    bytecode_experiment = corpus_similarity_commands.add_parser("bytecode-evaluate")
+    bytecode_experiment.add_argument("--input-run", required=True)
+    bytecode_experiment.add_argument("--output", required=True)
+    bytecode_experiment.add_argument("--checkpoint", action="append", required=True)
+    bytecode_experiment.add_argument("--resume", action="store_true")
+    bytecode_experiment.add_argument("--max-seconds", type=int, default=12 * 60 * 60)
     ingest = commands.add_parser("ingest")
     ingest.add_argument("input")
     ingest.add_argument("--output", required=True)
@@ -109,6 +137,13 @@ def main(argv: list[str] | None = None) -> int:
     decompile.add_argument("--output", required=True)
     args = parser.parse_args(argv)
 
+    if args.command == "compiled-retrieval":
+        from .compiled_retrieval import run as compiled_run
+        result = compiled_run(args.input_run, args.output, args.checkpoint,
+                              args.compiled_operation, args.resume, args.max_seconds)
+        print(json.dumps(result, sort_keys=True))
+        return 0 if result.get("status") == "complete" else 2
+
     if args.command == "source-audit":
         from .source_audit import audit
         print(json.dumps(audit(args.output), sort_keys=True))
@@ -127,6 +162,34 @@ def main(argv: list[str] | None = None) -> int:
             result = similarity_evaluate(args.run, args.checkpoint)
         print(json.dumps(result, sort_keys=True))
         return 0
+
+    if args.command == "corpus-similarity":
+        if args.corpus_similarity_command == "bytecode-evaluate":
+            from .bytecode_similarity import evaluate as bytecode_similarity_evaluate
+            result = bytecode_similarity_evaluate(
+                Path(args.input_run), Path(args.output),
+                [Path(value) for value in args.checkpoint], resume=args.resume,
+                max_seconds=args.max_seconds)
+            print(json.dumps(result, sort_keys=True))
+            return 0 if result.get("status") == "complete" else 2
+        from .corpus_similarity import build as corpus_similarity_build
+        from .corpus_similarity import evaluate as corpus_similarity_evaluate
+        from .corpus_similarity import run as corpus_similarity_run
+        output, release, checkouts = Path(args.output), Path(args.release), Path(args.checkouts)
+        checkpoints = [Path(value) for value in args.checkpoint]
+        audit = Path(args.audit) if args.audit else None
+        if args.corpus_similarity_command == "build":
+            result = corpus_similarity_build(output, release, checkouts, checkpoints, audit=audit,
+                                             phase=args.phase, resume=args.resume,
+                                             max_seconds=args.max_seconds)
+        elif args.corpus_similarity_command == "evaluate":
+            result = corpus_similarity_evaluate(output, checkpoints, args.phase,
+                                                resume=args.resume, max_seconds=args.max_seconds)
+        else:
+            result = corpus_similarity_run(output, release, checkouts, checkpoints, audit=audit,
+                                           resume=args.resume, max_seconds=args.max_seconds)
+        print(json.dumps(result, sort_keys=True))
+        return 0 if result.get("status") == "complete" else 2
 
     if args.command == "ingest":
         result = ingest_path(args.input, python_minor=args.python_minor, reconstructed=args.reconstructed)

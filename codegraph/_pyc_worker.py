@@ -51,7 +51,17 @@ def _decode_cross_version(path: str, magic: str) -> dict:
         from xdis.load import load_module
     except ImportError as exc:
         raise ValueError("xdis is required for bytecode from another CPython version") from exc
-    version, _timestamp, _magic_int, code, implementation, _source_size, _sip_hash, _offsets = load_module(path)
+    loaded = load_module(path)
+    if len(loaded) == 8:
+        version, _timestamp, _magic_int, code, implementation, _source_size, _sip_hash, _offsets = loaded
+    elif len(loaded) == 7:
+        # xdis 6.1.x returns is_pypy instead of the newer implementation and
+        # offsets fields. This is an adapter compatibility fix; foreign opcode
+        # normalization remains the same explicit placeholder policy below.
+        version, _timestamp, _magic_int, code, is_pypy, _source_size, _sip_hash = loaded
+        implementation = "PyPy" if is_pypy else "CPython"
+    else:
+        raise ValueError("unsupported xdis load_module response")
     name = getattr(code, "co_name", getattr(code, "name", "<module>"))
     # Portable xdis code objects differ by CPython era. Preserve an explicitly
     # partial semantic graph rather than inventing host-runtime opcode meanings.
