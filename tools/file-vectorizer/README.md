@@ -122,6 +122,11 @@ on cancellation. `vectorize_file` is also available for a single file.
 
 ## Representation limitations
 
+For measured retrieval quality, training details, and the distinction between
+decoder profiles, see the repository's
+[project review](../../docs/PROJECT-REVIEW.md). Successful vector generation
+establishes an accepted input and valid output, not a correct nearest neighbor.
+
 This preserves a frozen encoder; it does not improve or promote its quality.
 Source and bytecode use distinct profile IDs. Matching vector lengths do not
 establish comparability; even matching profiles do not prove cross-runtime quality.

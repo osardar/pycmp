@@ -7,6 +7,7 @@ not necessarily the artifacts needed to rerun a measurement or produce vectors.
 
 ## Start here
 
+- [Architecture, strengths, limitations and complete experiment review](PROJECT-REVIEW.md)
 - [Project overview and quick start](../README.md)
 - [Current status and run progress](STATUS.md)
 - [Active scope and interpretation](SIMILARITY-SCOPE.md)
@@ -23,7 +24,7 @@ not necessarily the artifacts needed to rerun a measurement or produce vectors.
 - [Vectorizer design and implementation decisions](FILE-TO-VECTOR-PLAN.md)
 - [Measured schema-3 baseline](baselines/2026-09-11-schema3-capped.md)
 
-The expanded compiled-retrieval run is partial. See `STATUS.md` and the run's
+The expanded compiled-retrieval run remains partial as of 2026-11-15. See `STATUS.md` and the run's
 ignored `corpus-runs/compiled-retrieval-v1/PARTIAL.json` for the latest ledger
 state; do not cite pilot coverage as a completed full evaluation.
 

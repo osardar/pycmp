@@ -1,11 +1,15 @@
 # pycmp status
 
-Last reviewed: 2026-10-19. The repository HEAD at review time is `13543fd`;
+Last reviewed: 2026-11-15. The repository HEAD at review time is `3b43a62`;
 documentation and other working-tree changes are not necessarily committed.
 This document contains dated experiment snapshots below; the current run state is
 summarized first. See the [documentation map](README.md) for current entry points.
 
-## Current delivery snapshot (2026-10-19)
+See the [project review](PROJECT-REVIEW.md) for the source-level architecture,
+experiment inventory, measured strengths and limitations. This review rechecked
+saved reports and the local ledger; it did not rerun training or evaluation.
+
+## Current delivery snapshot (2026-11-15)
 
 The root research package uses graph schema 3. Three frozen checkpoints are
 described in the [model cards](modelcards/README.md), but their weight files are
@@ -33,6 +37,15 @@ cells. `PARTIAL.json` exists and `COMPLETE.json` does not. Resume only with the
 matching command and fingerprints in [the experiment plan](COMPILED-RETRIEVAL-PLAN.md);
 do not report the full evaluation as complete.
 
+There are no full bundle-evaluation cells yet. The saved expanded file pilot
+reports trained Hit@1 of 33.48–40.84% against the full available gallery, versus
+38.72% opcode structure; the top-five-mean bundle pilot reports 69.66–74.38%
+trained versus 78.46% opcode. The file pilot selects at most one query per recipe
+family and repeats it across configurations. These are small engineering-pilot
+findings, not estimates from the pending full evaluation. See the review for
+the different galleries and decoder profiles; the older Python 3.14 result
+should not be generalized to cross-runtime submissions.
+
 The separately maintained [vectorizer project](../tools/file-vectorizer/README.md)
 is not yet a clone-and-run bundle: checkpoint weights are external, and the
 seven-runtime Docker image and GKE example remain planned work. This is distinct
@@ -58,8 +71,8 @@ tests direct compiled-code lineage retrieval with the same frozen artifacts.
 ### Expanded compiled retrieval implementation (September 13)
 
 The [expanded compiled retrieval runner](COMPILED-RETRIEVAL-PLAN.md) is implemented
-with `prepare`, `evaluate`, `run` and fingerprint-checked `--resume`. All 79 tests
-pass, including interrupted/resumed file-evaluation equivalence, conservative
+with `prepare`, `evaluate`, `run` and fingerprint-checked `--resume`. At that
+milestone, 79 tests passed, including interrupted/resumed file-evaluation equivalence, conservative
 ties, optimal assignment, malformed inputs and checkpoint/timeout checks.
 Owned compile/decode smoke tests passed for Python 3.8–3.14 at optimization
 0/1/2 without executing the sentinel's top-level side effect.

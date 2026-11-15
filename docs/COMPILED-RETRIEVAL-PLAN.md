@@ -1,11 +1,16 @@
 # Expanded compiled retrieval experiment
 
-Current execution status (2026-10-19): implementation and owned pilot gates are
+Current execution status (rechecked 2026-11-15): implementation and owned pilot gates are
 complete; the expanded experiment remains **partial**. Its ledger accounts for
 all 159,768 preparation jobs, but only 69/441 full file-evaluation cells have
 completed (all 441 pilot file and bundle cells are recorded). The run has
 `PARTIAL.json`, not `COMPLETE.json`. See [STATUS.md](STATUS.md) for current counts
 and use the run-specific resume command only with the matching ignored artifacts.
+
+The [project review](PROJECT-REVIEW.md) summarizes the saved file and bundle
+pilot quality findings as well as the engineering gates. Pilot coverage across
+441 cells comes from a small repeated query sample; full evaluation remains
+necessary before drawing broad cross-runtime or project-retrieval conclusions.
 
 Approved scope: Python 3.8–3.14, all 2,270 frozen gallery inputs, existing source
 variants, and sampled repository bundles containing at least five real source

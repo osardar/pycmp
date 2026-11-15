@@ -91,6 +91,13 @@ This separates **preserved evidence**, **selected features**, and **resolved
 semantics**. Preserving every AST field does not imply that the GNN interprets
 every Python construct correctly.
 
+Source review clarification (2026-11-15): `graph_tensors` emits an `availability`
+tensor, but the frozen encoder's `encode_graph` does not consume it. Optional
+feature masks control averaging of present features; the emitted availability
+tensor is not a learned input. See the [architecture review](PROJECT-REVIEW.md)
+for the complete evidence → selected feature → vector distinction and bytecode
+operand limitations.
+
 ## Validation results
 
 - 43 first-party tests pass, including the build/train/index/search smoke test.

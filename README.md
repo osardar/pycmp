@@ -12,6 +12,11 @@ audits, and measured evaluation are the evidence boundary.
 
 ## Current state
 
+The [November 15 project review](docs/PROJECT-REVIEW.md) explains the encoder,
+training data, every recorded experiment family, and the practical strengths and
+limits. It includes the expanded runtime pilot findings and distinguishes
+completed quality measurements from pending evaluation.
+
 The current representation is graph schema 3. Three frozen 64-dimensional
 checkpoints are documented in [their model cards](docs/modelcards/README.md),
 but the checkpoint files themselves are generated local artifacts and are not
@@ -22,6 +27,14 @@ its development gallery, but the opcode-structure baseline currently outperforms
 all trained checkpoints. The measurements are development evidence, not malware
 family generalization or production validation. Cross-lane source↔bytecode
 alignment has not been demonstrated.
+
+In the completed development experiments, trained source-variant Hit@1 is
+97.22–97.58% in a 2,270-entry source gallery. Python 3.14 bytecode Hit@1 is
+90.15–92.35% in a smaller 179-lineage gallery, versus 96.40% for opcode structure.
+These rates describe finding known originals under the measured modifications.
+The expanded cross-runtime pilot is much harder (33.48–40.84% trained file Hit@1
+against its full available gallery), and its full experiment is still partial.
+See the review for denominators, baselines and limitations before comparing rates.
 
 There are two separate command-line projects:
 
@@ -91,6 +104,7 @@ malware verdicts, model promotion, and production deployment remain out of scope
 ## Key documents
 
 - [Documentation map and current evidence](docs/README.md)
+- [How it works, strengths, limitations and experiment review](docs/PROJECT-REVIEW.md)
 - [Current project status and experiment progress](docs/STATUS.md)
 - [Similarity scope decision](docs/SIMILARITY-SCOPE.md)
 - [Corpus and provenance guide](docs/CORPUS.md)

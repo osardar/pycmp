@@ -81,8 +81,12 @@ splits have already been inspected and remain development evidence.
 
 ## Limitations and recommendations
 
-Python 3.4, 3.8 and 3.12 bytecode currently yields rejected foreign placeholders;
-only Python 3.14 direct bytecode is supported. Reconstruction quality depends on
+In the completed evaluations above, the older decoder rejected Python 3.4, 3.8
+and 3.12 as foreign placeholders; only Python 3.14 contributed direct graphs.
+The expanded Python 3.8–3.14 experiment uses a different decoder profile and is
+still partial; see the [current review](../PROJECT-REVIEW.md). These metrics must
+not be transferred to that profile or its standalone vectorizer without further
+evaluation. Reconstruction quality depends on
 decompiler coverage and is materially weaker than source retrieval. The
 bytecode-to-bytecode gallery has only 179 known lineages and may overstate field
 performance. Unknown-family calibration, representative malware-family labels,

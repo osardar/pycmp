@@ -3,6 +3,11 @@
 These cards document the three frozen checkpoints produced by the September 11,
 2026 schema-3 capped baseline. They are research artifacts, not promoted models.
 
+The [November 15 review](../PROJECT-REVIEW.md) consolidates training philosophy,
+features actually consumed by the encoder, and later cross-runtime pilot results.
+The cards' completed bytecode results use the older decoder and Python 3.14
+gallery; they do not qualify the standalone vectorizer or every supported runtime.
+
 | Checkpoint | Seed | SHA-256 | Status |
 |---|---:|---|---|
 | [model-seed0.pt](schema3-baseline-seed0.md) | 0 | `6977e90753a0a4a166e3ef3ab696b1c9bfe3a0385195585559c066590897f1db` | Not promoted |
